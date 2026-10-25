@@ -17,13 +17,13 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    @Value("${jwt.secret:404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970}")
+    @Value("${app.jwt.secret:${jwt.secret:404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970}}")
     private String secretKey;
 
-    @Value("${jwt.access-token-expiration-ms:86400000}")
+    @Value("${app.jwt.access-token-expiration-ms:${jwt.access-token-expiration-ms:86400000}}")
     private long accessTokenExpiration;
 
-    @Value("${jwt.refresh-token-expiration-ms:604800000}")
+    @Value("${app.jwt.refresh-token-expiration-ms:${jwt.refresh-token-expiration-ms:604800000}}")
     private long refreshTokenExpiration;
 
     private SecretKey getSigningKey() {

@@ -42,4 +42,7 @@ public class CreateBookingRequest {
 
     @NotBlank(message = "Payment method is required")
     private String paymentMethod;
+
+    private UUID offerId;
+    private String offerCode;
 }

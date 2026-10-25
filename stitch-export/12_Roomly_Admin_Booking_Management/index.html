@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary": "#004fd2", "inverse-on-surface": "#eef0ff", "surface-bright": "#faf8ff", "tertiary-container": "#a06500", "surface-container": "#eaedff", "on-surface": "#131b2e", "on-error-container": "#93000a", "surface-container-high": "#e2e7ff", "tertiary-fixed": "#ffddb8", "outline-variant": "#c3c6d8", "on-secondary-container": "#004666", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#b4c5ff", "secondary-fixed-dim": "#89ceff", "on-secondary-fixed": "#001e2f", "on-tertiary-container": "#fff7f3", "on-surface-variant": "#424655", "on-tertiary-fixed": "#2a1700", "on-background": "#131b2e", "surface": "#faf8ff", "on-secondary-fixed-variant": "#004c6e", "secondary-container": "#39b8fd", "secondary-fixed": "#c9e6ff", "inverse-primary": "#b4c5ff", "primary-container": "#1a66ff", "secondary": "#006591", "on-secondary": "#ffffff", "outline": "#737687", "on-tertiary": "#ffffff", "error": "#ba1a1a", "background": "#faf8ff", "tertiary-fixed-dim": "#ffb95f", "on-primary-container": "#faf8ff", "on-primary-fixed-variant": "#003da8", "surface-tint": "#0052dc", "error-container": "#ffdad6", "surface-container-highest": "#dae2fd", "surface-container-low": "#f2f3ff", "on-error": "#ffffff", "on-tertiary-fixed-variant": "#653e00", "on-primary-fixed": "#00174b", "tertiary": "#7f4f00", "primary-fixed": "#dbe1ff", "inverse-surface": "#283044", "surface-variant": "#dae2fd", "surface-dim": "#d2d9f4", "on-primary": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2.5rem", "space-sm": "0.5rem", "margin-sm": "1rem", "gutter-sm": "1rem", "gutter": "1.5rem", "space-xs": "0.25rem", "margin": "2rem", "space-lg": "1.5rem", "space-md": "1rem" }, "fontFamily": { "display": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "display-mobile": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"] }, "fontSize": { "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "display-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }] } } } }</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col pt-space-lg pb-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="px-space-lg mb-space-lg flex items-center gap-space-sm"><img alt="Roomly" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VdKvmyEdYOSxp8kFYgLVq9hy6T1gGC6IRh7kT8WOTC65GBVST5wt5eh3Xg-MiKq9LCS5znNdlL6ucmuhqeEv3hON7rRsG_jyIijau5b0sBEP2AgzZPsmx7myRTmu1WrcuU2pIkhf42ZWsv41_PqnhAXg44dNSibQZER0-Pzre3GIidAXKPtuNBgMvzwcxB-pbxCafJG8S9WpRM4Y6jTr8wrIwzVJ3YX_Y_CgsQwXGJ_BubgSXtcWaDGaB_IoqGwvyjvlindX3z"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">Roomly</span><span class="font-label-sm text-label-sm text-on-surface-variant">Admin Console</span></div></div><nav class="flex-1 px-space-md space-y-space-xs" data-active-classes="bg-surface-container-high text-primary font-label-md"><a class="flex items-center px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-portal" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">dashboard</span>Overview</a><a class="flex items-center px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-reservations" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">calendar_month</span>Reservations</a><a class="flex items-center px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-rooms" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">bed</span>Room Inventory</a><a class="flex items-center px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-guests" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">group</span>Guests</a><a class="flex items-center px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors mt-space-lg" data-path="home" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">storefront</span>Guest Portal</a></nav><div class="px-space-md pt-space-md"><div class="p-space-sm rounded-xl bg-surface-container flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VdKvmyEdYOSxp8kFYgLVq9hy6T1gGC6IRh7kT8WOTC65GBVST5wt5eh3Xg-MiKq9LCS5znNdlL6ucmuhqeEv3hON7rRsG_jyIijau5b0sBEP2AgzZPsmx7myRTmu1WrcuU2pIkhf42ZWsv41_PqnhAXg44dNSibQZER0-Pzre3GIidAXKPtuNBgMvzwcxB-pbxCafJG8S9WpRM4Y6jTr8wrIwzVJ3YX_Y_CgsQwXGJ_BubgSXtcWaDGaB_IoqGwvyjvlindX3z"/><div class="flex flex-col min-w-0"><span class="font-label-sm text-label-sm text-on-surface truncate">Staff Admin</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">admin@roomly.edu</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-sm"><span class="font-label-md text-label-md text-on-surface-variant">System Status:</span><span class="px-space-sm py-space-xs rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm">Live PMS Active</span></div><div class="flex items-center gap-space-md"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VdKvmyEdYOSxp8kFYgLVq9hy6T1gGC6IRh7kT8WOTC65GBVST5wt5eh3Xg-MiKq9LCS5znNdlL6ucmuhqeEv3hON7rRsG_jyIijau5b0sBEP2AgzZPsmx7myRTmu1WrcuU2pIkhf42ZWsv41_PqnhAXg44dNSibQZER0-Pzre3GIidAXKPtuNBgMvzwcxB-pbxCafJG8S9WpRM4Y6jTr8wrIwzVJ3YX_Y_CgsQwXGJ_BubgSXtcWaDGaB_IoqGwvyjvlindX3z"/></div></header><main class="relative pt-16 w-full px-space-lg bg-surface min-h-[calc(100vh-64px)]"><div class="flex flex-col w-full">
+<!-- Interactive Script for Filtering, Selection & Status Toggles -->
+<script>
+    function switchBookingDetail(bookingId, guestName, room, nights, dates, amount, status, guestType, specialRequest) {
+      document.getElementById('inspect-id').innerText = bookingId;
+      document.getElementById('inspect-name').innerText = guestName;
+      document.getElementById('inspect-room').innerText = room;
+      document.getElementById('inspect-nights').innerText = nights;
+      document.getElementById('inspect-dates').innerText = dates;
+      document.getElementById('inspect-amount').innerText = amount;
+      document.getElementById('inspect-request').innerText = specialRequest;
+      document.getElementById('inspect-type').innerText = guestType;
+      
+      const statusPill = document.getElementById('inspect-status-pill');
+      statusPill.innerText = status;
+      if (status === 'Checked-In') {
+        statusPill.className = 'px-space-sm py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-fixed text-on-secondary-fixed font-semibold';
+      } else if (status === 'Confirmed') {
+        statusPill.className = 'px-space-sm py-0.5 rounded-full text-label-sm font-label-sm bg-primary-fixed text-on-primary-fixed font-semibold';
+      } else if (status === 'Pending Review') {
+        statusPill.className = 'px-space-sm py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-fixed text-on-tertiary-fixed font-semibold';
+      } else {
+        statusPill.className = 'px-space-sm py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-high text-on-surface font-semibold';
+      }
+    }
+
+    function triggerToast(actionName) {
+      const toast = document.getElementById('admin-toast');
+      const toastMsg = document.getElementById('toast-msg');
+      toastMsg.innerText = actionName + ' executed successfully & synced with Roomly PMS!';
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3500);
+    }
+
+    function filterTable(filterValue) {
+      const rows = document.querySelectorAll('.booking-row');
+      rows.forEach(row => {
+        const rowStatus = row.getAttribute('data-status');
+        if (filterValue === 'all' || rowStatus === filterValue) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+      document.querySelectorAll('.filter-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-on-primary');
+        btn.classList.add('bg-surface-container-lowest', 'text-on-surface-variant');
+      });
+      const activeBtn = document.getElementById('tab-' + filterValue);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-primary', 'text-on-primary');
+        activeBtn.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant');
+      }
+    }
+  </script>
+<!-- Notification Toast -->
+<div class="fixed bottom-6 right-8 hidden z-50 flex items-center gap-space-sm bg-on-surface text-surface py-space-sm px-space-md rounded-xl shadow-xl transition-all" id="admin-toast">
+<span class="material-symbols-outlined text-secondary-container">check_circle</span>
+<span class="font-label-md text-label-md" id="toast-msg">Booking status updated</span>
+</div>
+<!-- Header Section with Action Buttons -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between pb-space-lg gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm mb-space-xs">
+<span class="px-space-sm py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold tracking-wide uppercase">Property Module</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">• Admin PMS v2.4</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Booking &amp; Reservation Management</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-3xl">Review incoming guest bookings, verify check-in credentials, update stay status, and process cancellations in real-time.</p>
+</div>
+<!-- Actions Strip -->
+<div class="flex items-center flex-wrap gap-space-sm">
+<button class="flex items-center gap-space-xs bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md px-space-md py-space-sm rounded-full shadow-sm transition-all hover:scale-[1.02]" onclick="triggerToast('New Reservation Drawer Opened')">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>+ New Reservation</span>
+</button>
+<button class="flex items-center gap-space-xs bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md px-space-md py-space-sm rounded-full shadow-sm transition-colors" onclick="triggerToast('CSV Export Initiated')">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Export Bookings (CSV)</span>
+</button>
+<button class="flex items-center gap-space-xs bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-md text-label-md px-space-md py-space-sm rounded-full shadow-sm transition-colors" onclick="triggerToast('Switched to Visual Timeline View')">
+<span class="material-symbols-outlined text-[18px]">calendar_view_week</span>
+<span>Calendar View</span>
+</button>
+</div>
+</div>
+<!-- Top Operational Metrics (KPIs) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-md mb-space-lg">
+<!-- Card 1: Total Bookings -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Total Bookings</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">bookmarks</span>
+</div>
+</div>
+<div class="mt-space-sm">
+<div class="font-headline-md text-headline-md text-on-surface">142</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Active &amp; Historical</p>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-space-sm overflow-hidden">
+<div class="bg-primary h-full w-[85%] rounded-full"></div>
+</div>
+</div>
+<!-- Card 2: Confirmed / Upcoming -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Confirmed / Upcoming</span>
+<div class="w-8 h-8 rounded-lg bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="material-symbols-outlined text-[18px]">event_available</span>
+</div>
+</div>
+<div class="mt-space-sm">
+<div class="font-headline-md text-headline-md text-primary">28</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Ready for arrival</p>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-space-sm overflow-hidden">
+<div class="bg-primary-container h-full w-[60%] rounded-full"></div>
+</div>
+</div>
+<!-- Card 3: Checked-In / In-House -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Checked-In / In-House</span>
+<div class="w-8 h-8 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[18px]">key</span>
+</div>
+</div>
+<div class="mt-space-sm">
+<div class="font-headline-md text-headline-md text-secondary">14</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Occupied suites</p>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-space-sm overflow-hidden">
+<div class="bg-secondary-container h-full w-[45%] rounded-full"></div>
+</div>
+</div>
+<!-- Card 4: Pending Review -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Pending Review</span>
+<div class="w-8 h-8 rounded-lg bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[18px]">pending_actions</span>
+</div>
+</div>
+<div class="mt-space-sm">
+<div class="font-headline-md text-headline-md text-tertiary">3</div>
+<p class="font-label-sm text-label-sm text-tertiary mt-0.5 font-medium">Allocation required</p>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-space-sm overflow-hidden">
+<div class="bg-tertiary-container h-full w-[25%] rounded-full"></div>
+</div>
+</div>
+<!-- Card 5: Cancelled / Refunded -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Cancelled / Refunded</span>
+<div class="w-8 h-8 rounded-lg bg-error-container flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</div>
+</div>
+<div class="mt-space-sm">
+<div class="font-headline-md text-headline-md text-error">6</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Processed this month</p>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-space-sm overflow-hidden">
+<div class="bg-error h-full w-[15%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Search & Filter Bar Section -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm mb-space-lg flex flex-col gap-space-md">
+<!-- Row 1: Search and Filters -->
+<div class="flex flex-col lg:flex-row items-center gap-space-md">
+<!-- Search Box -->
+<div class="relative flex-1 w-full">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full bg-surface pl-10 pr-space-md py-2.5 rounded-full text-body-sm font-body-sm text-on-surface focus:outline-none focus:bg-surface-container-lowest shadow-sm" placeholder="Search by Booking ID (#BK-...), guest name, email, or room #..." type="text"/>
+</div>
+<!-- Quick Dropdowns -->
+<div class="flex items-center flex-wrap gap-space-sm w-full lg:w-auto">
+<!-- Date Range Filter -->
+<div class="flex items-center bg-surface px-space-md py-2 rounded-full shadow-sm text-label-md font-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] mr-1.5 text-primary">calendar_today</span>
+<select class="bg-transparent focus:outline-none cursor-pointer text-on-surface text-label-md font-label-md">
+<option value="today">Today (May 14)</option>
+<option selected="" value="this-week">This Week</option>
+<option value="this-month">This Month</option>
+<option value="custom">Custom Range...</option>
+</select>
+</div>
+<!-- Room Category Filter -->
+<div class="flex items-center bg-surface px-space-md py-2 rounded-full shadow-sm text-label-md font-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] mr-1.5 text-secondary">meeting_room</span>
+<select class="bg-transparent focus:outline-none cursor-pointer text-on-surface text-label-md font-label-md">
+<option value="all">All Room Types</option>
+<option value="single">Single Classic</option>
+<option value="double">Deluxe Double</option>
+<option value="suite">Deluxe King Suite</option>
+<option value="penthouse">Presidential Penthouse</option>
+</select>
+</div>
+<!-- Payment Status Filter -->
+<div class="flex items-center bg-surface px-space-md py-2 rounded-full shadow-sm text-label-md font-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] mr-1.5 text-tertiary">payments</span>
+<select class="bg-transparent focus:outline-none cursor-pointer text-on-surface text-label-md font-label-md">
+<option value="all">All Payments</option>
+<option value="paid">Paid via Card</option>
+<option value="pay-at-hotel">Pay at Hotel</option>
+<option value="pending">Pending</option>
+</select>
+</div>
+<!-- Sort Option -->
+<div class="flex items-center bg-surface-container px-space-md py-2 rounded-full text-label-md font-label-md text-primary font-semibold">
+<span class="material-symbols-outlined text-[18px] mr-1">sort</span>
+<span>Check-in (Soonest)</span>
+</div>
+</div>
+</div>
+<!-- Row 2: Status Chips & Pill Filter Buttons -->
+<div class="flex items-center justify-between flex-wrap gap-space-sm pt-2">
+<div class="flex items-center flex-wrap gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant mr-2 font-semibold uppercase">Status View:</span>
+<button class="filter-tab-btn px-space-md py-1 rounded-full text-label-sm font-label-sm font-medium bg-primary text-on-primary transition-all" id="tab-all" onclick="filterTable('all')">All (142)</button>
+<button class="filter-tab-btn px-space-md py-1 rounded-full text-label-sm font-label-sm font-medium bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-all" id="tab-confirmed" onclick="filterTable('confirmed')">Confirmed (28)</button>
+<button class="filter-tab-btn px-space-md py-1 rounded-full text-label-sm font-label-sm font-medium bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-all" id="tab-checked-in" onclick="filterTable('checked-in')">Checked-In (14)</button>
+<button class="filter-tab-btn px-space-md py-1 rounded-full text-label-sm font-label-sm font-medium bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-all" id="tab-pending" onclick="filterTable('pending')">Pending Review (3)</button>
+<button class="filter-tab-btn px-space-md py-1 rounded-full text-label-sm font-label-sm font-medium bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-all" id="tab-completed" onclick="filterTable('completed')">Completed (91)</button>
+<button class="filter-tab-btn px-space-md py-1 rounded-full text-label-sm font-label-sm font-medium bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-all" id="tab-cancelled" onclick="filterTable('cancelled')">Cancelled (6)</button>
+</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Auto-sync active (Roomly PMS Gateway)</span>
+</div>
+</div>
+</div>
+<!-- Layout Grid: Main Table (Left 8 Cols) & Inspection Drawer/Card (Right 4 Cols) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg mb-space-xl">
+<!-- Left Column: Master Bookings Management Table (8 cols on XL) -->
+<div class="xl:col-span-8 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<!-- Table Header Bar -->
+<div class="px-space-md py-space-sm bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Live Reservations Register</span>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm font-bold">6 Displayed</span>
+</div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span>Showing verified guest credentials</span>
+</div>
+</div>
+<!-- Responsive Table Container -->
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-sm px-space-md">Booking ID</th>
+<th class="py-space-sm px-space-md">Guest Details</th>
+<th class="py-space-sm px-space-md">Room &amp; Nights</th>
+<th class="py-space-sm px-space-md">Timeline</th>
+<th class="py-space-sm px-space-md">Financials</th>
+<th class="py-space-sm px-space-md">Status</th>
+<th class="py-space-sm px-space-md text-right">Administrative Action</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-body-sm font-body-sm text-on-surface">
+<!-- Row 1: #BK-1095 (Selected by default) -->
+<tr class="booking-row hover:bg-surface-container cursor-pointer transition-colors group bg-surface-container-low/50" data-status="confirmed" onclick="switchBookingDetail('#BK-1095', 'Alex Johnson', 'Room 305 • Deluxe King Suite', '3 Nights • 2 Adults', 'May 14, 2025 → May 17, 2025', '$285.00', 'Confirmed', 'Silver Member', 'Quiet room preferred, high floor, late check-in approx 7 PM')">
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-label-md text-label-md text-primary font-bold">#BK-1095</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">May 12, 10:14 AM</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-9 h-9 rounded-full object-cover shadow-sm" data-alt="Professional headshot avatar of guest Alex Johnson, young smiling business traveler in crisp casual navy shirt on clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPqCKmM3WwPzw40yGJuOP0EryZlUQyzFRasxxsvnQ3S7FZ02kPs1vYwHhpunRuz86S-Z6UXYt7paIU7X2o1sbV67AJr0ZzrCQ-xp2TaJTTHZnMyKS4YACygb4SlN3LHjNHPd1-m8olwgcFi7dwkRQnc40c3Ocj-RjjAst61J_6qg55ggedoaSKRexFo_kK9Ychxr6UJ1Zakf2iMYbHdncJpf04y_w1-n5BRyyrl0MyQU94lNS_NORS"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Alex Johnson</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">alex.j@berkeley.edu</span>
+<span class="inline-block mt-0.5 px-1.5 py-0.2 rounded bg-surface-container-high text-primary font-label-sm text-[11px] w-fit font-medium">Silver Member</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-label-md text-label-md text-on-surface font-medium">Room 305</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Deluxe King Suite</div>
+<div class="text-label-sm font-label-sm text-secondary font-semibold">3 Nights • 2 Guests</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-label-md text-label-md text-on-surface font-medium">May 14 – 17, 2025</div>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> Check-in Today
+                  </span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">$285.00</div>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-[11px] font-semibold">Paid via Card</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="px-space-sm py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-semibold">Confirmed</span>
+</td>
+<td class="py-space-md px-space-md text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1.5">
+<button class="bg-primary hover:bg-primary-container text-on-primary px-space-sm py-1 rounded-full font-label-sm text-label-sm font-semibold shadow-sm transition-transform active:scale-95" onclick="event.stopPropagation(); triggerToast('Checked-in guest for #BK-1095');">
+                      Check-In
+                    </button>
+<button class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" onclick="event.stopPropagation(); triggerToast('Actions drawer opened');">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: #BK-1082 (Checked-In) -->
+<tr class="booking-row hover:bg-surface-container cursor-pointer transition-colors group" data-status="checked-in" onclick="switchBookingDetail('#BK-1082', 'Dr. Evelyn Vance', 'Room 204 • Deluxe Double', '2 Nights • 1 Adult', 'May 13, 2025 → May 15, 2025', '$210.00', 'Checked-In', 'Faculty / Campus', 'Requested hypoallergenic bedding &amp; quiet study table')">
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-label-md text-label-md text-primary font-bold">#BK-1082</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">May 11, 04:32 PM</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-9 h-9 rounded-full object-cover shadow-sm" data-alt="Studio portrait of university professor Dr Evelyn Vance, middle aged woman with glasses smiling warm professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf1QCV7PUaCoqp0r9tNwd1RpODknJVygEOM2SIzafc0eb5WtSiW6IXr2g-HEi_0nNgqSc75jvf2A0feTuSpkwvP9qFVPSNt5dxNcJUC5Z_1v0IhSRDfnvyucWbKT9LvgkWcDX_oL3xjkTdbxKvYwe1WzZ3R6XKrF7iPybJkWev6xKsm6bvcfvV7BEKF8K1lhmISPV9ikcK740IeSUugjPUYTZAPYDlO6U66RK20Dyylpb8rEIKGH-F"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Dr. Evelyn Vance</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">e.vance@stanford.edu</span>
+<span class="inline-block mt-0.5 px-1.5 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-[11px] w-fit font-medium">Faculty / Campus</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-label-md text-label-md text-on-surface font-medium">Room 204</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Deluxe Double</div>
+<div class="text-label-sm font-label-sm text-secondary font-semibold">2 Nights • 1 Guest</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-label-md text-label-md text-on-surface font-medium">May 13 – 15, 2025</div>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Departs Tomorrow
+                  </span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">$210.00</div>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-[11px] font-semibold">Paid via Card</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="px-space-sm py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">Checked-In</span>
+</td>
+<td class="py-space-md px-space-md text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1.5">
+<button class="bg-surface-container-high hover:bg-surface-variant text-on-surface px-space-sm py-1 rounded-full font-label-sm text-label-sm font-semibold shadow-sm transition-transform active:scale-95" onclick="event.stopPropagation(); triggerToast('Guest check-out initiated for #BK-1082');">
+                      Check-Out
+                    </button>
+<button class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" onclick="event.stopPropagation(); triggerToast('Actions drawer opened');">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: #BK-1081 (VIP - Checked-In) -->
+<tr class="booking-row hover:bg-surface-container cursor-pointer transition-colors group" data-status="checked-in" onclick="switchBookingDetail('#BK-1081', 'Marcus Sterling', 'Penthouse Suite 501', '4 Nights • 2 Adults', 'May 12, 2025 → May 16, 2025', '$1,240.00', 'Checked-In', 'VIP Guest', 'Champagne arrival setup, daily newspaper, airport shuttle on checkout')">
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-label-md text-label-md text-primary font-bold">#BK-1081</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">May 10, 09:12 AM</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-9 h-9 rounded-full object-cover shadow-sm" data-alt="Executive businessman Marcus Sterling in tailored charcoal suit, sophisticated lighting, smiling confidently" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbUbQr-FrVKiVx7W5hkxIXrDVj6Ua5fGRI0V9GEMU3YJDGjFp4xLsu_qln3LLJvcBco_VDMRHKOWH2fT07C-fX0uj7y7WYRJcr9Mc6MscoN1QOg3Li31Db4CdknO6syBNwzLNP8U77FWbighkjD2qqFebPtiVyt12_gXyk0mlYEaOqsrtO31ZmKLl6zLH7v4qllxsfyPvvb4Oat9umUt5FzXm5_QYZBje8hrKxinvXCYG_Apcz4epx"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Marcus Sterling</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">m.sterling@capitalgroup.com</span>
+<span class="inline-block mt-0.5 px-1.5 py-0.2 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] w-fit font-bold">VIP Guest</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-label-md text-label-md text-on-surface font-medium">Penthouse 501</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Presidential Suite</div>
+<div class="text-label-sm font-label-sm text-secondary font-semibold">4 Nights • 2 Guests</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-label-md text-label-md text-on-surface font-medium">May 12 – 16, 2025</div>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> In-House (Day 3)
+                  </span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">$1,240.00</div>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container text-primary font-label-sm text-[11px] font-semibold">Corporate Card</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="px-space-sm py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">Checked-In</span>
+</td>
+<td class="py-space-md px-space-md text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1.5">
+<button class="bg-surface-container-high hover:bg-surface-variant text-on-surface px-space-sm py-1 rounded-full font-label-sm text-label-sm font-semibold shadow-sm transition-transform active:scale-95" onclick="event.stopPropagation(); triggerToast('Folio statement opened for #BK-1081');">
+                      Folio
+                    </button>
+<button class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" onclick="event.stopPropagation(); triggerToast('Actions drawer opened');">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: #BK-1080 (Pending Review) -->
+<tr class="booking-row hover:bg-surface-container cursor-pointer transition-colors group" data-status="pending" onclick="switchBookingDetail('#BK-1080', 'Samantha Chen', 'Unallocated • Single Classic', '1 Night • 1 Adult', 'May 15, 2025 → May 16, 2025', '$95.00', 'Pending Review', 'First-time Guest', 'Needs ground floor room access if possible, elevator phobia noted')">
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-label-md text-label-md text-primary font-bold">#BK-1080</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">May 13, 08:45 PM</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-9 h-9 rounded-full object-cover shadow-sm" data-alt="Portrait of student guest Samantha Chen with warm smile wearing knit sweater, natural light studio portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy9jHnmNPOHRinDWo4c9apqhWqtS58IWzdDhUGxvmeF54RTHcAIePhVhT5AvO-OxV3YMmkiDuidnyosf0lKgHfDhAJKRyDiw19-ShFDApvF8reb8zIXH_DwgSHSgpyNzrX-7fhAerZdGXueVGhN8oDhQTDBR4GDa-sSXryJ_oDMtwLUKBpeF2AQe9M7aww3hivQyH8GtzjoZk6h9klvyBMrYJlWGKT25wgVADaS6sCvvM8RigsGkgw"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Samantha Chen</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">s.chen99@gmail.com</span>
+<span class="inline-block mt-0.5 px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-[11px] w-fit font-medium">First-time Guest</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-label-md text-label-md text-tertiary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">warning</span> Unallocated
+                  </div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Single Classic</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">1 Night • 1 Guest</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-label-md text-label-md text-on-surface font-medium">May 15 – 16, 2025</div>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold">Incoming Tomorrow</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">$95.00</div>
+<span class="px-space-xs py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-[11px] font-semibold">Pay at Check-in</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="px-space-sm py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">Pending Review</span>
+</td>
+<td class="py-space-md px-space-md text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1.5">
+<button class="bg-primary hover:bg-primary-container text-on-primary px-space-sm py-1 rounded-full font-label-sm text-label-sm font-semibold shadow-sm transition-transform active:scale-95" onclick="event.stopPropagation(); triggerToast('Assigned Room 102 &amp; Confirmed #BK-1080');">
+                      Allocate Room
+                    </button>
+<button class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" onclick="event.stopPropagation(); triggerToast('Actions drawer opened');">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: #BK-1079 (Completed) -->
+<tr class="booking-row hover:bg-surface-container cursor-pointer transition-colors group opacity-85" data-status="completed" onclick="switchBookingDetail('#BK-1079', 'Liam Gallagher', 'Room 112 • Single Classic', '2 Nights • 1 Adult', 'May 10, 2025 → May 12, 2025', '$190.00', 'Completed', 'Faculty / Campus', 'No special requests submitted')">
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-label-md text-label-md text-primary font-bold">#BK-1079</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">May 08, 02:19 PM</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-9 h-9 rounded-full object-cover shadow-sm" data-alt="Headshot of guest Liam Gallagher in dark shirt against soft warm interior background, smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHKPcc4xU_OV11-zo-6BTJAUjTLBJwMc1VuBfMu33Wc4S-IZanPxAfIGjArOsY7MTcTTGe8FWEhorfjrsscMuK0alNTI7L4odYTRECWETs9fQnMEjZzA2DcXKE0nbHGYzNKsqUBtvHXMFXjoyPjdeFmLyueaumLQCfHsVBok2ag2OJhEYemyk1mQ83W4wgLN0w3T4ZBbw8mdDtTIqrEJVauDd2YsVqOYs4mfNKPm1GQToDP5Sfukkz"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Liam Gallagher</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">l.gallagher@alumni.org</span>
+<span class="inline-block mt-0.5 px-1.5 py-0.2 rounded bg-surface-container-high text-primary font-label-sm text-[11px] w-fit font-medium">Faculty / Campus</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-label-md text-label-md text-on-surface font-medium">Room 112</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Single Classic</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">2 Nights • 1 Guest</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-label-md text-label-md text-on-surface font-medium">May 10 – 12, 2025</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Checked-out May 12</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">$190.00</div>
+<span class="px-space-xs py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[11px] font-semibold">Settled Card</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="px-space-sm py-1 rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">Completed</span>
+</td>
+<td class="py-space-md px-space-md text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1.5">
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface px-space-sm py-1 rounded-full font-label-sm text-label-sm font-semibold transition-colors" onclick="event.stopPropagation(); triggerToast('Archived Invoice printed');">
+                      Invoice
+                    </button>
+<button class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" onclick="event.stopPropagation(); triggerToast('Actions drawer opened');">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: #BK-1075 (Cancelled / Refunded) -->
+<tr class="booking-row hover:bg-surface-container cursor-pointer transition-colors group opacity-75" data-status="cancelled" onclick="switchBookingDetail('#BK-1075', 'Devon Patel', 'Room 402 • Deluxe King Suite', '3 Nights • 2 Adults', 'May 16, 2025 → May 19, 2025', '$285.00', 'Cancelled', 'First-time Guest', 'Guest cancelled due to travel delay; $285 refund issued to original Visa card.')">
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-label-md text-label-md text-on-surface-variant font-bold line-through">#BK-1075</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">May 07, 11:20 AM</span>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<img class="w-9 h-9 rounded-full object-cover grayscale shadow-sm" data-alt="Portrait of Devon Patel, young man with warm friendly smile against soft blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9A7I25QnOO7et86CW0pgKml7cDOyK7cGZfQFb0JTsj8FoPSZIa2s9MDVEv0PK8ktLSgLp2Kv5LCaJEfFGyhYl9fv1SH5usQ85IgHrkFP7mhM10bDCYZXpA-IntMExHKd7Ns3gosDnMVVhYAIm8TODX_ycCyfkNJKbhXsACO-6r9hlSu6KOfvApTuwT2hRnR4gqwi3wSJt-U29uYIWjgNK2w1f0zR4HdCvLFtYtfr9pIgfBncyXABy"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Devon Patel</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">devon.p@techhub.io</span>
+<span class="inline-block mt-0.5 px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-[11px] w-fit font-medium">First-time Guest</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="font-label-md text-label-md text-on-surface-variant">Room 402 (Released)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Deluxe King Suite</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">3 Nights • 2 Guests</div>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-label-md text-label-md text-on-surface-variant line-through">May 16 – 19, 2025</div>
+<span class="font-label-sm text-label-sm text-error font-medium">Cancelled on May 12</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<div class="font-headline-sm text-headline-sm text-on-surface-variant font-bold line-through">$285.00</div>
+<span class="px-space-xs py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-[11px] font-semibold">Refund Processed</span>
+</td>
+<td class="py-space-md px-space-md whitespace-nowrap">
+<span class="px-space-sm py-1 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">Cancelled</span>
+</td>
+<td class="py-space-md px-space-md text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1.5">
+<button class="bg-surface-container hover:bg-surface-container-high text-on-surface px-space-sm py-1 rounded-full font-label-sm text-label-sm font-medium transition-colors" onclick="event.stopPropagation(); triggerToast('Audit refund receipt #RF-9812 dispatched');">
+                      Refund Doc
+                    </button>
+<button class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" onclick="event.stopPropagation(); triggerToast('Actions drawer opened');">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Pagination -->
+<div class="px-space-md py-space-sm bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Showing 1 to 6 of 142 total system reservations</span>
+<div class="flex items-center gap-1">
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-bold">1</button>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors">2</button>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors">3</button>
+<span class="text-on-surface-variant px-1 text-label-sm">...</span>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors">24</button>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Tips & OOAD System Architecture Indicator -->
+<div class="p-space-md rounded-xl bg-surface-container flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">info</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">OOAD Design Pattern Implementation: State &amp; Observer Pattern</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Reservation state changes (<code class="text-primary font-bold">Confirmed</code> → <code class="text-secondary font-bold">CheckedIn</code> → <code class="text-on-surface-variant font-bold">Completed</code>) automatically notify the Housekeeping Subsystem and trigger billing reconciliation events through the centralized Roomly PMS controller.
+          </p>
+</div>
+</div>
+</div>
+<!-- Right Column: Interactive Selected Booking Detail Inspection Card (4 cols on XL) -->
+<div class="xl:col-span-4 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Inspection Card Header -->
+<div class="px-space-md py-space-sm bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">badge</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Booking Detail Inspection</span>
+</div>
+<span class="px-space-sm py-0.5 rounded-full text-label-sm font-label-sm bg-primary-fixed text-on-primary-fixed font-semibold" id="inspect-status-pill">Confirmed</span>
+</div>
+<div class="p-space-md flex flex-col gap-space-md">
+<!-- Identity Summary Box -->
+<div class="flex items-center justify-between p-space-sm rounded-xl bg-surface-container-low">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary font-bold font-headline-sm text-headline-sm">
+                AJ
+              </div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight" id="inspect-name">Alex Johnson</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Identity Verified (Passport / DL)</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold mt-0.5" id="inspect-type">Silver Member</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md text-primary font-bold" id="inspect-id">#BK-1095</span>
+<span class="block font-label-sm text-label-sm text-secondary font-semibold">Pin: 8492</span>
+</div>
+</div>
+<!-- Room Allocation & Reassignment Form -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-semibold uppercase">Allocated Inventory &amp; Wing</label>
+<div class="flex items-center gap-2">
+<select class="w-full bg-surface text-on-surface font-label-md text-label-md p-space-sm rounded-lg focus:outline-none">
+<option selected="" value="305">Room 305 (Level 3 - East Wing - Deluxe King)</option>
+<option value="306">Room 306 (Level 3 - East Wing - Deluxe King)</option>
+<option value="402">Room 402 (Level 4 - Tower View - Deluxe King)</option>
+<option value="208">Room 208 (Level 2 - Quiet Courtyard - Deluxe Double)</option>
+</select>
+<button class="bg-surface-container hover:bg-surface-container-high text-primary px-space-sm py-2 rounded-lg font-label-sm text-label-sm font-bold whitespace-nowrap transition-colors" onclick="triggerToast('Inventory allocation reassigned to selected wing');">
+                Reassign
+              </button>
+</div>
+</div>
+<!-- Stay Details Grid -->
+<div class="grid grid-cols-2 gap-space-sm p-space-sm rounded-xl bg-surface">
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Stay Dates</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold" id="inspect-dates">May 14 → May 17, 2025</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Duration &amp; Party</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold" id="inspect-nights">3 Nights • 2 Adults</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Room Category</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold" id="inspect-room">Deluxe King Suite</span>
+</div>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Check-In Window</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">3:00 PM – 11:30 PM</span>
+</div>
+</div>
+<!-- Special Requests Card -->
+<div class="p-space-sm rounded-xl bg-surface-container-high flex flex-col gap-1">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[18px]">room_service</span>
+<span class="font-label-sm text-label-sm font-bold uppercase">Guest Special Requests</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface" id="inspect-request">
+              "Quiet room preferred, high floor, late check-in approx 7 PM. Please ensure extra feather pillow."
+            </p>
+</div>
+<!-- Financial Breakdown -->
+<div class="flex flex-col gap-2 p-space-sm rounded-xl bg-surface">
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Standard Room Rate (3 nights @ $85.00)</span>
+<span class="text-on-surface font-medium">$255.00</span>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>State &amp; City Lodging Occupancy Tax (8%)</span>
+<span class="text-on-surface font-medium">$20.40</span>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Campus Facility &amp; Connectivity Fee</span>
+<span class="text-on-surface font-medium">$9.60</span>
+</div>
+<div class="w-full bg-surface-container-high h-[1px] my-0.5"></div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Total Stay Amount</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Txn: #TXN-90214-VISA</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold" id="inspect-amount">$285.00</span>
+</div>
+</div>
+<!-- Status Transition Control Buttons -->
+<div class="flex flex-col gap-2 pt-1">
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 rounded-full font-label-md text-label-md font-bold shadow-sm transition-transform active:scale-[0.98] flex items-center justify-center gap-2" onclick="triggerToast('Check-In Verified: Physical room key cards issued for Room 305'); switchBookingDetail('#BK-1095', 'Alex Johnson', 'Room 305 • Deluxe King Suite', '3 Nights • 2 Adults', 'May 14, 2025 → May 17, 2025', '$285.00', 'Checked-In', 'Silver Member', 'Quiet room preferred, high floor, late check-in approx 7 PM');">
+<span class="material-symbols-outlined text-[18px]">key</span>
+<span>Mark Checked-In &amp; Issue Key</span>
+</button>
+<div class="grid grid-cols-2 gap-2">
+<button class="w-full bg-surface-container hover:bg-surface-container-high text-on-surface py-2 rounded-full font-label-sm text-label-sm font-semibold transition-colors flex items-center justify-center gap-1.5" onclick="triggerToast('Official Guest Folio PDF Generated');">
+<span class="material-symbols-outlined text-[16px]">receipt_long</span>
+<span>Print Folio Voucher</span>
+</button>
+<button class="w-full bg-surface-container hover:bg-surface-container-high text-on-surface py-2 rounded-full font-label-sm text-label-sm font-semibold transition-colors flex items-center justify-center gap-1.5" onclick="triggerToast('Stay dates modification panel launched');">
+<span class="material-symbols-outlined text-[16px]">edit_calendar</span>
+<span>Modify Dates</span>
+</button>
+</div>
+<button class="w-full bg-error-container hover:bg-surface-variant text-on-error-container py-2 rounded-full font-label-sm text-label-sm font-semibold transition-colors flex items-center justify-center gap-1.5 mt-1" onclick="triggerToast('Booking #BK-1095 cancelled and refund initiated');">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+<span>Cancel Booking with Refund</span>
+</button>
+</div>
+<!-- Simulated LocalStorage Sync Notice -->
+<div class="flex items-center gap-2 px-space-sm py-2 rounded-lg bg-surface-container text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[16px]">sync</span>
+<span class="font-label-sm text-[11px] leading-tight">
+              Synchronized with Roomly PMS local state (<code class="text-on-surface font-semibold">roomly/js/admin.js</code>)
+            </span>
+</div>
+</div>
+</div>
+<!-- Quick Roomly Hotel Brand Badge -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<img alt="Roomly Brand Symbol" class="w-10 h-10 rounded-lg object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0DCrB_ct9J19lS0TB55R1D9YQp7iyQbRlouHz2Cwi4oMvX3n1D77t9KglRD92kJHoAC0o-dNIIzQTJEjVpVRnHpbgzGORx-P76HpkPMIgT7KU6kWg0kk74EfL9u09QDYq3jofFwwvCF2XNUrRgA4gspvJfdGpx7RPqUBX2d5DnTIwM3h7NSrhq4IYAZIYOWFcHQrkhCuwgjCgVYIuj80ZVh60lyQLF9aQAUthSRxgu6LTwy4WE874AkzHc6E6qTmwMg"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Roomly Campus Lodge</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Front Desk Staff Portal</span>
+</div>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm text-primary font-bold">Hotel #01</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">36 Rooms Total</span>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

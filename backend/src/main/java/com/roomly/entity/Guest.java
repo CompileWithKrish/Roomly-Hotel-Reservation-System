@@ -85,6 +85,162 @@ public class Guest {
     @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
 
+    @Transient
+    private String address;
+
+    @Transient
+    private String city;
+
+    @Transient
+    private String country;
+
+    public enum GuestTier {
+        VIP("VIP"),
+        GOLD("Gold"),
+        SILVER("Silver"),
+        REGULAR("Regular"),
+        STANDARD("Standard");
+
+        private final String value;
+
+        GuestTier(String value) {
+            this.value = value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonCreator
+        public static GuestTier fromString(String text) {
+            if (text == null) return REGULAR;
+            for (GuestTier b : GuestTier.values()) {
+                if (b.value.equalsIgnoreCase(text) || b.name().equalsIgnoreCase(text)) {
+                    return b;
+                }
+            }
+            return REGULAR;
+        }
+
+        @Override
+        public String toString() {
+            return value;
+        }
+    }
+
+    public enum GuestStatus {
+        ACTIVE("Active"),
+        INACTIVE("Inactive");
+
+        private final String value;
+
+        GuestStatus(String value) {
+            this.value = value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonCreator
+        public static GuestStatus fromString(String text) {
+            if (text == null) return ACTIVE;
+            for (GuestStatus b : GuestStatus.values()) {
+                if (b.value.equalsIgnoreCase(text) || b.name().equalsIgnoreCase(text)) {
+                    return b;
+                }
+            }
+            return ACTIVE;
+        }
+
+        @Override
+        public String toString() {
+            return value;
+        }
+    }
+
+    public GuestTier getTier() {
+        return GuestTier.fromString(this.tier);
+    }
+
+    public void setTier(GuestTier guestTier) {
+        this.tier = guestTier != null ? guestTier.getValue() : "Regular";
+    }
+
+    public void setTier(String tier) {
+        this.tier = tier != null ? tier : "Regular";
+    }
+
+    public GuestStatus getStatus() {
+        return GuestStatus.fromString(this.status);
+    }
+
+    public void setStatus(GuestStatus guestStatus) {
+        this.status = guestStatus != null ? guestStatus.getValue() : "Active";
+    }
+
+    public void setStatus(String status) {
+        this.status = status != null ? status : "Active";
+    }
+
+    public String getAvatar() {
+        return avatarUrl;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatarUrl = avatar;
+    }
+
+    public String getPassportNumber() {
+        return passportId;
+    }
+
+    public void setPassportNumber(String passportNumber) {
+        this.passportId = passportNumber;
+    }
+
+    public java.time.LocalDate getLastStayDate() {
+        if (lastStay == null || lastStay.isEmpty() || "None".equalsIgnoreCase(lastStay)) return null;
+        try {
+            return java.time.LocalDate.parse(lastStay);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public void setLastStayDate(java.time.LocalDate date) {
+        this.lastStay = date != null ? date.toString() : null;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country != null ? country : nationality;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+        if (this.nationality == null || this.nationality.isEmpty()) {
+            this.nationality = country;
+        }
+    }
+
     public String getFullName() {
         if (firstName == null) return lastName != null ? lastName : "";
         if (lastName == null || lastName.isEmpty()) return firstName;

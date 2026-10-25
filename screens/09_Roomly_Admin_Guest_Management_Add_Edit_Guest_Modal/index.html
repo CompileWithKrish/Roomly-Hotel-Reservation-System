@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary": "#004fd2", "inverse-on-surface": "#eef0ff", "surface-bright": "#faf8ff", "tertiary-container": "#a06500", "surface-container": "#eaedff", "on-surface": "#131b2e", "on-error-container": "#93000a", "surface-container-high": "#e2e7ff", "tertiary-fixed": "#ffddb8", "outline-variant": "#c3c6d8", "on-secondary-container": "#004666", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#b4c5ff", "secondary-fixed-dim": "#89ceff", "on-secondary-fixed": "#001e2f", "on-tertiary-container": "#fff7f3", "on-surface-variant": "#424655", "on-tertiary-fixed": "#2a1700", "on-background": "#131b2e", "surface": "#faf8ff", "on-secondary-fixed-variant": "#004c6e", "secondary-container": "#39b8fd", "secondary-fixed": "#c9e6ff", "inverse-primary": "#b4c5ff", "primary-container": "#1a66ff", "secondary": "#006591", "on-secondary": "#ffffff", "outline": "#737687", "on-tertiary": "#ffffff", "error": "#ba1a1a", "background": "#faf8ff", "tertiary-fixed-dim": "#ffb95f", "on-primary-container": "#faf8ff", "on-primary-fixed-variant": "#003da8", "surface-tint": "#0052dc", "error-container": "#ffdad6", "surface-container-highest": "#dae2fd", "surface-container-low": "#f2f3ff", "on-error": "#ffffff", "on-tertiary-fixed-variant": "#653e00", "on-primary-fixed": "#00174b", "tertiary": "#7f4f00", "primary-fixed": "#dbe1ff", "inverse-surface": "#283044", "surface-variant": "#dae2fd", "surface-dim": "#d2d9f4", "on-primary": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2.5rem", "space-sm": "0.5rem", "margin-sm": "1rem", "gutter-sm": "1rem", "gutter": "1.5rem", "space-xs": "0.25rem", "margin": "2rem", "space-lg": "1.5rem", "space-md": "1rem" }, "fontFamily": { "display": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "display-mobile": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"] }, "fontSize": { "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "display-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }] } } } }</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col pt-space-lg pb-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="px-space-lg mb-space-lg flex items-center gap-space-sm"><img alt="Roomly" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VdKvmyEdYOSxp8kFYgLVq9hy6T1gGC6IRh7kT8WOTC65GBVST5wt5eh3Xg-MiKq9LCS5znNdlL6ucmuhqeEv3hON7rRsG_jyIijau5b0sBEP2AgzZPsmx7myRTmu1WrcuU2pIkhf42ZWsv41_PqnhAXg44dNSibQZER0-Pzre3GIidAXKPtuNBgMvzwcxB-pbxCafJG8S9WpRM4Y6jTr8wrIwzVJ3YX_Y_CgsQwXGJ_BubgSXtcWaDGaB_IoqGwvyjvlindX3z"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">Roomly</span><span class="font-label-sm text-label-sm text-on-surface-variant">Admin Console</span></div></div><nav class="flex-1 px-space-md space-y-space-xs" data-active-classes="bg-surface-container-high text-primary font-label-md"><a class="flex items-center px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-portal" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">dashboard</span>Overview</a><a class="flex items-center px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-reservations" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">calendar_month</span>Reservations</a><a class="flex items-center px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-rooms" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">bed</span>Room Inventory</a><a class="flex items-center px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-guests" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">group</span>Guests</a><a class="flex items-center px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors mt-space-lg" data-path="home" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">storefront</span>Guest Portal</a></nav><div class="px-space-md pt-space-md"><div class="p-space-sm rounded-xl bg-surface-container flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VdKvmyEdYOSxp8kFYgLVq9hy6T1gGC6IRh7kT8WOTC65GBVST5wt5eh3Xg-MiKq9LCS5znNdlL6ucmuhqeEv3hON7rRsG_jyIijau5b0sBEP2AgzZPsmx7myRTmu1WrcuU2pIkhf42ZWsv41_PqnhAXg44dNSibQZER0-Pzre3GIidAXKPtuNBgMvzwcxB-pbxCafJG8S9WpRM4Y6jTr8wrIwzVJ3YX_Y_CgsQwXGJ_BubgSXtcWaDGaB_IoqGwvyjvlindX3z"/><div class="flex flex-col min-w-0"><span class="font-label-sm text-label-sm text-on-surface truncate">Staff Admin</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">admin@roomly.edu</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-sm"><span class="font-label-md text-label-md text-on-surface-variant">System Status:</span><span class="px-space-sm py-space-xs rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm">Live PMS Active</span></div><div class="flex items-center gap-space-md"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VdKvmyEdYOSxp8kFYgLVq9hy6T1gGC6IRh7kT8WOTC65GBVST5wt5eh3Xg-MiKq9LCS5znNdlL6ucmuhqeEv3hON7rRsG_jyIijau5b0sBEP2AgzZPsmx7myRTmu1WrcuU2pIkhf42ZWsv41_PqnhAXg44dNSibQZER0-Pzre3GIidAXKPtuNBgMvzwcxB-pbxCafJG8S9WpRM4Y6jTr8wrIwzVJ3YX_Y_CgsQwXGJ_BubgSXtcWaDGaB_IoqGwvyjvlindX3z"/></div></header><main class="relative pt-16 w-full px-space-lg bg-surface min-h-[calc(100vh-64px)]"><div class="flex flex-col w-full pb-space-xl">
+<!-- Top Breadcrumb & Actions Header -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md py-space-md">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider mb-1">
+<span class="inline-flex items-center gap-1 text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">hotel_class</span>
+          PROPERTY MODULE
+        </span>
+<span>•</span>
+<span>Admin PMS v2.4</span>
+<span>•</span>
+<span class="text-on-surface">CRM &amp; Guest Records</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Guest &amp; Customer Directory</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-3xl">
+        Manage registered guest profiles, verify identity records, view lifetime stay history, loyalty reward tiers, and frontline concierge status.
+      </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-wrap items-center gap-space-sm self-start lg:self-center">
+<button class="inline-flex items-center gap-2 px-space-md py-space-sm bg-surface-container-lowest hover:bg-surface-container rounded-full text-on-surface font-label-md text-label-md shadow-sm transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">file_download</span>
+        Export CSV
+      </button>
+<button class="inline-flex items-center gap-2 px-space-md py-space-sm bg-surface-container-lowest hover:bg-surface-container rounded-full text-on-surface font-label-md text-label-md shadow-sm transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">mail</span>
+        Batch Communication
+      </button>
+<button class="inline-flex items-center gap-2 px-space-lg py-space-sm bg-primary hover:bg-primary-container text-on-primary rounded-full font-label-md text-label-md shadow-sm transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-[20px]">person_add</span>
+        Add New Guest
+      </button>
+</div>
+</div>
+<!-- Key Performance Metric Cards (KPI summary bar) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-space-md my-space-md">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Total Registered</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">groups</span>
+</div>
+</div>
+<div class="mt-space-sm">
+<div class="font-headline-md text-headline-md text-on-surface font-bold">328</div>
+<div class="flex items-center gap-1 text-primary font-label-sm text-label-sm mt-0.5">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+14 this week</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">In-House Guests</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">hotel</span>
+</div>
+</div>
+<div class="mt-space-sm">
+<div class="font-headline-md text-headline-md text-on-surface font-bold">14</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm mt-0.5">
+<span>87% occupancy rate</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Loyalty &amp; VIP</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]">military_tech</span>
+</div>
+</div>
+<div class="mt-space-sm">
+<div class="font-headline-md text-headline-md text-on-surface font-bold">86</div>
+<div class="flex items-center gap-1 text-tertiary font-label-sm text-label-sm mt-0.5">
+<span>26% of customer base</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">ID Review Pending</span>
+<div class="w-8 h-8 rounded-lg bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]">pending_actions</span>
+</div>
+</div>
+<div class="mt-space-sm">
+<div class="font-headline-md text-headline-md text-on-surface font-bold text-error">5</div>
+<div class="flex items-center gap-1 text-error font-label-sm text-label-sm mt-0.5">
+<span class="material-symbols-outlined text-[14px]">priority_high</span>
+<span>Requires front-desk check</span>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Guest Satisfaction</span>
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">grade</span>
+</div>
+</div>
+<div class="mt-space-sm">
+<div class="font-headline-md text-headline-md text-on-surface font-bold flex items-center gap-1">
+          4.85<span class="font-label-sm text-label-sm text-on-surface-variant font-normal">/ 5.0</span>
+</div>
+<div class="flex items-center gap-1 text-primary font-label-sm text-label-sm mt-0.5">
+<span>98% verified rating</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Search, Filter & View Controls -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm p-space-md my-space-sm flex flex-col gap-space-md">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<!-- Universal Search Field -->
+<div class="relative flex-1 max-w-2xl">
+<span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">search</span>
+<input class="w-full pl-11 pr-space-md py-2.5 rounded-full bg-surface-container-low text-on-surface placeholder:text-on-surface-variant font-body-sm text-body-sm outline-none focus:bg-surface-container-lowest transition-colors shadow-inner" id="guest-search-input" placeholder="Search by guest name, university email, phone number, or loyalty ID (e.g. #GST-8842)..." type="text"/>
+</div>
+<!-- Dropdown Filters & Sorting -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex items-center gap-1 px-space-md py-2 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="text-on-surface-variant font-normal">Tier:</span>
+<select class="bg-transparent font-label-sm text-label-sm outline-none cursor-pointer pr-1">
+<option>All Tiers</option>
+<option>Platinum VIP</option>
+<option>Gold Member</option>
+<option>Silver Member</option>
+<option>Standard</option>
+</select>
+</div>
+<div class="flex items-center gap-1 px-space-md py-2 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="text-on-surface-variant font-normal">History:</span>
+<select class="bg-transparent font-label-sm text-label-sm outline-none cursor-pointer pr-1">
+<option>All Guests</option>
+<option>Frequent (&gt; 5 stays)</option>
+<option>Occasional (2–4 stays)</option>
+<option>First-Time Guests</option>
+</select>
+</div>
+<div class="flex items-center gap-1 px-space-md py-2 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">swap_vert</span>
+<select class="bg-transparent font-label-sm text-label-sm text-primary outline-none cursor-pointer pr-1">
+<option>Sort: Most Recent Stay</option>
+<option>Sort: Highest Spend</option>
+<option>Sort: Name (A-Z)</option>
+<option>Sort: Loyalty Points (High-Low)</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Segmented Status Tabs -->
+<div class="flex flex-wrap items-center gap-2 pt-2">
+<button class="px-space-md py-1.5 rounded-full bg-primary text-on-primary font-label-sm text-label-sm shadow-sm" type="button">
+        All Guests (328)
+      </button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm transition-colors" type="button">
+        In-House (14)
+      </button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm transition-colors" type="button">
+        VIP Members (86)
+      </button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm transition-colors flex items-center gap-1.5" type="button">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+        Pending Verification (5)
+      </button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-label-sm text-label-sm transition-colors" type="button">
+        Flagged / Alerts (2)
+      </button>
+</div>
+</div>
+<!-- Main Split Layout: Data Table (Left) + Detail Inspector (Right) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg my-space-md items-start">
+<!-- Left Column: Guest Register Table (approx 68% / 8 columns) -->
+<div class="lg:col-span-8 flex flex-col bg-surface-container-lowest rounded-2xl shadow-sm overflow-hidden">
+<div class="p-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface">Registered Guest Index</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-label-sm text-label-sm">Active Records</span>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span>Showing 1–6 of 328</span>
+</div>
+</div>
+<!-- Table Body -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low/60 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-sm px-space-md font-semibold">Guest Profile</th>
+<th class="py-space-sm px-space-md font-semibold">Contact &amp; Origin</th>
+<th class="py-space-sm px-space-md font-semibold">Loyalty Tier</th>
+<th class="py-space-sm px-space-md font-semibold">Stays &amp; Spend</th>
+<th class="py-space-sm px-space-md font-semibold">Status</th>
+<th class="py-space-sm px-space-md font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container" id="guest-table-rows">
+<!-- Row 1: Selected / In-House Alex Johnson -->
+<tr class="guest-row bg-surface-container/60 hover:bg-surface-container transition-colors cursor-pointer" onclick="selectGuest('alex')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="Modern crisp professional headshot photo of Alex Johnson, casual academic jacket, clean studio lighting, soft light blue background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdT9ThAGKFIS3BWHeUqoNwxH8DJRg1HnGEnf3EICWtHAKqUZ3rc6_VHZ_nnO0pNn_SAw27Aatv11pucBKUIfGHfYoVOEI3Cy1rGhgZ8x6jgfucotl7mGAFhwTo032gFf5aMHkLADRYbhJYJZLsRyycUUmJ6w4Rh52EWFX_J1bZ2oTOY3Jb2-sHazFp4yPNk2zYsVdrLBCbxSh3n6P04GkcRCdC2S38F26MZxNB4N9owu4qDjb1rA-o"/>
+<span class="material-symbols-outlined absolute -bottom-1 -right-1 text-primary bg-surface-container-lowest rounded-full text-[16px] p-0.5" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Alex Johnson</span>
+<span class="font-label-sm text-[11px] px-1.5 py-0.2 rounded bg-surface-container-high text-primary">#GST-8842</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">alex.j@berkeley.edu</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm text-on-surface">
+<div class="font-medium">(555) 234-5678</div>
+<div class="text-on-surface-variant text-label-sm">San Francisco, CA</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-outline">workspace_premium</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Silver Member</span>
+</div>
+<div class="font-body-sm text-label-sm text-on-surface-variant">1,450 points</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm">
+<div class="font-semibold text-on-surface">4 Stays</div>
+<div class="text-primary font-medium text-label-sm">$1,240.00 spent</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  In-House (Rm 305)
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-full hover:bg-surface-container-high text-primary" title="Direct Booking" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_add_on</span>
+</button>
+<button class="p-1.5 rounded-full hover:bg-surface-container-high text-on-surface-variant" title="Edit Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Dr. Evelyn Vance -->
+<tr class="guest-row hover:bg-surface-container/40 transition-colors cursor-pointer" onclick="selectGuest('evelyn')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="Editorial portrait of Dr Evelyn Vance, thoughtful Stanford professor smiling softly, modern neutral room, warm natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCug7iXwta0LT-Qpj8BUyUgp_zunxMsShIRpZ_5Q59LT4bGAJpdD4iA5oWFHkLmCznPPCnnJR_kA_zIMcuUafgDZnObrdJ4O55MGCie3rwFSr_qwi4JFkez6geZZTGER3eONzH6zVZ98fpbxCLzlmRC3yKt5firkf88PDXUi9jn_nkOJezsHn5zKCm7gactBrUG4eauIFn9SdqA8_ODk_x9ygyffzHNk65SZlxtsfnxCmOESzpgA8qH"/>
+<span class="material-symbols-outlined absolute -bottom-1 -right-1 text-primary bg-surface-container-lowest rounded-full text-[16px] p-0.5" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Dr. Evelyn Vance</span>
+<span class="font-label-sm text-[11px] px-1.5 py-0.2 rounded bg-surface-container-high text-primary">#GST-7190</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">e.vance@stanford.edu</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm text-on-surface">
+<div class="font-medium">(555) 891-2345</div>
+<div class="text-on-surface-variant text-label-sm">Palo Alto, CA</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-tertiary">star</span>
+<span class="font-label-sm text-label-sm font-semibold text-tertiary">Gold Member</span>
+</div>
+<div class="font-body-sm text-label-sm text-on-surface-variant">3,800 points • Faculty</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm">
+<div class="font-semibold text-on-surface">12 Stays</div>
+<div class="text-primary font-medium text-label-sm">$3,450.00 spent</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-fixed text-primary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  In-House (Rm 204)
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-full hover:bg-surface-container-high text-primary" title="Direct Booking" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_add_on</span>
+</button>
+<button class="p-1.5 rounded-full hover:bg-surface-container-high text-on-surface-variant" title="Edit Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Marcus Sterling (VIP Platinum) -->
+<tr class="guest-row hover:bg-surface-container/40 transition-colors cursor-pointer" onclick="selectGuest('marcus')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="Polished corporate executive headshot of Marcus Sterling, navy blazer, architectural window backdrop, subtle cool blue tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmLDbtYh4qDsposU6llvuKhLVrZteqWqkg2ojA6XtxVo03GWrkjqxLplNKeTEQKIFNvCudA90bHnaTyyI3egfi4jphXulx05kcDrCroZNun9JEGTUDKW58JWqKVQ5JkBI2r1Dk7YVnp27OySDePuIPaaJa_g10nriOPOt2an_WG_2nqjKXdPKNbn-04Ql8n074ssaz1nxPbCjkkAVb5n3XX0XF_2-8YQP8RqyHNHnheVTkqBKl-zig"/>
+<span class="material-symbols-outlined absolute -bottom-1 -right-1 text-primary bg-surface-container-lowest rounded-full text-[16px] p-0.5" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Marcus Sterling</span>
+<span class="font-label-sm text-[11px] px-1.5 py-0.2 rounded bg-surface-container-high text-primary">#GST-1049</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">m.sterling@capitalgroup.com</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm text-on-surface">
+<div class="font-medium">(555) 432-8765</div>
+<div class="text-on-surface-variant text-label-sm">New York, NY</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">diamond</span>
+<span class="font-label-sm text-label-sm font-semibold text-primary">Platinum VIP</span>
+</div>
+<div class="font-body-sm text-label-sm text-on-surface-variant">8,920 points</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm">
+<div class="font-semibold text-on-surface">18 Stays</div>
+<div class="text-primary font-medium text-label-sm">$8,600.00 spent</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-fixed text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Penthouse 501
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-full hover:bg-surface-container-high text-primary" title="Direct Booking" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_add_on</span>
+</button>
+<button class="p-1.5 rounded-full hover:bg-surface-container-high text-on-surface-variant" title="Edit Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Samantha Chen -->
+<tr class="guest-row hover:bg-surface-container/40 transition-colors cursor-pointer" onclick="selectGuest('samantha')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="Friendly creative designer headshot of Samantha Chen with gentle warm smile, minimalist indoor aesthetic, bright natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg_pzxl88GnbulfD0VNrmRzrTh_6aMjUSAoupOeIDat-XTB7H5Oa0Huar9NEIU27UNXmTjzYuC94flNaFEUSZyN3aTcfv1hUlWPz9gRqf5o-QBsj7rQxwO5NQkfsZ_V9eMo0ECkQv3V4OpgvSUSxNEEd6OSJjA_WGRzEevXcDHfdo3I3S4FLCqbXW6ZAvg76D0jLDL1qem2LxOApWvc1W_9_yewFtHGdP2c6cQKDzVaaMUBWQCf-cc"/>
+<span class="material-symbols-outlined absolute -bottom-1 -right-1 text-outline bg-surface-container-lowest rounded-full text-[16px] p-0.5">verified</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Samantha Chen</span>
+<span class="font-label-sm text-[11px] px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant">#GST-9382</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">s.chen99@gmail.com</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm text-on-surface">
+<div class="font-medium">(555) 765-4321</div>
+<div class="text-on-surface-variant text-label-sm">Seattle, WA</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">person</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Standard</span>
+</div>
+<div class="font-body-sm text-label-sm text-on-surface-variant">150 points • First-time</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm">
+<div class="font-semibold text-on-surface">1 Stay</div>
+<div class="text-primary font-medium text-label-sm">$285.00 spent</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Arrival Tomorrow
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-full hover:bg-surface-container-high text-primary" title="Direct Booking" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_add_on</span>
+</button>
+<button class="p-1.5 rounded-full hover:bg-surface-container-high text-on-surface-variant" title="Edit Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Liam Gallagher -->
+<tr class="guest-row hover:bg-surface-container/40 transition-colors cursor-pointer" onclick="selectGuest('liam')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="Clean corporate portrait of Liam Gallagher in grey collared shirt, professional conference room background, ambient soft lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw0DYpeEw21zwQH5F7dWdf34w1bAScu_1V-46U7s_EIQRELWKp-yu4hjExcm3U9t-Eisui4lR9aS7wF3r-7_QCOVNKbuVhO0R1D7TnkhkaU9yE2fQi4V1A2rWzu9_Anvca_wk6FcrSWyEZWXU5MEGzAGmeXD3Q458IUGgslidNVnu971UKUnK8NwhadhAjzw458A0EbPk5MjZdJoLqrn6lSnJWo0jFDRTC9b9vsL9i_YObnrpdYquy"/>
+<span class="material-symbols-outlined absolute -bottom-1 -right-1 text-primary bg-surface-container-lowest rounded-full text-[16px] p-0.5" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Liam Gallagher</span>
+<span class="font-label-sm text-[11px] px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant">#GST-6541</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">l.gallagher@alumni.org</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm text-on-surface">
+<div class="font-medium">(555) 321-9876</div>
+<div class="text-on-surface-variant text-label-sm">Chicago, IL</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-secondary">school</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Faculty Member</span>
+</div>
+<div class="font-body-sm text-label-sm text-on-surface-variant">1,100 points</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm">
+<div class="font-semibold text-on-surface">3 Stays</div>
+<div class="text-primary font-medium text-label-sm">$720.00 spent</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+                  Checked Out
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-full hover:bg-surface-container-high text-primary" title="Direct Booking" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_add_on</span>
+</button>
+<button class="p-1.5 rounded-full hover:bg-surface-container-high text-on-surface-variant" title="Edit Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: Elena Rostova (Pending ID Verification) -->
+<tr class="guest-row hover:bg-surface-container/40 transition-colors cursor-pointer" onclick="selectGuest('elena')">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="Modern tech professional headshot of Elena Rostova, sleek glasses and charcoal blazer, brightly lit contemporary workspace background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_ac99yAnJnAtPEamRF4YnE-VSPMnGNrPjBAt49mT1axdHRQNRi9nxxBGlIH3YCMpvcoVWGnhxFpkL-CxPiP15KOAHk6r7KGtnVvNIW3HIs0_VEVFkOnjiCviWppw-WT_-eFVOWl9uFMtfNBLaA_nu8TKX2wqSrW3Gnwred0LYPSITnfpwY1iZ1JyvyGl8wI7yOVejhs7xUGFe0AyY-Hs6dpVxWpbfKyHnprfHFMN4Ri6T1DQU8CJG"/>
+<span class="material-symbols-outlined absolute -bottom-1 -right-1 text-tertiary bg-surface-container-lowest rounded-full text-[16px] p-0.5">help</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Elena Rostova</span>
+<span class="font-label-sm text-[11px] px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant">#GST-7721</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">e.rostova@techcorp.io</span>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm text-on-surface">
+<div class="font-medium">(555) 654-0987</div>
+<div class="text-on-surface-variant text-label-sm">Austin, TX</div>
+</td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-outline">workspace_premium</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Silver Member</span>
+</div>
+<div class="font-body-sm text-label-sm text-on-surface-variant">1,950 points</div>
+</td>
+<td class="py-space-md px-space-md font-body-sm text-body-sm">
+<div class="font-semibold text-on-surface">5 Stays</div>
+<div class="text-primary font-medium text-label-sm">$1,890.00 spent</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">id_card</span>
+                  Pending ID Check
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="px-2 py-1 rounded bg-primary text-on-primary font-label-sm text-label-sm font-medium hover:bg-primary-container" type="button">
+                    Verify
+                  </button>
+<button class="p-1.5 rounded-full hover:bg-surface-container-high text-on-surface-variant" title="Edit Profile" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="p-space-md bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<div class="font-label-sm text-label-sm text-on-surface-variant">
+          Showing <span class="font-semibold text-on-surface">1</span> to <span class="font-semibold text-on-surface">6</span> of <span class="font-semibold text-on-surface">328</span> guest records
+        </div>
+<div class="flex items-center gap-1">
+<button class="p-2 rounded-lg bg-surface-container text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary font-label-sm text-label-sm font-semibold" type="button">1</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" type="button">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" type="button">3</button>
+<span class="px-1 text-on-surface-variant font-label-sm">...</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm transition-colors" type="button">55</button>
+<button class="p-2 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Profile Detail Inspection & Quick Actions Drawer (approx 32% / 4 columns) -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Guest Detail Main Card -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm p-space-md flex flex-col relative overflow-hidden">
+<!-- Header Banner & Crown / Tier Indicator -->
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-md">
+<div class="relative">
+<img class="w-16 h-16 rounded-2xl object-cover shadow-md" data-alt="Selected guest detailed profile photo of Alex Johnson, sharp portrait with clean university backdrop, ambient soft daylight." id="inspect-avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6KeWjIM0PhMmIIfDyy1b6ADgG2sCwtlKnIVoniX9XhohPDcPENlN39vvTY5_SBEHRUH1K6DnNpWJpOX3BflpTAfGytTjvKWr3g6vmp7S8qAL1Ld0HmOoUHNfVYb5vJl4j8RfGN0A-ZbsxtTWNoj3nO_32z5Nuth1GqxEWzSjtxy3SCrbnE1DGlbRZpvGHVj_pdqS2s8X9GDF3Y2gEJNr-GPGhRNwjIu2Dd1Vpl-54FvAE8kJ685_c"/>
+<span class="absolute -top-2 -left-2 bg-primary text-on-primary p-1 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[14px]">military_tech</span>
+</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold" id="inspect-name">Alex Johnson</h3>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium" id="inspect-id">Guest ID: #GST-8842</span>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold" id="inspect-tier-badge">
+                  Silver Member • 1,450 pts
+                </span>
+</div>
+</div>
+</div>
+<button class="p-1.5 rounded-full bg-surface-container text-on-surface-variant hover:text-on-surface" title="Full Record Modal" type="button">
+<span class="material-symbols-outlined text-[20px]">open_in_new</span>
+</button>
+</div>
+<!-- Verification Status Pill -->
+<div class="mt-space-md p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Identity Verified</span>
+<span class="font-label-sm text-[11px] text-on-surface-variant">CA Driver License • Exp 2028</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-[11px] font-semibold">Pass</span>
+</div>
+<!-- Contact Directory Metadata -->
+<div class="mt-space-md grid grid-cols-2 gap-space-sm font-body-sm text-body-sm">
+<div class="p-space-sm rounded-xl bg-surface-container-low/60 flex flex-col">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase font-semibold">Primary Email</span>
+<span class="font-medium text-on-surface truncate text-label-sm mt-0.5" id="inspect-email">alex.j@berkeley.edu</span>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low/60 flex flex-col">
+<span class="font-label-sm text-[11px] text-on-surface-variant uppercase font-semibold">Mobile Phone</span>
+<span class="font-medium text-on-surface text-label-sm mt-0.5" id="inspect-phone">(555) 234-5678</span>
+</div>
+</div>
+<!-- Lifetime Value & Metrics Bar -->
+<div class="mt-space-md p-space-md rounded-xl bg-primary text-on-primary flex items-center justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm opacity-80">Lifetime Guest Value</span>
+<span class="font-headline-sm text-headline-sm font-bold tracking-tight" id="inspect-ltv">$1,240.00</span>
+</div>
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm opacity-80">Completed Visits</span>
+<span class="font-headline-sm text-headline-sm font-bold" id="inspect-stays">4 Stays</span>
+</div>
+</div>
+<!-- Preferences & Concierge Notes -->
+<div class="mt-space-md">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary">notes</span>
+              Frontline Preferences &amp; Concierge Notes
+            </span>
+<button class="text-primary font-label-sm text-label-sm hover:underline" type="button">Edit</button>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm leading-relaxed">
+<p id="inspect-notes">
+              "Prefers high floors (3rd floor+), hypoallergenic feather pillows, and quiet room away from elevators. Dietary: Plant-based breakfast options. Late check-out requested on Sundays."
+            </p>
+</div>
+</div>
+<!-- Recent Stay Timeline History -->
+<div class="mt-space-md">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold mb-2 block">
+            Recent Reservation History
+          </span>
+<div class="space-y-space-xs">
+<!-- Stay Item 1 (Current) -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">meeting_room</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Room 305 (Deluxe King)</span>
+<span class="px-1.5 py-0.2 rounded-full bg-primary-fixed text-primary font-label-sm text-[11px] font-semibold">Active</span>
+</div>
+<span class="font-body-sm text-label-sm text-on-surface-variant">May 14 – May 17, 2025</span>
+</div>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary">$285.00</span>
+</div>
+<!-- Stay Item 2 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low/60 flex items-center justify-between">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[20px] mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Room 204 (Deluxe Double)</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">Feb 10 – Feb 12, 2025</span>
+</div>
+</div>
+<span class="font-label-md text-label-md font-semibold text-on-surface">$190.00</span>
+</div>
+<!-- Stay Item 3 -->
+<div class="p-space-sm rounded-xl bg-surface-container-low/60 flex items-center justify-between">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-outline text-[20px] mt-0.5">check_circle</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Room 101 (Single Cozy)</span>
+<span class="font-body-sm text-label-sm text-on-surface-variant">Dec 22 – Dec 23, 2024</span>
+</div>
+</div>
+<span class="font-label-md text-label-md font-semibold text-on-surface">$65.00</span>
+</div>
+</div>
+</div>
+<!-- Quick Admin Action Triggers -->
+<div class="mt-space-md pt-space-sm flex flex-col gap-space-xs">
+<button class="w-full py-2.5 px-space-md rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-sm flex items-center justify-center gap-2 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_add_on</span>
+            Create Reservation for Guest
+          </button>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="py-2 px-space-sm rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">mail</span>
+              Send Email
+            </button>
+<button class="py-2 px-space-sm rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center justify-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px] text-tertiary">flag</span>
+              Concierge Alert
+            </button>
+</div>
+</div>
+</div>
+<!-- Domain Architecture Pill -->
+<div class="p-space-md rounded-2xl bg-surface-container-high/40 flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">account_tree</span>
+<div class="flex flex-col text-on-surface-variant font-label-sm text-label-sm">
+<span class="font-semibold text-on-surface">OOAD Customer Domain Model</span>
+<p class="mt-0.5 text-[11px] leading-relaxed">
+            Encapsulates the Guest entity, Loyalty points ledger, stay frequency audit trail, and guest preference profile synchronized with centralized Roomly PMS reservation engine.
+          </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Inline Client Controller for Dynamic Inspection -->
+<script>
+    const guestData = {
+      alex: {
+        id: "#GST-8842",
+        name: "Alex Johnson",
+        email: "alex.j@berkeley.edu",
+        phone: "(555) 234-5678",
+        tier: "Silver Member • 1,450 pts",
+        ltv: "$1,240.00",
+        stays: "4 Stays",
+        notes: "Prefers high floors (3rd floor+), hypoallergenic feather pillows, and quiet room away from elevators. Dietary: Plant-based breakfast options. Late check-out requested on Sundays."
+      },
+      evelyn: {
+        id: "#GST-7190",
+        name: "Dr. Evelyn Vance",
+        email: "e.vance@stanford.edu",
+        phone: "(555) 891-2345",
+        tier: "Gold Member • 3,800 pts",
+        ltv: "$3,450.00",
+        stays: "12 Stays",
+        notes: "Stanford Faculty Visiting Fellow. Requires ergonomic desk chair and quiet corner suite for research work. Regularly uses executive conference room booking."
+      },
+      marcus: {
+        id: "#GST-1049",
+        name: "Marcus Sterling",
+        email: "m.sterling@capitalgroup.com",
+        phone: "(555) 432-8765",
+        tier: "Platinum VIP • 8,920 pts",
+        ltv: "$8,600.00",
+        stays: "18 Stays",
+        notes: "Top VIP corporate account. Prefers Penthouse suite with sparkling water in minibar. Valet parking reserved permanently for duration of all stays."
+      },
+      samantha: {
+        id: "#GST-9382",
+        name: "Samantha Chen",
+        email: "s.chen99@gmail.com",
+        phone: "(555) 765-4321",
+        tier: "Standard • 150 pts",
+        ltv: "$285.00",
+        stays: "1 Stay",
+        notes: "Arriving tomorrow for campus admissions tour. Early check-in requested at 12:30 PM if room is ready. Extra towels confirmed."
+      },
+      liam: {
+        id: "#GST-6541",
+        name: "Liam Gallagher",
+        email: "l.gallagher@alumni.org",
+        phone: "(555) 321-9876",
+        tier: "Faculty Member • 1,100 pts",
+        ltv: "$720.00",
+        stays: "3 Stays",
+        notes: "Alumni speaker visiting business school. Likes high-speed wired Ethernet connection and early 6:30 AM wake-up call service."
+      },
+      elena: {
+        id: "#GST-7721",
+        name: "Elena Rostova",
+        email: "e.rostova@techcorp.io",
+        phone: "(555) 654-0987",
+        tier: "Silver Member • 1,950 pts",
+        ltv: "$1,890.00",
+        stays: "5 Stays",
+        notes: "Awaiting front desk visual check of newly uploaded government passport credentials before suite keycard issuance."
+      }
+    };
+
+    function selectGuest(key) {
+      const g = guestData[key];
+      if (!g) return;
+      document.getElementById('inspect-name').textContent = g.name;
+      document.getElementById('inspect-id').textContent = 'Guest ID: ' + g.id;
+      document.getElementById('inspect-tier-badge').textContent = g.tier;
+      document.getElementById('inspect-email').textContent = g.email;
+      document.getElementById('inspect-phone').textContent = g.phone;
+      document.getElementById('inspect-ltv').textContent = g.ltv;
+      document.getElementById('inspect-stays').textContent = g.stays;
+      document.getElementById('inspect-notes').textContent = '"' + g.notes + '"';
+      
+      // Highlight row selection
+      const rows = document.querySelectorAll('.guest-row');
+      rows.forEach(r => r.classList.remove('bg-surface-container/60', 'bg-surface-container'));
+      event.currentTarget.classList.add('bg-surface-container/60');
+    }
+
+    // Live search filter placeholder binding
+    document.getElementById('guest-search-input')?.addEventListener('input', function(e) {
+      const val = e.target.value.toLowerCase();
+      const rows = document.querySelectorAll('.guest-row');
+      rows.forEach(r => {
+        const text = r.textContent.toLowerCase();
+        r.style.display = text.includes(val) ? '' : 'none';
+      });
+    });
+  </script>
+</div></main></div><div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-sm overflow-y-auto animate-fade-in" id="guest-modal-overlay"><div class="relative w-full max-w-4xl bg-surface-container-lowest rounded-2xl shadow-2xl overflow-hidden flex flex-col my-auto border border-outline-variant/30"><div class="px-space-lg py-space-md bg-surface-container-low border-b border-surface-container flex items-start justify-between"><div class="flex flex-col gap-1"><div class="flex items-center gap-space-sm flex-wrap"><div class="flex items-center gap-1.5"><div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">person_edit</span></div><h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Edit Guest Profile</h2></div><div class="inline-flex items-center p-0.5 rounded-full bg-surface-container text-label-sm font-label-sm"><button class="px-3 py-1 rounded-full bg-surface-container-lowest text-primary font-semibold shadow-sm transition-all" type="button">Edit Guest (#GST-8842)</button><button class="px-3 py-1 rounded-full text-on-surface-variant hover:text-on-surface transition-all" type="button">New Guest (Create Mode)</button></div></div><p class="font-body-sm text-body-sm text-on-surface-variant">Manage personal information, ID verification credentials, and stay preferences for <span class="font-medium text-on-surface">Alex Johnson (#GST-8842)</span></p></div><button class="p-1.5 rounded-full hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" onclick="document.getElementById('guest-modal-overlay').remove()" type="button"><span class="material-symbols-outlined text-[20px]">close</span></button></div><div class="p-space-lg max-h-[calc(85vh-140px)] overflow-y-auto flex flex-col gap-space-lg"><div class="flex flex-col gap-space-sm"><div class="flex items-center justify-between border-b border-surface-container pb-1"><span class="font-label-md text-label-md text-primary font-semibold flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">badge</span> 1. Primary Guest Information</span><span class="text-label-sm font-label-sm text-on-surface-variant">Required for bookings</span></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md pt-1"><div><label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-medium">Full Name *</label><input class="w-full px-3 py-2 rounded-xl bg-surface-container-low text-on-surface border border-outline-variant/60 font-body-sm text-body-sm focus:border-primary focus:bg-surface-container-lowest outline-none transition-all" type="text" value="Alex Johnson"/></div><div><label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-medium">Primary Email Address *</label><input class="w-full px-3 py-2 rounded-xl bg-surface-container-low text-on-surface border border-outline-variant/60 font-body-sm text-body-sm focus:border-primary focus:bg-surface-container-lowest outline-none transition-all" type="email" value="alex.j@berkeley.edu"/></div><div><label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-medium">Phone Number *</label><input class="w-full px-3 py-2 rounded-xl bg-surface-container-low text-on-surface border border-outline-variant/60 font-body-sm text-body-sm focus:border-primary focus:bg-surface-container-lowest outline-none transition-all" type="tel" value="+1 (555) 234-5678"/></div><div><label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-medium">Affiliation / Customer Group</label><select class="w-full px-3 py-2 rounded-xl bg-surface-container-low text-on-surface border border-outline-variant/60 font-body-sm text-body-sm focus:border-primary focus:bg-surface-container-lowest outline-none transition-all cursor-pointer"><option selected="">University Alumni / Student</option><option>Campus Faculty / Visiting Scholar</option><option>Corporate Partner</option><option>General Public</option></select></div><div class="sm:col-span-2"><label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-medium">Billing Origin &amp; Address</label><input class="w-full px-3 py-2 rounded-xl bg-surface-container-low text-on-surface border border-outline-variant/60 font-body-sm text-body-sm focus:border-primary focus:bg-surface-container-lowest outline-none transition-all" type="text" value="2140 Shattuck Ave, San Francisco Bay Area, CA 94704"/></div></div></div><div class="flex flex-col gap-space-sm"><div class="flex items-center justify-between border-b border-surface-container pb-1"><span class="font-label-md text-label-md text-primary font-semibold flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">military_tech</span> 2. Loyalty Tier &amp; Account Status</span><span class="text-label-sm font-label-sm text-on-surface-variant">OOAD Rewards Ledger</span></div><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md pt-1"><div><label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-medium">Loyalty Reward Tier</label><select class="w-full px-3 py-2 rounded-xl bg-surface-container-low text-on-surface border border-outline-variant/60 font-body-sm text-body-sm focus:border-primary focus:bg-surface-container-lowest outline-none transition-all cursor-pointer"><option>Standard Member</option><option selected="">Silver Member (Active Tier)</option><option>Gold Member (Faculty)</option><option>Platinum VIP (Executive)</option></select></div><div><label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-medium">Loyalty Balance (Points)</label><div class="relative"><input class="w-full px-3 py-2 rounded-xl bg-surface-container-low text-on-surface border border-outline-variant/60 font-body-sm text-body-sm focus:border-primary focus:bg-surface-container-lowest outline-none transition-all" type="text" value="1,450 pts"/><span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-[18px] text-tertiary">toll</span></div></div><div><label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-medium">Account Status</label><select class="w-full px-3 py-2 rounded-xl bg-surface-container-low text-on-surface border border-outline-variant/60 font-body-sm text-body-sm focus:border-primary focus:bg-surface-container-lowest outline-none transition-all cursor-pointer"><option selected="">Active (Eligible for Booking)</option><option>Pending Verification</option><option>Suspended / Disputed</option></select></div><div class="sm:col-span-3 flex flex-wrap items-center gap-space-md p-space-sm rounded-xl bg-surface-container-low/60 border border-surface-container"><label class="inline-flex items-center gap-2 cursor-pointer"><input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary" type="checkbox"/><span class="font-label-sm text-label-sm font-medium text-on-surface">VIP Concierge Attention Flag</span></label><label class="inline-flex items-center gap-2 cursor-pointer"><input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary" type="checkbox"/><span class="font-label-sm text-label-sm font-medium text-on-surface">Automatic Direct Check-in Eligibility</span></label><label class="inline-flex items-center gap-2 cursor-pointer"><input class="w-4 h-4 rounded text-primary focus:ring-primary" type="checkbox"/><span class="font-label-sm text-label-sm font-medium text-on-surface">Marketing SMS &amp; Folio Alerts</span></label></div></div></div><div class="flex flex-col gap-space-sm"><div class="flex items-center justify-between border-b border-surface-container pb-1"><span class="font-label-md text-label-md text-primary font-semibold flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">verified_user</span> 3. Identity &amp; Document Verification</span><span class="px-2 py-0.5 rounded-full bg-primary-fixed text-primary font-label-sm text-[11px] font-semibold flex items-center gap-1"><span class="material-symbols-outlined text-[12px]">check</span> Verified by Front Desk</span></div><div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md pt-1"><div><label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-medium">Document Type</label><select class="w-full px-3 py-2 rounded-xl bg-surface-container-low text-on-surface border border-outline-variant/60 font-body-sm text-body-sm focus:border-primary focus:bg-surface-container-lowest outline-none transition-all cursor-pointer"><option selected="">Driver's License (State)</option><option>International Passport</option><option>Campus Faculty / Student ID</option><option>Government National ID</option></select></div><div><label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-medium">ID / Document Reference</label><input class="w-full px-3 py-2 rounded-xl bg-surface-container-low text-on-surface border border-outline-variant/60 font-body-sm text-body-sm focus:border-primary focus:bg-surface-container-lowest outline-none transition-all" type="text" value="CA DL #••••-8941"/></div><div><label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-medium">Expiration Date</label><input class="w-full px-3 py-2 rounded-xl bg-surface-container-low text-on-surface border border-outline-variant/60 font-body-sm text-body-sm focus:border-primary focus:bg-surface-container-lowest outline-none transition-all" type="text" value="10/2028"/></div></div></div><div class="flex flex-col gap-space-sm"><div class="flex items-center justify-between border-b border-surface-container pb-1"><span class="font-label-md text-label-md text-primary font-semibold flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">room_service</span> 4. Concierge Preferences &amp; Frontline Notes</span><span class="text-label-sm font-label-sm text-on-surface-variant">Staff operational instructions</span></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md pt-1"><div><label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-medium">Room &amp; Floor Preferences</label><input class="w-full px-3 py-2 rounded-xl bg-surface-container-low text-on-surface border border-outline-variant/60 font-body-sm text-body-sm focus:border-primary focus:bg-surface-container-lowest outline-none transition-all" type="text" value="High floors (3rd floor+), quiet room away from elevators"/></div><div><label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-medium">Dietary &amp; Bedding Amenities</label><input class="w-full px-3 py-2 rounded-xl bg-surface-container-low text-on-surface border border-outline-variant/60 font-body-sm text-body-sm focus:border-primary focus:bg-surface-container-lowest outline-none transition-all" type="text" value="Hypoallergenic feather pillows, plant-based breakfast options"/></div><div class="sm:col-span-2"><label class="block font-label-sm text-label-sm text-on-surface-variant mb-1 font-medium">Internal Front-Desk Admin Notes</label><textarea class="w-full px-3 py-2 rounded-xl bg-surface-container-low text-on-surface border border-outline-variant/60 font-body-sm text-body-sm focus:border-primary focus:bg-surface-container-lowest outline-none transition-all resize-none" rows="2">Prefers high floors (3rd floor+), hypoallergenic feather pillows, and quiet room away from elevators. Dietary: Plant-based breakfast options. Late check-out requested on Sundays.</textarea></div></div></div></div><div class="px-space-lg py-space-md bg-surface-container-low border-t border-surface-container flex flex-col sm:flex-row items-center justify-between gap-space-sm"><div class="flex items-center gap-2"><button class="inline-flex items-center gap-1.5 px-space-md py-2 rounded-full text-error hover:bg-error-container hover:text-on-error-container font-label-sm text-label-sm font-medium transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">delete</span> Delete Guest Profile</button><span class="hidden md:inline-block text-[11px] text-on-surface-variant border-l border-outline-variant/40 pl-2">Synchronized with Roomly PMS Customer Entity (OOAD)</span></div><div class="flex items-center gap-space-sm self-end sm:self-auto"><button class="px-space-md py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" onclick="document.getElementById('guest-modal-overlay').remove()" type="button">Cancel</button><button class="inline-flex items-center gap-2 px-space-lg py-2 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-md transition-all" onclick="document.getElementById('guest-modal-overlay').remove()" type="button"><span class="material-symbols-outlined text-[18px]">save</span> Save Guest Changes</button></div></div></div></div></body></html>

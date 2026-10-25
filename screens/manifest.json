@@ -1,0 +1,142 @@
+[
+  {
+    "index": 1,
+    "id": "00c9bb5326d1420486afbd9372154017",
+    "title": "Roomly \u2014 Admin Room Management (CRUD)",
+    "folder": "01_Roomly_Admin_Room_Management_CRUD",
+    "screenshot": "screenshot.png",
+    "code": "index.html",
+    "width": "2560",
+    "height": "4438"
+  },
+  {
+    "index": 2,
+    "id": "07cf8c0455f448bf845652f661f51a3d",
+    "title": "Roomly \u2014 Customer Dashboard & My Bookings",
+    "folder": "02_Roomly_Customer_Dashboard_My_Bookings",
+    "screenshot": "screenshot.png",
+    "code": "index.html",
+    "width": "2560",
+    "height": "3602"
+  },
+  {
+    "index": 3,
+    "id": "0a375e27d9db420c802dab277f0cb9a2",
+    "title": "Roomly \u2014 Admin Customer Management (Guests)",
+    "folder": "03_Roomly_Admin_Customer_Management_Guests",
+    "screenshot": "screenshot.png",
+    "code": "index.html",
+    "width": "2560",
+    "height": "3110"
+  },
+  {
+    "index": 4,
+    "id": "1724984f29dd47a8a0b15b10e001eb3d",
+    "title": "Roomly \u2014 Admin Dashboard",
+    "folder": "04_Roomly_Admin_Dashboard",
+    "screenshot": "screenshot.png",
+    "code": "index.html",
+    "width": "2560",
+    "height": "3166"
+  },
+  {
+    "index": 5,
+    "id": "1fe8bd30bbd346c098e3f49ed287de59",
+    "title": "Roomly \u2014 Admin Reports & Analytics",
+    "folder": "05_Roomly_Admin_Reports_Analytics",
+    "screenshot": "screenshot.png",
+    "code": "index.html",
+    "width": "2560",
+    "height": "4508"
+  },
+  {
+    "index": 6,
+    "id": "2475028e4f5d481f803251298beb22bc",
+    "title": "Roomly \u2014 Home",
+    "folder": "06_Roomly_Home",
+    "screenshot": "screenshot.png",
+    "code": "index.html",
+    "width": "2560",
+    "height": "4784"
+  },
+  {
+    "index": 7,
+    "id": "2d4fb285771f49e2954845bbcbc2da69",
+    "title": "Roomly \u2014 Guest Registration",
+    "folder": "07_Roomly_Guest_Registration",
+    "screenshot": "screenshot.png",
+    "code": "index.html",
+    "width": "2560",
+    "height": "3334"
+  },
+  {
+    "index": 8,
+    "id": "14133812624323476904",
+    "title": "ChatGPT Image Sep 28, 2026, 02_47_25 AM.png",
+    "folder": "08_ChatGPT_Image_Sep_28_2026_02_47_25_AM_png",
+    "screenshot": "screenshot.png",
+    "code": null,
+    "width": "1254",
+    "height": "1254"
+  },
+  {
+    "index": 9,
+    "id": "378c31213e184e36a35bec5b5b1b4c70",
+    "title": "Roomly \u2014 Admin Guest Management (Add / Edit Guest Modal)",
+    "folder": "09_Roomly_Admin_Guest_Management_Add_Edit_Guest_Modal",
+    "screenshot": "screenshot.png",
+    "code": "index.html",
+    "width": "2560",
+    "height": "3110"
+  },
+  {
+    "index": 10,
+    "id": "5990897432de4a1fa2958d8b685f214f",
+    "title": "Roomly \u2014 Available Rooms",
+    "folder": "10_Roomly_Available_Rooms",
+    "screenshot": "screenshot.png",
+    "code": "index.html",
+    "width": "2560",
+    "height": "5036"
+  },
+  {
+    "index": 11,
+    "id": "5a272b859fbe4ce6b29309699c224c4c",
+    "title": "Roomly \u2014 Room Details (Deluxe King Suite)",
+    "folder": "11_Roomly_Room_Details_Deluxe_King_Suite",
+    "screenshot": "screenshot.png",
+    "code": "index.html",
+    "width": "2560",
+    "height": "7264"
+  },
+  {
+    "index": 12,
+    "id": "682edb276b884e85aa85fc0974b9d761",
+    "title": "Roomly \u2014 Admin Booking Management",
+    "folder": "12_Roomly_Admin_Booking_Management",
+    "screenshot": "screenshot.png",
+    "code": "index.html",
+    "width": "2560",
+    "height": "3220"
+  },
+  {
+    "index": 13,
+    "id": "7b8d3430b5a040e49e7b1787d201d314",
+    "title": "Roomly \u2014 Booking & Checkout",
+    "folder": "13_Roomly_Booking_Checkout",
+    "screenshot": "screenshot.png",
+    "code": "index.html",
+    "width": "2560",
+    "height": "3568"
+  },
+  {
+    "index": 14,
+    "id": "922aabdb3d744b5caedbf1900f4ce2c0",
+    "title": "Roomly \u2014 Login & Authentication",
+    "folder": "14_Roomly_Login_Authentication",
+    "screenshot": "screenshot.png",
+    "code": "index.html",
+    "width": "2560",
+    "height": "2896"
+  }
+]

@@ -96,6 +96,108 @@ public class Room {
     @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
 
+    public enum RoomStatus {
+        AVAILABLE("Available"),
+        OCCUPIED("Occupied"),
+        RESERVED("Reserved"),
+        MAINTENANCE("Maintenance");
+
+        private final String value;
+
+        RoomStatus(String value) {
+            this.value = value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonCreator
+        public static RoomStatus fromString(String text) {
+            if (text == null) return AVAILABLE;
+            for (RoomStatus b : RoomStatus.values()) {
+                if (b.value.equalsIgnoreCase(text) || b.name().equalsIgnoreCase(text)) {
+                    return b;
+                }
+            }
+            return AVAILABLE;
+        }
+
+        @Override
+        public String toString() {
+            return value;
+        }
+    }
+
+    public enum RoomType {
+        DELUXE_SUITE("Deluxe Suite"),
+        EXECUTIVE_SUITE("Executive Suite"),
+        OCEAN_VILLA("Ocean Villa"),
+        PRESIDENTIAL_SUITE("Presidential Suite"),
+        STANDARD_ROOM("Standard Room"),
+        PENTHOUSE("Penthouse");
+
+        private final String value;
+
+        RoomType(String value) {
+            this.value = value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonCreator
+        public static RoomType fromString(String text) {
+            if (text == null) return DELUXE_SUITE;
+            for (RoomType b : RoomType.values()) {
+                if (b.value.equalsIgnoreCase(text) || b.name().equalsIgnoreCase(text.replace(" ", "_"))) {
+                    return b;
+                }
+            }
+            return DELUXE_SUITE;
+        }
+
+        @Override
+        public String toString() {
+            return value;
+        }
+    }
+
+    public RoomStatus getStatus() {
+        return RoomStatus.fromString(this.status);
+    }
+
+    public void setStatus(RoomStatus roomStatus) {
+        this.status = roomStatus != null ? roomStatus.getValue() : "Available";
+    }
+
+    public void setStatus(String status) {
+        this.status = status != null ? status : "Available";
+    }
+
+    public RoomType getType() {
+        return RoomType.fromString(this.type);
+    }
+
+    public void setType(RoomType roomType) {
+        this.type = roomType != null ? roomType.getValue() : "Deluxe Suite";
+    }
+
+    public void setType(String type) {
+        this.type = type != null ? type : "Deluxe Suite";
+    }
+
+    public Integer getSizeSqft() {
+        return sizeSqFt;
+    }
+
+    public void setSizeSqft(Integer sizeSqft) {
+        this.sizeSqFt = sizeSqft;
+    }
+
     public String getName() {
         return title;
     }

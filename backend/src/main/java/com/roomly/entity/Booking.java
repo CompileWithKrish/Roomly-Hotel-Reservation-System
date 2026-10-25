@@ -91,6 +91,12 @@ public class Booking {
     @Builder.Default
     private String source = "Direct Booking";
 
+    @Column(name = "offer_id")
+    private UUID offerId;
+
+    @Column(name = "offer_code", length = 50)
+    private String offerCode;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;
@@ -98,6 +104,144 @@ public class Booking {
     @UpdateTimestamp
     @Column(name = "updated_at", nullable = false)
     private Instant updatedAt;
+
+    public enum BookingStatus {
+        CONFIRMED("Confirmed"),
+        PENDING("Pending"),
+        CHECKED_IN("Checked-In"),
+        CHECKED_OUT("Checked-Out"),
+        CANCELLED("Cancelled");
+
+        private final String value;
+
+        BookingStatus(String value) {
+            this.value = value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonCreator
+        public static BookingStatus fromString(String text) {
+            if (text == null) return PENDING;
+            for (BookingStatus b : BookingStatus.values()) {
+                if (b.value.equalsIgnoreCase(text) || b.name().equalsIgnoreCase(text.replace("-", "_"))) {
+                    return b;
+                }
+            }
+            return PENDING;
+        }
+
+        @Override
+        public String toString() {
+            return value;
+        }
+    }
+
+    public enum PaymentStatus {
+        PAID("Paid"),
+        PENDING("Pending"),
+        REFUNDED("Refunded");
+
+        private final String value;
+
+        PaymentStatus(String value) {
+            this.value = value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonCreator
+        public static PaymentStatus fromString(String text) {
+            if (text == null) return PENDING;
+            for (PaymentStatus b : PaymentStatus.values()) {
+                if (b.value.equalsIgnoreCase(text) || b.name().equalsIgnoreCase(text)) {
+                    return b;
+                }
+            }
+            return PENDING;
+        }
+
+        @Override
+        public String toString() {
+            return value;
+        }
+    }
+
+    public enum BookingSource {
+        DIRECT("Direct Booking"),
+        ONLINE("Online"),
+        AGENCY("Travel Agency"),
+        WALK_IN("Walk-in");
+
+        private final String value;
+
+        BookingSource(String value) {
+            this.value = value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonValue
+        public String getValue() {
+            return value;
+        }
+
+        @com.fasterxml.jackson.annotation.JsonCreator
+        public static BookingSource fromString(String text) {
+            if (text == null) return DIRECT;
+            for (BookingSource b : BookingSource.values()) {
+                if (b.value.equalsIgnoreCase(text) || b.name().equalsIgnoreCase(text.replace(" ", "_").replace("-", "_"))) {
+                    return b;
+                }
+            }
+            return DIRECT;
+        }
+
+        @Override
+        public String toString() {
+            return value;
+        }
+    }
+
+    public BookingStatus getStatus() {
+        return BookingStatus.fromString(this.status);
+    }
+
+    public void setStatus(BookingStatus bookingStatus) {
+        this.status = bookingStatus != null ? bookingStatus.getValue() : "PENDING";
+    }
+
+    public void setStatus(String status) {
+        this.status = status != null ? status : "PENDING";
+    }
+
+    public PaymentStatus getPaymentStatus() {
+        return PaymentStatus.fromString(this.paymentStatus);
+    }
+
+    public void setPaymentStatus(PaymentStatus paymentStatus) {
+        this.paymentStatus = paymentStatus != null ? paymentStatus.getValue() : "PENDING";
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus != null ? paymentStatus : "PENDING";
+    }
+
+    public BookingSource getSource() {
+        return BookingSource.fromString(this.source);
+    }
+
+    public void setSource(BookingSource bookingSource) {
+        this.source = bookingSource != null ? bookingSource.getValue() : "Direct Booking";
+    }
+
+    public void setSource(String source) {
+        this.source = source != null ? source : "Direct Booking";
+    }
 
     public String getBookingNumber() {
         return bookingCode;

@@ -38,7 +38,10 @@ public class BookingDto {
     private String paymentMethod;
     private BigDecimal roomPrice;
     private BigDecimal taxAmount;
+    private BigDecimal discount;
     private BigDecimal totalAmount;
+    private UUID offerId;
+    private String offerCode;
     private String specialRequests;
     private BookingSource source;
     private LocalDateTime createdAt;

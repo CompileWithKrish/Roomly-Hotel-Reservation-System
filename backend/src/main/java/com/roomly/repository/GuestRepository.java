@@ -20,17 +20,21 @@ public interface GuestRepository extends JpaRepository<Guest, UUID> {
 
     boolean existsByEmail(String email);
 
-    long countByStatus(GuestStatus status);
+    long countByStatus(String status);
+
+    default long countByGuestStatus(GuestStatus status) {
+        return countByStatus(status != null ? status.getValue() : "Active");
+    }
 
     @Query("SELECT g FROM Guest g WHERE " +
-           "(:search IS NULL OR LOWER(g.fullName) LIKE LOWER(CONCAT('%', :search, '%')) " +
+           "(:search IS NULL OR LOWER(CONCAT(g.firstName, ' ', g.lastName)) LIKE LOWER(CONCAT('%', :search, '%')) " +
            "OR LOWER(g.email) LIKE LOWER(CONCAT('%', :search, '%')) " +
            "OR LOWER(g.phone) LIKE LOWER(CONCAT('%', :search, '%')) " +
-           "OR LOWER(g.passportNumber) LIKE LOWER(CONCAT('%', :search, '%'))) AND " +
-           "(:tier IS NULL OR g.tier = :tier) AND " +
-           "(:status IS NULL OR g.status = :status)")
+           "OR LOWER(g.passportId) LIKE LOWER(CONCAT('%', :search, '%'))) AND " +
+           "(:tier IS NULL OR LOWER(g.tier) = LOWER(:tier)) AND " +
+           "(:status IS NULL OR LOWER(g.status) = LOWER(:status))")
     Page<Guest> findWithFilters(@Param("search") String search,
-                               @Param("tier") GuestTier tier,
-                               @Param("status") GuestStatus status,
+                               @Param("tier") String tier,
+                               @Param("status") String status,
                                Pageable pageable);
 }

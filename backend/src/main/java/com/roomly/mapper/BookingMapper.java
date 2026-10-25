@@ -38,10 +38,13 @@ public class BookingMapper {
                 .paymentMethod(booking.getPaymentMethod())
                 .roomPrice(booking.getRoomPrice())
                 .taxAmount(booking.getTaxAmount())
+                .discount(booking.getDiscount())
                 .totalAmount(booking.getTotalAmount())
+                .offerId(booking.getOfferId())
+                .offerCode(booking.getOfferCode())
                 .specialRequests(booking.getSpecialRequests())
                 .source(booking.getSource())
-                .createdAt(booking.getCreatedAt())
+                .createdAt(booking.getCreatedAt() != null ? java.time.LocalDateTime.ofInstant(booking.getCreatedAt(), java.time.ZoneOffset.UTC) : null)
                 .build();
     }
 }

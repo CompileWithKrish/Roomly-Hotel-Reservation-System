@@ -44,6 +44,17 @@ public class SecurityConfig {
                         // Public Room Browsing Endpoints
                         .requestMatchers(HttpMethod.GET, "/api/v1/rooms/**").permitAll()
 
+                        // Public Booking Endpoints (create booking as guest/customer)
+                        .requestMatchers(HttpMethod.POST, "/api/v1/bookings").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/bookings/{id}").permitAll()
+
+                        // Public Reports & Stats Endpoints
+                        .requestMatchers(HttpMethod.GET, "/api/v1/reports/**").permitAll()
+
+                        // Public Offers Endpoints
+                        .requestMatchers(HttpMethod.GET, "/api/v1/offers/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/offers/validate").permitAll()
+
                         // Swagger & OpenAPI
                         .requestMatchers(
                                 "/swagger-ui/**",

@@ -33,7 +33,7 @@ public class GuestMapper {
                 .passportNumber(guest.getPassportNumber())
                 .notes(guest.getNotes())
                 .preferences(guest.getPreferences() != null ? new ArrayList<>(guest.getPreferences()) : new ArrayList<>())
-                .createdAt(guest.getCreatedAt())
+                .createdAt(guest.getCreatedAt() != null ? java.time.LocalDateTime.ofInstant(guest.getCreatedAt(), java.time.ZoneOffset.UTC) : null)
                 .build();
     }
 
@@ -41,19 +41,26 @@ public class GuestMapper {
         if (request == null) {
             return null;
         }
+        String fullName = request.getFullName();
+        String[] parts = fullName != null ? fullName.trim().split("\\s+", 2) : new String[]{"", ""};
+        String firstName = parts[0];
+        String lastName = parts.length > 1 ? parts[1] : "";
+
         return Guest.builder()
-                .fullName(request.getFullName())
+                .firstName(firstName)
+                .lastName(lastName)
                 .email(request.getEmail())
                 .phone(request.getPhone())
-                .avatar(request.getAvatar())
-                .tier(request.getTier())
-                .status(request.getStatus())
+                .avatarUrl(request.getAvatar())
+                .tier(request.getTier() != null ? request.getTier().getValue() : "Regular")
+                .status(request.getStatus() != null ? request.getStatus().getValue() : "Active")
                 .totalStays(0)
                 .totalSpent(BigDecimal.ZERO)
                 .address(request.getAddress())
                 .city(request.getCity())
                 .country(request.getCountry())
-                .passportNumber(request.getPassportNumber())
+                .nationality(request.getCountry())
+                .passportId(request.getPassportNumber())
                 .notes(request.getNotes())
                 .preferences(request.getPreferences() != null ? new ArrayList<>(request.getPreferences()) : new ArrayList<>())
                 .build();

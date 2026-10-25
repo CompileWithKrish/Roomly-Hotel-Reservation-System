@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary": "#004fd2", "inverse-on-surface": "#eef0ff", "surface-bright": "#faf8ff", "tertiary-container": "#a06500", "surface-container": "#eaedff", "on-surface": "#131b2e", "on-error-container": "#93000a", "surface-container-high": "#e2e7ff", "tertiary-fixed": "#ffddb8", "outline-variant": "#c3c6d8", "on-secondary-container": "#004666", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#b4c5ff", "secondary-fixed-dim": "#89ceff", "on-secondary-fixed": "#001e2f", "on-tertiary-container": "#fff7f3", "on-surface-variant": "#424655", "on-tertiary-fixed": "#2a1700", "on-background": "#131b2e", "surface": "#faf8ff", "on-secondary-fixed-variant": "#004c6e", "secondary-container": "#39b8fd", "secondary-fixed": "#c9e6ff", "inverse-primary": "#b4c5ff", "primary-container": "#1a66ff", "secondary": "#006591", "on-secondary": "#ffffff", "outline": "#737687", "on-tertiary": "#ffffff", "error": "#ba1a1a", "background": "#faf8ff", "tertiary-fixed-dim": "#ffb95f", "on-primary-container": "#faf8ff", "on-primary-fixed-variant": "#003da8", "surface-tint": "#0052dc", "error-container": "#ffdad6", "surface-container-highest": "#dae2fd", "surface-container-low": "#f2f3ff", "on-error": "#ffffff", "on-tertiary-fixed-variant": "#653e00", "on-primary-fixed": "#00174b", "tertiary": "#7f4f00", "primary-fixed": "#dbe1ff", "inverse-surface": "#283044", "surface-variant": "#dae2fd", "surface-dim": "#d2d9f4", "on-primary": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2.5rem", "space-sm": "0.5rem", "margin-sm": "1rem", "gutter-sm": "1rem", "gutter": "1.5rem", "space-xs": "0.25rem", "margin": "2rem", "space-lg": "1.5rem", "space-md": "1rem" }, "fontFamily": { "display": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "display-mobile": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"] }, "fontSize": { "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "display-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }] } } } }</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 max-w-[1200px] mx-auto px-margin-sm lg:px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm" data-path="home" href="#"><img alt="Roomly" class="w-9 h-9 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VdKvmyEdYOSxp8kFYgLVq9hy6T1gGC6IRh7kT8WOTC65GBVST5wt5eh3Xg-MiKq9LCS5znNdlL6ucmuhqeEv3hON7rRsG_jyIijau5b0sBEP2AgzZPsmx7myRTmu1WrcuU2pIkhf42ZWsv41_PqnhAXg44dNSibQZER0-Pzre3GIidAXKPtuNBgMvzwcxB-pbxCafJG8S9WpRM4Y6jTr8wrIwzVJ3YX_Y_CgsQwXGJ_BubgSXtcWaDGaB_IoqGwvyjvlindX3z"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">Roomly</span><span class="font-label-sm text-label-sm text-on-surface-variant hidden sm:inline-block leading-none">Stay Easy. Book Simply.</span></div></a></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-primary font-label-md"><a class="px-space-md py-space-sm rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="home" href="#">Home</a><a aria-current="page" class="px-space-md py-space-sm rounded-full transition-colors bg-surface-container-high text-primary font-label-md" data-path="rooms" href="#">Rooms</a><a class="px-space-md py-space-sm rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="about" href="#">About</a><a class="px-space-md py-space-sm rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="contact" href="#">Contact</a></nav><div class="flex items-center gap-space-sm"><nav class="hidden sm:flex items-center gap-space-xs" data-active-classes="bg-surface-container-high text-primary font-label-md"><a class="px-space-md py-space-sm rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="login" href="#">Login</a><a class="px-space-md py-space-sm rounded-full font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors" data-path="register" href="#">Register</a></nav><a class="flex items-center gap-space-xs px-space-md py-space-sm rounded-full bg-surface-container-highest text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors" data-path="admin-portal" href="#"><span class="w-2 h-2 rounded-full bg-secondary-container"></span><span>Admin Portal</span></a><img alt="Profile" class="w-8 h-8 rounded-full object-cover ml-space-xs" src="https://lh3.googleusercontent.com/aida/AEtjO1VdKvmyEdYOSxp8kFYgLVq9hy6T1gGC6IRh7kT8WOTC65GBVST5wt5eh3Xg-MiKq9LCS5znNdlL6ucmuhqeEv3hON7rRsG_jyIijau5b0sBEP2AgzZPsmx7myRTmu1WrcuU2pIkhf42ZWsv41_PqnhAXg44dNSibQZER0-Pzre3GIidAXKPtuNBgMvzwcxB-pbxCafJG8S9WpRM4Y6jTr8wrIwzVJ3YX_Y_CgsQwXGJ_BubgSXtcWaDGaB_IoqGwvyjvlindX3z"/></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- Top Ambient Glow & Header Container -->
+<section class="relative w-full overflow-hidden pb-space-lg">
+<div class="absolute -top-32 -left-20 w-96 h-96 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+<div class="absolute top-0 right-10 w-80 h-80 rounded-full bg-secondary-container/20 blur-3xl pointer-events-none"></div>
+<div class="max-w-[1200px] mx-auto px-margin-sm lg:px-margin pt-space-md">
+<!-- Page Breadcrumb / Status Metadata Ribbon -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-sm">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="hover:text-primary transition-colors cursor-pointer">Reservations</span>
+<span>/</span>
+<span class="text-primary font-semibold">Live Inventory</span>
+<span>•</span>
+<span class="inline-flex items-center gap-1 text-secondary font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+            Real-Time Rates Synced
+          </span>
+</div>
+<div class="hidden sm:flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+<span>Best Rate Guarantee Direct Booking</span>
+</div>
+</div>
+<!-- Headline & Subtitle -->
+<div class="max-w-3xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Available Rooms</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-space-xs">
+          Browse our curated selection of comfortable, modern rooms tailored to your stay. Transparent pricing, high-speed Wi-Fi, and flexible check-in included.
+        </p>
+</div>
+<!-- Quick Info Ticker Bar -->
+<div class="mt-space-lg grid grid-cols-2 md:grid-cols-4 gap-space-sm">
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">meeting_room</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface leading-tight">5</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Suites &amp; Rooms Ready</div>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 text-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">speed</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface leading-tight">Instant</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Mobile Confirmation</div>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">wifi</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface leading-tight">1 Gbps</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Fiber Wi-Fi Free</div>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">room_service</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface leading-tight">24 / 7</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Concierge &amp; Dining</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Exploration Hub: Sidebar & Grid -->
+<section class="w-full max-w-[1200px] mx-auto px-margin-sm lg:px-margin pb-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- LEFT FILTER PANEL -->
+<aside class="lg:col-span-4 sticky top-24 z-20">
+<form class="rounded-xl bg-surface-container-lowest shadow-md p-space-lg flex flex-col gap-space-md" id="filterForm" onsubmit="event.preventDefault(); applyRoomFilters();">
+<!-- Header and Reset -->
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Filter Stays</h2>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:underline flex items-center gap-1 transition-colors" onclick="resetFilters()" type="button">
+<span class="material-symbols-outlined text-[16px]">restart_alt</span>
+              Reset
+            </button>
+</div>
+<!-- Dates Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1" for="checkin">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span> Check-in
+              </label>
+<input class="w-full px-space-sm py-2 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-high transition-colors" id="checkin" type="date" value="2025-06-15"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1" for="checkout">
+<span class="material-symbols-outlined text-[14px]">event_available</span> Check-out
+              </label>
+<input class="w-full px-space-sm py-2 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-high transition-colors" id="checkout" type="date" value="2025-06-18"/>
+</div>
+</div>
+<!-- Guests Selector -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1" for="guestsSelect">
+<span class="material-symbols-outlined text-[16px]">group</span> Number of Guests
+            </label>
+<div class="relative">
+<select class="w-full appearance-none px-space-md py-2.5 rounded-lg bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none focus:bg-surface-container-high transition-colors pr-10 cursor-pointer" id="guestsSelect">
+<option value="any">Any guest capacity</option>
+<option value="1">1 Guest</option>
+<option value="2">2 Guests</option>
+<option value="3">3 Guests</option>
+<option value="4">4+ Guests</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Price Range Slider -->
+<div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between font-label-md text-label-md text-on-surface">
+<span>Max Nightly Budget</span>
+<span class="px-space-sm py-0.5 rounded-full bg-primary text-on-primary font-bold text-label-sm" id="priceDisplay">$250</span>
+</div>
+<input class="w-full accent-primary h-2 bg-surface-container rounded-lg cursor-pointer my-1" id="priceRange" max="250" min="50" oninput="updatePriceSlider(this.value)" step="5" type="range" value="250"/>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>$50</span>
+<span>$150</span>
+<span>$250</span>
+</div>
+</div>
+<!-- Room Type Checkboxes -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface">Room Type</label>
+<div class="grid grid-cols-2 gap-space-xs">
+<label class="flex items-center gap-space-xs p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" name="roomType" type="checkbox" value="single"/>
+<span class="font-body-sm text-body-sm text-on-surface">Single Room</span>
+</label>
+<label class="flex items-center gap-space-xs p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" name="roomType" type="checkbox" value="double"/>
+<span class="font-body-sm text-body-sm text-on-surface">Double Room</span>
+</label>
+<label class="flex items-center gap-space-xs p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" name="roomType" type="checkbox" value="deluxe"/>
+<span class="font-body-sm text-body-sm text-on-surface">Deluxe Room</span>
+</label>
+<label class="flex items-center gap-space-xs p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" name="roomType" type="checkbox" value="suite"/>
+<span class="font-body-sm text-body-sm text-on-surface">Suite</span>
+</label>
+</div>
+</div>
+<!-- Facility Checkboxes -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface">Key In-Room Amenities</label>
+<div class="space-y-1.5">
+<label class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">wifi</span>
+<span class="font-body-sm text-body-sm text-on-surface">High-Speed Wi-Fi</span>
+</div>
+<input checked="" class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" name="facility" type="checkbox" value="wifi"/>
+</label>
+<label class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">ac_unit</span>
+<span class="font-body-sm text-body-sm text-on-surface">Air Conditioning</span>
+</div>
+<input checked="" class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" name="facility" type="checkbox" value="ac"/>
+</label>
+<label class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">tv</span>
+<span class="font-body-sm text-body-sm text-on-surface">Smart HDTV</span>
+</div>
+<input checked="" class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" name="facility" type="checkbox" value="tv"/>
+</label>
+<label class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">dinner_dining</span>
+<span class="font-body-sm text-body-sm text-on-surface">Room Service</span>
+</div>
+<input class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" name="facility" type="checkbox" value="service"/>
+</label>
+<label class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">bathtub</span>
+<span class="font-body-sm text-body-sm text-on-surface">Attached Bathroom</span>
+</div>
+<input checked="" class="w-4 h-4 rounded text-primary accent-primary cursor-pointer" name="facility" type="checkbox" value="bath"/>
+</label>
+</div>
+</div>
+<!-- CTA Buttons -->
+<div class="pt-space-xs flex flex-col gap-space-xs">
+<button class="w-full py-3 px-space-md rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-md transition-all flex items-center justify-center gap-space-xs" type="submit">
+<span class="material-symbols-outlined text-[18px]">search</span>
+              Apply Filters
+            </button>
+<p class="font-label-sm text-label-sm text-center text-on-surface-variant">Instant availability, no booking fees</p>
+</div>
+</form>
+</aside>
+<!-- RIGHT ROOM GRID & RESULTS -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<!-- Results Bar -->
+<div class="p-space-sm px-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface">Showing <strong class="text-primary font-bold" id="matchingCount">5</strong> Available Options</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">• St. Paul / Central Campus Hub</span>
+</div>
+<!-- Sort Select -->
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sort:</span>
+<select class="bg-surface-container-low text-on-surface font-label-sm text-label-sm rounded-lg px-2.5 py-1.5 focus:outline-none cursor-pointer" id="sortBy" onchange="sortRooms(this.value)">
+<option value="featured">Featured Picks</option>
+<option value="price-asc">Price: Low to High</option>
+<option value="price-desc">Price: High to Low</option>
+<option value="capacity">Guest Capacity</option>
+</select>
+</div>
+</div>
+<!-- Room Listing Cards Container -->
+<div class="flex flex-col gap-space-md" id="roomsContainer">
+<!-- ROOM CARD 1: 101 -->
+<article class="room-card group rounded-xl bg-surface-container-lowest shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row" data-facilities="wifi,ac,tv,bath" data-guests="1" data-price="65" data-room-id="101" data-type="single">
+<!-- Room Image & Tags -->
+<div class="relative md:w-5/12 h-56 md:h-auto overflow-hidden shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Warm and minimalist boutique hotel single bedroom with soft sunlight pouring across a neatly made Scandinavian style bed, white cotton duvet, light oak wood nightstand, contemporary pendant lamp, and gentle blue interior accents matching modern hospitality design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNr7c8kpIpjpBflH1vZZ8RsTLmHJl3s0NJutwT0MlANuyEUorgAm5_wMX8_YAi9Z8JHnAh3fHvOKFj2Utllp1Rb93ef9nzcIT_1zcK_ZUfXXklnmsp85RYm3ahl3HNjv1wiZKv7lrKUO8XH_iaxmpwxM-2fiu_kvtnzg5HlflFfYcpdBm7EQqkONfDVRTqApA9ahBeE-DOKPRACQY2NN3Pqh0b4aWcvts8yztIvsJuxkSiCVE7f-cv"/>
+<div class="absolute top-3 left-3 flex items-center gap-1.5">
+<span class="px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-bold shadow-sm">Room 101</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-sm text-label-sm font-semibold">1st Floor</span>
+</div>
+<div class="absolute bottom-3 left-3 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 text-on-surface font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.8</span>
+<span class="text-on-surface-variant">(42)</span>
+</div>
+</div>
+<!-- Room Body Details -->
+<div class="p-space-md md:p-space-lg flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-1">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Single Cozy Room</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">single_bed</span> 1 Guest • 1 Plush Single Bed • 220 sq ft
+                    </p>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold whitespace-nowrap">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                    Available
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 my-space-xs">
+                  Tailored for solo travelers, academics, and business professionals seeking peaceful relaxation with dedicated ergonomic workspace.
+                </p>
+<!-- Facility Badges -->
+<div class="flex flex-wrap items-center gap-1.5 my-space-sm">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">wifi</span> Wi-Fi
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">ac_unit</span> AC
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">tv</span> Smart TV
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">bathtub</span> Private Bath
+                  </span>
+</div>
+</div>
+<!-- Price & Actions Footer -->
+<div class="pt-space-sm flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-primary font-bold">$65</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/ night</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Taxes included • Free cancel</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" onclick="openDetailsModal('Single Cozy Room', '101', '$65', '1 Single Bed', '1 Guest', 'High-Speed Wi-Fi, Air Conditioning, 43-inch Smart TV, En-Suite Rain Shower, Work Desk', 'Ideal for solo stays with whisper-quiet double-glazed windows and comfortable ergonomic seating.')" type="button">
+                    View Details
+                  </button>
+<button class="px-space-md py-2.5 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-sm transition-all flex items-center gap-1" onclick="quickBook('101', 'Single Cozy Room', 65)" type="button">
+<span>Book Now</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- ROOM CARD 2: 204 -->
+<article class="room-card group rounded-xl bg-surface-container-lowest shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row" data-facilities="wifi,ac,tv,service,bath" data-guests="2" data-price="95" data-room-id="204" data-type="double">
+<div class="relative md:w-5/12 h-56 md:h-auto overflow-hidden shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Chic double hotel room with warm amber lamps, queen double bed with textured geometric throw pillows, contemporary framed art on soft gray accent wall, floor-to-ceiling balcony windows showing city trees in bright daylight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPqRxDXhvwPJwkrpwn5Obvi_ZeKyXbteCFMf9o73MdQqN25TeM5kIaIKXioEWKex71YO5Y52d0Iecrxr9YompchZVmEKii2Hy14412c-HJXt395z4SxRcUCGcLs9peY9apCDFy2tN2ES0ss3DbEsYCxDMIqzYclhiCSl8wRqjb51dRsfERlj5ikeYFLv_AaJJXolG7eVVnuO318uuyIKeKTG5e0Dd3Zc4fpSf8pfC2JqXfRcL3NAwi"/>
+<div class="absolute top-3 left-3 flex items-center gap-1.5">
+<span class="px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-bold shadow-sm">Room 204</span>
+<span class="px-2.5 py-1 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-semibold">Popular</span>
+</div>
+<div class="absolute bottom-3 left-3 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 text-on-surface font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.9</span>
+<span class="text-on-surface-variant">(88)</span>
+</div>
+</div>
+<div class="p-space-md md:p-space-lg flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-1">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Deluxe Double Room</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">king_bed</span> 2-3 Guests • 1 Plush Queen Bed • 340 sq ft
+                    </p>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold whitespace-nowrap">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                    Available
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 my-space-xs">
+                  A balanced retreat for couples or small families, featuring a scenic garden view, mini-bar, and custom atmospheric ambient lighting.
+                </p>
+<div class="flex flex-wrap items-center gap-1.5 my-space-sm">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">wifi</span> Wi-Fi
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">ac_unit</span> AC
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">tv</span> 50\" TV
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">dinner_dining</span> Room Service
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">bathtub</span> Attached Bath
+                  </span>
+</div>
+</div>
+<div class="pt-space-sm flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-primary font-bold">$95</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/ night</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Complimentary breakfast • Balcony</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" onclick="openDetailsModal('Deluxe Double Room', '204', '$95', '1 Queen Size Bed', '2-3 Guests', 'Fiber Wi-Fi, Climate Control, 50-inch Smart TV, 24/7 Room Service, Marble Vanity Bath, Private Balcony', 'Spacious and illuminated with garden perspectives, dedicated seating area, and artisan coffee station.')" type="button">
+                    View Details
+                  </button>
+<button class="px-space-md py-2.5 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-sm transition-all flex items-center gap-1" onclick="quickBook('204', 'Deluxe Double Room', 95)" type="button">
+<span>Book Now</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- ROOM CARD 3: 305 -->
+<article class="room-card group rounded-xl bg-surface-container-lowest shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row" data-facilities="wifi,ac,tv,service,bath" data-guests="4" data-price="140" data-room-id="305" data-type="suite">
+<div class="relative md:w-5/12 h-56 md:h-auto overflow-hidden shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Luxury hotel suite bedroom with California king bed, attached private glass-walled jacuzzi bath, velvet lounge armchair, warm marble accents, modern architectural pendant lights, high ceilings with city view." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzAUvCSgHBh3SJM78T0CT7wjl5rRHP_6fdrvkPNgsaXBA1ugvlsPCAK3KmBbrWFWdcgBfg76UvMKeO27oUkxIX-TFqvXaZtaCcNEVkWuaSvBsXuwHxz9jVAx1BrcnabcUj6jqRuXnePa_5fXxKbvpkeIAlChChedZG9z5ic4yPReXBSQ44lSS9HXNHwsNosjEf_fP0vrDQBrNmI5OOLaqpcBu5EfpSucur8xmUXAlQpJkCDkRWotKH"/>
+<div class="absolute top-3 left-3 flex items-center gap-1.5">
+<span class="px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-bold shadow-sm">Room 305</span>
+<span class="px-2.5 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold">Premium</span>
+</div>
+<div class="absolute bottom-3 left-3 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 text-on-surface font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.95</span>
+<span class="text-on-surface-variant">(112)</span>
+</div>
+</div>
+<div class="p-space-md md:p-space-lg flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-1">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Premium Deluxe Suite</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">bedroom_parent</span> 2-4 Guests • King Bed &amp; Jacuzzi • 520 sq ft
+                    </p>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold whitespace-nowrap">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                    Available
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 my-space-xs">
+                  Indulgent comfort equipped with an in-suite whirlpool hydro-bath, plush king mattress, expansive living nook, and premium bath amenities.
+                </p>
+<div class="flex flex-wrap items-center gap-1.5 my-space-sm">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">hot_tub</span> Jacuzzi
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">wifi</span> Wi-Fi
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">ac_unit</span> AC
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">tv</span> 55\" TV
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">dinner_dining</span> 24/7 Dining
+                  </span>
+</div>
+</div>
+<div class="pt-space-sm flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-primary font-bold">$140</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/ night</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Complimentary spa access • Valet parking</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" onclick="openDetailsModal('Premium Deluxe Suite', '305', '$140', '1 King Bed + Pull-out Sofa', '2-4 Guests', 'Private In-Room Jacuzzi, 1 Gbps Wi-Fi, Multi-zone Climate Control, 55-inch Ultra HD TV, Gourmet Room Service, Nespresso Bar', 'Unmatched comfort crafted for extended luxury, complete with deep soaking hydromassage bath and panoramic vista.')" type="button">
+                    View Details
+                  </button>
+<button class="px-space-md py-2.5 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-sm transition-all flex items-center gap-1" onclick="quickBook('305', 'Premium Deluxe Suite', 140)" type="button">
+<span>Book Now</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- ROOM CARD 4: 108 -->
+<article class="room-card group rounded-xl bg-surface-container-lowest shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row" data-facilities="wifi,ac,tv,bath" data-guests="2" data-price="80" data-room-id="108" data-type="single">
+<div class="relative md:w-5/12 h-56 md:h-auto overflow-hidden shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Twin bedroom hotel interior with two matching comfortable twin single beds, crisp white sheets with navy blue blankets, modern wall reading sconces, central bedside table, natural sunlight through sheer drapes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZWL_OoHKcCkBNtIz9d_uON64-tvF-leMkdrcDD2jfpT_CW3NZUZC1SshFNNZlPICEdIfMHZXGRkradumMukqEWGg6lHTuDMyKH6n469zlxD-vvrM_A5kguJwIMmqkssfKJZB5Pwow0i4lggMJlgY80AjMvbBEmuipUOzIWxu9AmiMr3aw0LElf1IHv6ZE8vcOqvMiVbdNYmjKgvhyBIgG7Q5qTzSZp4qQTDsxbz4Y8V_fy_S56NMj"/>
+<div class="absolute top-3 left-3 flex items-center gap-1.5">
+<span class="px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-bold shadow-sm">Room 108</span>
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur text-on-surface font-label-sm text-label-sm font-semibold">1st Floor</span>
+</div>
+<div class="absolute bottom-3 left-3 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 text-on-surface font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.7</span>
+<span class="text-on-surface-variant">(39)</span>
+</div>
+</div>
+<div class="p-space-md md:p-space-lg flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-1">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Twin Standard Room</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">bed</span> 2 Guests • 2 Twin Single Beds • 280 sq ft
+                    </p>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold whitespace-nowrap">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                    Available
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 my-space-xs">
+                  Clean, streamlined, and practical layout configured with separate twin sleeping spaces. Perfect for conference colleagues and friends traveling together.
+                </p>
+<div class="flex flex-wrap items-center gap-1.5 my-space-sm">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">wifi</span> Wi-Fi
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">ac_unit</span> AC
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">tv</span> Smart TV
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">bathtub</span> Attached Bath
+                  </span>
+</div>
+</div>
+<div class="pt-space-sm flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-primary font-bold">$80</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/ night</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Free high-speed Wi-Fi • Daily housekeeping</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" onclick="openDetailsModal('Twin Standard Room', '108', '$80', '2 Individual Twin Beds', '2 Guests', 'Fast Wi-Fi, Silent Inverter AC, Flat Screen Smart TV, Full Attached Shower Bathroom, USB Fast Charge Ports', 'Optimized layout providing privacy and comfort for two companions staying together.')" type="button">
+                    View Details
+                  </button>
+<button class="px-space-md py-2.5 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-sm transition-all flex items-center gap-1" onclick="quickBook('108', 'Twin Standard Room', 80)" type="button">
+<span>Book Now</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+<!-- ROOM CARD 5: 402 -->
+<article class="room-card group rounded-xl bg-surface-container-lowest shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col md:flex-row" data-facilities="wifi,ac,tv,service,bath" data-guests="4" data-price="190" data-room-id="402" data-type="suite">
+<div class="relative md:w-5/12 h-56 md:h-auto overflow-hidden shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Top floor penthouse suite interior with expansive wraparound floor-to-ceiling glass windows revealing an evening skyline view, modern sectional sofa, king bed on elevated platform, architectural ambient strip lighting, and contemporary designer finishes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA55469BM7tOOK644e3Rhvvueq9ZMj_we7Z68RrNlCE8jtI34t0_cXU9kmAQU_i38sjuVV5Msu9CKkLKwODBJLssEta9ejqUViBkvn-Oq8hyM_WJEjHjqU7M01U3UCiZifMRnl4Ic6f83MIFQUKZLcHRTdcSfSgV7GTNmS8CFRzRWPsxK5uHtHc-S6yc-YDez_OjUbDANK8hMKRp-JidxyVli_IOpsF1KgJNqk787RIOLqdJ9XhqVb0"/>
+<div class="absolute top-3 left-3 flex items-center gap-1.5">
+<span class="px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-bold shadow-sm">Room 402</span>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">Penthouse</span>
+</div>
+<div class="absolute bottom-3 left-3 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 text-on-surface font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">5.0</span>
+<span class="text-on-surface-variant">(64)</span>
+</div>
+</div>
+<div class="p-space-md md:p-space-lg flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between gap-space-sm mb-1">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Executive Penthouse Suite</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">apartment</span> 4 Guests • Panoramic Skyline View • 760 sq ft
+                    </p>
+</div>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold whitespace-nowrap">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                    Available
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 my-space-xs">
+                  The crowning jewel of Roomly. Spectacular panoramic city vistas, master bedroom suite, walk-in double shower, and dedicated VIP room service.
+                </p>
+<div class="flex flex-wrap items-center gap-1.5 my-space-sm">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">visibility</span> Skyline View
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">wifi</span> 1 Gbps Wi-Fi
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">ac_unit</span> Climate Control
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">dinner_dining</span> VIP Dining
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-surface-container-low text-on-surface font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-primary">bathtub</span> Dual Vanities
+                  </span>
+</div>
+</div>
+<div class="pt-space-sm flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md text-primary font-bold">$190</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/ night</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Airport transfer included • Executive club lounge</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-md py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" onclick="openDetailsModal('Executive Penthouse Suite', '402', '$190', '1 California King + 1 Queen Murphy Bed', 'Up to 4 Guests', 'Panoramic Horizon Terraces, Private Bar, 65-inch OLED Home Theater, Steam Shower, Butler Service Call, Espresso Bar', 'Uncompromised top-floor prestige offering panoramic golden hour views and master craftsmanship throughout.')" type="button">
+                    View Details
+                  </button>
+<button class="px-space-md py-2.5 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-sm transition-all flex items-center gap-1" onclick="quickBook('402', 'Executive Penthouse Suite', 190)" type="button">
+<span>Book Now</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Empty Results Placeholder (Hidden by default) -->
+<div class="hidden p-space-xl rounded-xl bg-surface-container-lowest shadow-sm flex flex-col items-center justify-center text-center gap-space-sm py-16" id="noResultsState">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[32px]">search_off</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">No Rooms Match Your Criteria</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+            Try adjusting your nightly budget slider, guest capacity, or clearing selected facility filters to see available dates.
+          </p>
+<button class="mt-space-xs px-space-md py-2.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary-container transition-colors" onclick="resetFilters()" type="button">
+            Reset All Filters
+          </button>
+</div>
+<!-- Pagination & Support Assurance Strip -->
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-md mt-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">headset_mic</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">Need a custom group booking or extended stay?</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Our concierge handles 5+ room packages with discounted institutional rates.</span>
+</div>
+</div>
+<button class="whitespace-nowrap px-space-md py-2 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container transition-colors" type="button">
+            Contact Front Desk
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Details Modal Dialog -->
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-on-surface/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 p-space-md" id="roomDetailsModal">
+<div class="bg-surface-container-lowest rounded-2xl max-w-lg w-full p-space-lg shadow-2xl transform scale-95 transition-transform duration-300 relative flex flex-col gap-space-md max-h-[921px] overflow-y-auto">
+<!-- Close Button -->
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full bg-surface-container-low text-on-surface hover:bg-surface-container-high flex items-center justify-center transition-colors" onclick="closeDetailsModal()" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+<!-- Modal Content Header -->
+<div class="pr-8">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold mb-1">
+<span class="material-symbols-outlined text-[14px]">hotel</span> Room Specifications
+        </div>
+<h3 class="font-headline-md text-headline-md text-on-surface" id="modalRoomTitle">Room Details</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5" id="modalRoomSub">Room 101 • St. Paul Campus Hub</p>
+</div>
+<!-- Quick Metadata Stats Grid -->
+<div class="grid grid-cols-2 gap-space-sm p-space-sm rounded-xl bg-surface-container-low">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Nightly Rate</span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold" id="modalRoomPrice">$0</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Bedding Setup</span>
+<span class="font-label-md text-label-md text-on-surface" id="modalRoomBed">King Size</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Capacity</span>
+<span class="font-label-md text-label-md text-on-surface" id="modalRoomGuests">2 Guests</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Cancellation</span>
+<span class="font-label-md text-label-md text-tertiary-container font-semibold">Free before 48h</span>
+</div>
+</div>
+<!-- Extended Description -->
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-1">Room Overview</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" id="modalRoomDesc">
+          Detailed room narrative description will appear here dynamically.
+        </p>
+</div>
+<!-- In-Room Inclusions -->
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-1">Featured Amenities</h4>
+<div class="font-body-sm text-body-sm text-on-surface-variant bg-surface-container-low p-space-sm rounded-lg" id="modalRoomAmenities">
+          Included amenities list...
+        </div>
+</div>
+<!-- Modal Footer -->
+<div class="pt-space-xs flex items-center justify-end gap-space-sm">
+<button class="px-space-md py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" onclick="closeDetailsModal()" type="button">
+          Close
+        </button>
+<button class="px-space-lg py-2.5 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-md transition-all flex items-center gap-1.5" id="modalBookBtn" type="button">
+<span>Proceed with Reservation</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Toast Notification Container for booking micro-interaction -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-space-sm px-space-md py-space-sm rounded-xl bg-on-surface text-surface shadow-xl" id="bookingToast">
+<span class="material-symbols-outlined text-secondary-container text-[22px]">check_circle</span>
+<div>
+<div class="font-label-md text-label-md font-bold" id="toastTitle">Room Reserved</div>
+<div class="font-body-sm text-body-sm text-surface/80" id="toastSub">Redirecting to checkout summary...</div>
+</div>
+</div>
+<!-- Client-side Interactive Filtering & Modal Scripts -->
+<script>
+    function updatePriceSlider(val) {
+      document.getElementById('priceDisplay').textContent = '$' + val;
+      applyRoomFilters();
+    }
+
+    function applyRoomFilters() {
+      const maxPrice = parseFloat(document.getElementById('priceRange').value);
+      const guests = document.getElementById('guestsSelect').value;
+      
+      const typeCheckboxes = Array.from(document.querySelectorAll('input[name="roomType"]:checked')).map(cb => cb.value);
+      const facilityCheckboxes = Array.from(document.querySelectorAll('input[name="facility"]:checked')).map(cb => cb.value);
+
+      const cards = document.querySelectorAll('.room-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cardPrice = parseFloat(card.getAttribute('data-price'));
+        const cardGuests = parseInt(card.getAttribute('data-guests'), 10);
+        const cardType = card.getAttribute('data-type');
+        const cardFacilities = (card.getAttribute('data-facilities') || '').split(',');
+
+        // Matching conditions
+        const matchPrice = cardPrice <= maxPrice;
+        const matchGuests = guests === 'any' ? true : cardGuests >= parseInt(guests, 10);
+        const matchType = typeCheckboxes.length === 0 ? true : typeCheckboxes.includes(cardType);
+        
+        // Match facilities: must possess at least one or all checked facilities (standard permissive filter)
+        const matchFacilities = facilityCheckboxes.length === 0 ? true : facilityCheckboxes.every(f => cardFacilities.includes(f));
+
+        if (matchPrice && matchGuests && matchType && matchFacilities) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('matchingCount').textContent = visibleCount;
+      const noResults = document.getElementById('noResultsState');
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+    }
+
+    function resetFilters() {
+      document.getElementById('filterForm').reset();
+      document.getElementById('priceRange').value = 250;
+      document.getElementById('priceDisplay').textContent = '$250';
+      document.getElementById('guestsSelect').value = 'any';
+      
+      document.querySelectorAll('input[name="roomType"]').forEach(cb => cb.checked = true);
+      document.querySelectorAll('input[name="facility"]').forEach(cb => {
+        cb.checked = (cb.value !== 'service'); // reset default
+      });
+      
+      applyRoomFilters();
+    }
+
+    function sortRooms(criteria) {
+      const container = document.getElementById('roomsContainer');
+      const cards = Array.from(container.querySelectorAll('.room-card'));
+
+      cards.sort((a, b) => {
+        const priceA = parseFloat(a.getAttribute('data-price'));
+        const priceB = parseFloat(b.getAttribute('data-price'));
+        const guestsA = parseInt(a.getAttribute('data-guests'), 10);
+        const guestsB = parseInt(b.getAttribute('data-guests'), 10);
+
+        if (criteria === 'price-asc') return priceA - priceB;
+        if (criteria === 'price-desc') return priceB - priceA;
+        if (criteria === 'capacity') return guestsB - guestsA;
+        return 0; // default featured order
+      });
+
+      cards.forEach(card => container.appendChild(card));
+    }
+
+    function openDetailsModal(title, roomNum, price, bed, guests, amenities, desc) {
+      document.getElementById('modalRoomTitle').textContent = title;
+      document.getElementById('modalRoomSub').textContent = 'Room ' + roomNum + ' • West Wing Campus Wing';
+      document.getElementById('modalRoomPrice').textContent = price + ' / night';
+      document.getElementById('modalRoomBed').textContent = bed;
+      document.getElementById('modalRoomGuests').textContent = guests;
+      document.getElementById('modalRoomAmenities').textContent = amenities;
+      document.getElementById('modalRoomDesc').textContent = desc;
+
+      const modalBook = document.getElementById('modalBookBtn');
+      modalBook.onclick = function() {
+        closeDetailsModal();
+        quickBook(roomNum, title, parseFloat(price.replace('$', '')));
+      };
+
+      const modal = document.getElementById('roomDetailsModal');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.querySelector('div').classList.remove('scale-95');
+      modal.querySelector('div').classList.add('scale-100');
+    }
+
+    function closeDetailsModal() {
+      const modal = document.getElementById('roomDetailsModal');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.querySelector('div').classList.remove('scale-100');
+      modal.querySelector('div').classList.add('scale-95');
+    }
+
+    function quickBook(roomId, roomTitle, price) {
+      const toast = document.getElementById('bookingToast');
+      document.getElementById('toastTitle').textContent = 'Selected Room ' + roomId;
+      document.getElementById('toastSub').textContent = roomTitle + ' reserved at $' + price + '/night';
+
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 3500);
+    }
+
+    // Close modal when clicking on the backdrop
+    document.getElementById('roomDetailsModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeDetailsModal();
+      }
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-low mt-space-xl"><div class="max-w-[1200px] mx-auto px-margin-sm lg:px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-space-xl"><div class="space-y-space-sm"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-primary">Roomly</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">Effortless hotel reservations designed for contemporary stays. Stay Easy. Book Simply.</p><div class="inline-flex items-center gap-space-xs px-space-sm py-space-xs rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant"><span>CS Capstone Project</span><span>•</span><span>College of Computing</span></div></div><div><h4 class="font-label-lg text-label-lg text-on-surface mb-space-md">Quick Links</h4><ul class="space-y-space-xs"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="home" href="#">Home</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="rooms" href="#">Browse Rooms</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="about" href="#">About Us</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="contact" href="#">Help &amp; Contact</a></li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface mb-space-md">Guest Account</h4><ul class="space-y-space-xs"><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="login" href="#">Guest Login</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="register" href="#">Create Account</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="booking-summary" href="#">Booking Lookup</a></li><li class="font-body-sm text-body-sm"><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="admin-portal" href="#">Staff Management</a></li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface mb-space-md">Contact &amp; Support</h4><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-xs">24/7 Front Desk Helpline</p><p class="font-label-md text-label-md text-primary mb-space-sm">+1 (800) 555-ROOMLY</p><p class="font-body-sm text-body-sm text-on-surface-variant">support@roomly-hotel.edu</p></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-on-surface-variant"><p>© 2025 Roomly Reservation System. Built as an academic demonstration project.</p><p class="font-label-sm text-label-sm">Roomly Software Studio</p></div></div></footer></body></html>

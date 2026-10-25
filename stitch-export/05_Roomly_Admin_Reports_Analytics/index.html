@@ -1,0 +1,553 @@
+<!DOCTYPE html><html lang="en" style=""><svg class="inline-defs-container" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></svg><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary": "#004fd2", "inverse-on-surface": "#eef0ff", "surface-bright": "#faf8ff", "tertiary-container": "#a06500", "surface-container": "#eaedff", "on-surface": "#131b2e", "on-error-container": "#93000a", "surface-container-high": "#e2e7ff", "tertiary-fixed": "#ffddb8", "outline-variant": "#c3c6d8", "on-secondary-container": "#004666", "surface-container-lowest": "#ffffff", "primary-fixed-dim": "#b4c5ff", "secondary-fixed-dim": "#89ceff", "on-secondary-fixed": "#001e2f", "on-tertiary-container": "#fff7f3", "on-surface-variant": "#424655", "on-tertiary-fixed": "#2a1700", "on-background": "#131b2e", "surface": "#faf8ff", "on-secondary-fixed-variant": "#004c6e", "secondary-container": "#39b8fd", "secondary-fixed": "#c9e6ff", "inverse-primary": "#b4c5ff", "primary-container": "#1a66ff", "secondary": "#006591", "on-secondary": "#ffffff", "outline": "#737687", "on-tertiary": "#ffffff", "error": "#ba1a1a", "background": "#faf8ff", "tertiary-fixed-dim": "#ffb95f", "on-primary-container": "#faf8ff", "on-primary-fixed-variant": "#003da8", "surface-tint": "#0052dc", "error-container": "#ffdad6", "surface-container-highest": "#dae2fd", "surface-container-low": "#f2f3ff", "on-error": "#ffffff", "on-tertiary-fixed-variant": "#653e00", "on-primary-fixed": "#00174b", "tertiary": "#7f4f00", "primary-fixed": "#dbe1ff", "inverse-surface": "#283044", "surface-variant": "#dae2fd", "surface-dim": "#d2d9f4", "on-primary": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-xl": "2.5rem", "space-sm": "0.5rem", "margin-sm": "1rem", "gutter-sm": "1rem", "gutter": "1.5rem", "space-xs": "0.25rem", "margin": "2rem", "space-lg": "1.5rem", "space-md": "1rem" }, "fontFamily": { "display": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "display-mobile": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"] }, "fontSize": { "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "label-lg": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }], "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "display-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.015em", "fontWeight": "700" }] } } } }</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low z-50 flex flex-col pt-space-lg pb-space-lg shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="px-space-lg mb-space-lg flex items-center gap-space-sm"><img alt="Roomly" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VdKvmyEdYOSxp8kFYgLVq9hy6T1gGC6IRh7kT8WOTC65GBVST5wt5eh3Xg-MiKq9LCS5znNdlL6ucmuhqeEv3hON7rRsG_jyIijau5b0sBEP2AgzZPsmx7myRTmu1WrcuU2pIkhf42ZWsv41_PqnhAXg44dNSibQZER0-Pzre3GIidAXKPtuNBgMvzwcxB-pbxCafJG8S9WpRM4Y6jTr8wrIwzVJ3YX_Y_CgsQwXGJ_BubgSXtcWaDGaB_IoqGwvyjvlindX3z"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight">Roomly</span><span class="font-label-sm text-label-sm text-on-surface-variant">Admin Console</span></div></div><nav class="flex-1 px-space-md space-y-space-xs" data-active-classes="bg-surface-container-high text-primary font-label-md"><a class="flex items-center px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-portal" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">dashboard</span>Overview</a><a class="flex items-center px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-reservations" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">calendar_month</span>Reservations</a><a class="flex items-center px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-rooms" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">bed</span>Room Inventory</a><a class="flex items-center px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-guests" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">group</span>Guests</a><a class="flex items-center px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-reports" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">monitoring</span>Reports &amp; Analytics</a><a class="flex items-center px-space-md py-space-sm rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors mt-space-lg" data-path="home" href="#"><span class="material-symbols-outlined mr-space-sm text-[20px]">storefront</span>Guest Portal</a></nav><div class="px-space-md pt-space-md"><div class="p-space-sm rounded-xl bg-surface-container flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VdKvmyEdYOSxp8kFYgLVq9hy6T1gGC6IRh7kT8WOTC65GBVST5wt5eh3Xg-MiKq9LCS5znNdlL6ucmuhqeEv3hON7rRsG_jyIijau5b0sBEP2AgzZPsmx7myRTmu1WrcuU2pIkhf42ZWsv41_PqnhAXg44dNSibQZER0-Pzre3GIidAXKPtuNBgMvzwcxB-pbxCafJG8S9WpRM4Y6jTr8wrIwzVJ3YX_Y_CgsQwXGJ_BubgSXtcWaDGaB_IoqGwvyjvlindX3z"><div class="flex flex-col min-w-0"><span class="font-label-sm text-label-sm text-on-surface truncate">Staff Admin</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">admin@roomly.edu</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-lg"><div class="flex items-center gap-space-sm"><span class="font-label-md text-label-md text-on-surface-variant">System Status:</span><span class="px-space-sm py-space-xs rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm">Live PMS Active</span></div><div class="flex items-center gap-space-md"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VdKvmyEdYOSxp8kFYgLVq9hy6T1gGC6IRh7kT8WOTC65GBVST5wt5eh3Xg-MiKq9LCS5znNdlL6ucmuhqeEv3hON7rRsG_jyIijau5b0sBEP2AgzZPsmx7myRTmu1WrcuU2pIkhf42ZWsv41_PqnhAXg44dNSibQZER0-Pzre3GIidAXKPtuNBgMvzwcxB-pbxCafJG8S9WpRM4Y6jTr8wrIwzVJ3YX_Y_CgsQwXGJ_BubgSXtcWaDGaB_IoqGwvyjvlindX3z"></div></header><main class="relative pt-16 w-full px-space-lg bg-surface min-h-[calc(100vh-64px)]"><div class="flex flex-col w-full pb-space-xl">
+<!-- Top Context & Page Control Header -->
+<div class="flex flex-col gap-space-md mb-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm tracking-wide uppercase">
+<span class="">Property Analytics</span>
+<span class="text-outline-variant">•</span>
+<span class="text-primary font-semibold">Executive &amp; Financial PMS Intelligence</span>
+<span class="text-outline-variant">•</span>
+<span class="">Admin Console</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight mt-space-xs">
+          Performance &amp; Financial Reports
+        </h1>
+</div>
+<!-- Action Buttons & Controls -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Date Range Filter -->
+<div class="relative z-50"><button class="flex items-center gap-space-sm bg-surface-container-lowest px-space-md py-space-sm rounded-full shadow-sm hover:shadow transition-all text-on-surface font-label-md text-label-md border border-primary/20 ring-2 ring-primary/10" id="date-range-btn" onclick="toggleDropdown('date-range-dropdown')"><span class="material-symbols-outlined text-primary text-[20px]">calendar_today</span><span id="selected-date-text" class="font-medium">May 1, 2025 – May 31, 2025 (This Month)</span><span class="material-symbols-outlined text-primary text-[18px]">expand_less</span></button><div class="absolute left-0 lg:right-0 lg:left-auto mt-2 w-[420px] bg-surface-container-lowest rounded-xl shadow-xl border border-outline-variant/40 z-50 overflow-hidden" id="date-range-dropdown"><div class="p-space-md border-b border-outline-variant/30 bg-surface-container-low/40 flex items-center justify-between"><div class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-[20px]">date_range</span><span class="font-headline-sm text-sm font-bold text-on-surface">Filter PMS Reporting Period</span></div><span class="font-label-sm text-xs bg-primary/10 text-primary font-bold px-2 py-0.5 rounded-full">Fiscal 2025</span></div><div class="p-space-sm grid grid-cols-2 gap-1 max-h-56 overflow-y-auto"><button type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-lg font-label-md text-xs text-on-surface hover:bg-surface-container text-left transition-colors" onclick="setDateRange('Today (May 24, 2025)')"><span class="">Today</span><span class="text-[11px] text-on-surface-variant">May 24</span></button><button type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-lg font-label-md text-xs text-on-surface hover:bg-surface-container text-left transition-colors" onclick="setDateRange('Yesterday (May 23, 2025)')"><span class="">Yesterday</span><span class="text-[11px] text-on-surface-variant">May 23</span></button><button type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-lg font-label-md text-xs text-on-surface hover:bg-surface-container text-left transition-colors" onclick="setDateRange('Last 7 Days (May 18 – May 24, 2025)')"><span class="">Last 7 Days</span><span class="text-[11px] text-on-surface-variant">May 18–24</span></button><button type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-lg font-label-md text-xs text-on-surface hover:bg-surface-container text-left transition-colors" onclick="setDateRange('Last 30 Days (Apr 25 – May 24, 2025)')"><span class="">Last 30 Days</span><span class="text-[11px] text-on-surface-variant">Past Month</span></button><button type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-lg font-label-md text-xs text-primary bg-primary/10 font-bold text-left transition-colors" onclick="setDateRange('May 1, 2025 – May 31, 2025 (This Month)')"><span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[16px] text-primary">check_circle</span>This Month</span><span class="text-[11px] text-primary font-semibold">May 2025</span></button><button type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-lg font-label-md text-xs text-on-surface hover:bg-surface-container text-left transition-colors" onclick="setDateRange('Last Month (Apr 1 – Apr 30, 2025)')"><span class="">Last Month</span><span class="text-[11px] text-on-surface-variant">Apr 2025</span></button><button type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-lg font-label-md text-xs text-on-surface hover:bg-surface-container text-left transition-colors" onclick="setDateRange('This Quarter (Q2 2025)')"><span class="">This Quarter</span><span class="text-[11px] text-on-surface-variant">Q2 2025</span></button><button type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-lg font-label-md text-xs text-on-surface hover:bg-surface-container text-left transition-colors" onclick="setDateRange('Year to Date (Jan 1 – May 24, 2025)')"><span class="">Year to Date</span><span class="text-[11px] text-on-surface-variant">YTD '25</span></button><button type="button" class="col-span-2 w-full flex items-center justify-between px-3 py-2 rounded-lg font-label-md text-xs text-on-surface hover:bg-surface-container text-left transition-colors" onclick="setDateRange('Last Year (Jan 1 – Dec 31, 2024)')"><span class="">Last Year (Full Period)</span><span class="text-[11px] text-on-surface-variant">2024</span></button></div><div class="p-space-sm border-t border-outline-variant/30 bg-surface-container-low/60"><div class="text-xs font-bold text-on-surface-variant uppercase tracking-wider mb-2 px-1">Custom Date Range</div><div class="flex items-center gap-2 mb-3"><div class="flex-1"><label class="block text-[11px] text-on-surface-variant font-medium mb-1">Start Date</label><input type="date" value="2025-05-01" class="w-full px-2.5 py-1.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest text-xs text-on-surface font-medium focus:outline-none focus:ring-1 focus:ring-primary" id="custom-start-date"></div><div class="text-outline font-bold mt-4">→</div><div class="flex-1"><label class="block text-[11px] text-on-surface-variant font-medium mb-1">End Date</label><input type="date" value="2025-05-31" class="w-full px-2.5 py-1.5 rounded-lg border border-outline-variant/60 bg-surface-container-lowest text-xs text-on-surface font-medium focus:outline-none focus:ring-1 focus:ring-primary" id="custom-end-date"></div></div><div class="flex items-center justify-between pt-1"><button type="button" class="text-xs font-semibold text-on-surface-variant hover:text-on-surface px-2 py-1 rounded transition-colors" onclick="document.getElementById('date-range-dropdown').classList.add('hidden')">Close</button><button type="button" class="bg-primary text-on-primary hover:bg-primary-container px-3.5 py-1.5 rounded-lg text-xs font-semibold shadow-sm transition-all flex items-center gap-1.5" onclick="setDateRange(document.getElementById('custom-start-date').value + ' – ' + document.getElementById('custom-end-date').value); document.getElementById('date-range-dropdown').classList.add('hidden');"><span class="material-symbols-outlined text-[16px]">filter_alt</span>Apply Range</button></div></div></div></div><div class="relative flex items-center bg-surface-container-lowest rounded-full p-1 pl-3 pr-1.5 shadow-sm border border-secondary/30 ring-1 ring-secondary/20 gap-2"><label class="flex items-center gap-1.5 cursor-pointer select-none"><input type="checkbox" checked="checked" class="accent-primary w-3.5 h-3.5 rounded"><span class="font-label-md text-xs font-bold text-on-surface flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">compare_arrows</span>Compare:</span></label><div class="flex items-center gap-1 bg-surface-container-low px-2.5 py-1 rounded-full text-xs font-semibold text-secondary"><span id="active-comparison-label" class="">vs Previous Period (Apr 1 – Apr 30)</span><span class="material-symbols-outlined text-[16px] text-secondary cursor-pointer">expand_more</span></div><span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-[11px] font-bold tracking-tight">Active Baseline</span></div>
+<!-- Filter Category / Floor -->
+<div class="relative">
+<button class="flex items-center gap-space-xs bg-surface-container-lowest px-space-md py-space-sm rounded-full shadow-sm hover:shadow transition-all text-on-surface font-label-md text-label-md" id="category-filter-btn" onclick="toggleDropdown('category-dropdown')">
+<span class="material-symbols-outlined text-outline text-[20px]">tune</span>
+<span class="">All Wings &amp; Floors</span>
+<span class="material-symbols-outlined text-outline text-[18px]">expand_more</span>
+</button>
+<div class="hidden absolute right-0 mt-space-xs w-56 bg-surface-container-lowest rounded-xl shadow-xl z-30 py-space-xs" id="category-dropdown">
+<div class="px-space-md py-space-xs font-label-sm text-label-sm text-on-surface-variant font-bold">BY TIER</div>
+<label class="flex items-center px-space-md py-space-xs hover:bg-surface-container cursor-pointer font-body-sm text-body-sm text-on-surface gap-space-xs">
+<input checked="" class="rounded accent-primary" type="checkbox"> Penthouse &amp; Suites
+            </label>
+<label class="flex items-center px-space-md py-space-xs hover:bg-surface-container cursor-pointer font-body-sm text-body-sm text-on-surface gap-space-xs">
+<input checked="" class="rounded accent-primary" type="checkbox"> Deluxe King / Double
+            </label>
+<label class="flex items-center px-space-md py-space-xs hover:bg-surface-container cursor-pointer font-body-sm text-body-sm text-on-surface gap-space-xs">
+<input checked="" class="rounded accent-primary" type="checkbox"> Single Rooms
+            </label>
+<div class="my-space-xs mx-space-md bg-surface-container-high h-[1px]"></div>
+<div class="px-space-md py-space-xs font-label-sm text-label-sm text-on-surface-variant font-bold">BY LOCATION</div>
+<label class="flex items-center px-space-md py-space-xs hover:bg-surface-container cursor-pointer font-body-sm text-body-sm text-on-surface gap-space-xs">
+<input checked="" class="rounded accent-primary" type="checkbox"> Campus Wing (Floors 1-3)
+            </label>
+<label class="flex items-center px-space-md py-space-xs hover:bg-surface-container cursor-pointer font-body-sm text-body-sm text-on-surface gap-space-xs">
+<input checked="" class="rounded accent-primary" type="checkbox"> Executive Tower (Floors 4-7)
+            </label>
+</div>
+</div>
+<!-- Automated Report Schedule -->
+<button class="flex items-center gap-space-xs bg-surface-container-lowest hover:bg-surface-container text-on-surface px-space-md py-space-sm rounded-full shadow-sm transition-all font-label-md text-label-md">
+<span class="material-symbols-outlined text-outline text-[18px]">schedule_send</span>
+<span class="hidden sm:inline">Schedule Auto-Report</span>
+</button>
+<!-- Export Dropdown -->
+<div class="relative">
+<button class="flex items-center gap-space-xs bg-primary text-on-primary hover:bg-primary-container px-space-md py-space-sm rounded-full shadow-md hover:shadow-lg transition-all font-label-md text-label-md font-semibold" onclick="toggleDropdown('export-dropdown')">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span class="">Export Report</span>
+<span class="material-symbols-outlined text-[18px]">arrow_drop_down</span>
+</button>
+<div class="hidden absolute right-0 mt-space-xs w-52 bg-surface-container-lowest rounded-xl shadow-xl z-30 py-space-xs" id="export-dropdown">
+<button class="w-full text-left flex items-center gap-space-sm px-space-md py-space-sm hover:bg-surface-container transition-colors text-on-surface font-label-md text-label-md" onclick="notifyExport('PDF')">
+<span class="material-symbols-outlined text-error text-[18px]">picture_as_pdf</span>
+              Executive PDF Summary
+            </button>
+<button class="w-full text-left flex items-center gap-space-sm px-space-md py-space-sm hover:bg-surface-container transition-colors text-on-surface font-label-md text-label-md" onclick="notifyExport('Excel CSV')">
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">table_view</span>
+              Raw Folio Data (CSV)
+            </button>
+<button class="w-full text-left flex items-center gap-space-sm px-space-md py-space-sm hover:bg-surface-container transition-colors text-on-surface font-label-md text-label-md" onclick="notifyExport('Accounting Journal')">
+<span class="material-symbols-outlined text-primary text-[18px]">receipt_long</span>
+              GL Financial Journal (XML)
+            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Top 5 Key Metric Summary Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-md mb-space-lg"><div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between border border-outline-variant/30"><div class="flex items-center justify-between mb-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Total Revenue</span><span class="p-1 rounded-lg bg-surface-container-high text-primary flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">payments</span></span></div><div><div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">$42,680.00</div><div class="flex items-center gap-1.5 mt-space-xs flex-wrap"><span class="inline-flex items-center text-xs font-bold px-1.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed"><span class="material-symbols-outlined text-[14px] mr-0.5">trending_up</span>+$5,310.00 (+14.2%)</span></div></div><div class="mt-space-sm pt-space-xs flex items-center justify-between bg-surface-container-low px-space-sm py-1.5 rounded"><span class="font-label-sm text-label-sm text-on-surface-variant text-[11px]">Prior Period (Apr)</span><span class="font-label-sm text-label-sm font-semibold text-on-surface text-[11px]">$37,370.00</span></div></div><div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between border border-outline-variant/30"><div class="flex items-center justify-between mb-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Avg Daily Rate (ADR)</span><span class="p-1 rounded-lg bg-surface-container-high text-secondary flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">sell</span></span></div><div><div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">$128.50</div><div class="flex items-center gap-1.5 mt-space-xs flex-wrap"><span class="inline-flex items-center text-xs font-bold px-1.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed"><span class="material-symbols-outlined text-[14px] mr-0.5">trending_up</span>+$7.05 (+5.8%)</span></div></div><div class="mt-space-sm pt-space-xs flex items-center justify-between bg-surface-container-low px-space-sm py-1.5 rounded"><span class="font-label-sm text-label-sm text-on-surface-variant text-[11px]">Prior Period (Apr)</span><span class="font-label-sm text-label-sm font-semibold text-on-surface text-[11px]">$121.45</span></div></div><div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between border border-outline-variant/30"><div class="flex items-center justify-between mb-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">RevPAR Index</span><span class="p-1 rounded-lg bg-surface-container-high text-primary flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">hotel</span></span></div><div><div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">$104.20</div><div class="flex items-center gap-1.5 mt-space-xs flex-wrap"><span class="inline-flex items-center text-xs font-bold px-1.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed"><span class="material-symbols-outlined text-[14px] mr-0.5">trending_up</span>+$8.10 (+8.4%)</span></div></div><div class="mt-space-sm pt-space-xs flex items-center justify-between bg-surface-container-low px-space-sm py-1.5 rounded"><span class="font-label-sm text-label-sm text-on-surface-variant text-[11px]">Prior Period (Apr)</span><span class="font-label-sm text-label-sm font-semibold text-on-surface text-[11px]">$96.10</span></div></div><div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between border border-outline-variant/30"><div class="flex items-center justify-between mb-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Avg Occupancy</span><span class="p-1 rounded-lg bg-surface-container-high text-tertiary-container flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">pie_chart</span></span></div><div><div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">81.2%</div><div class="flex items-center gap-1.5 mt-space-xs flex-wrap"><span class="inline-flex items-center text-xs font-bold px-1.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed"><span class="material-symbols-outlined text-[14px] mr-0.5">trending_up</span>+5.0% pts (+6.5%)</span></div></div><div class="mt-space-sm pt-space-xs flex items-center justify-between bg-surface-container-low px-space-sm py-1.5 rounded"><span class="font-label-sm text-label-sm text-on-surface-variant text-[11px]">Prior Period (Apr)</span><span class="font-label-sm text-label-sm font-semibold text-on-surface text-[11px]">76.2%</span></div></div><div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm hover:shadow-md transition-shadow relative overflow-hidden flex flex-col justify-between border border-outline-variant/30"><div class="flex items-center justify-between mb-space-xs"><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Avg Length of Stay</span><span class="p-1 rounded-lg bg-surface-container-high text-on-surface flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">bedtime</span></span></div><div><div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">2.8 <span class="font-headline-sm text-headline-sm font-normal text-on-surface-variant">Nts</span></div><div class="flex items-center gap-1.5 mt-space-xs flex-wrap"><span class="inline-flex items-center text-xs font-bold px-1.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed"><span class="material-symbols-outlined text-[14px] mr-0.5">trending_up</span>+0.3 Nights (+12.0%)</span></div></div><div class="mt-space-sm pt-space-xs flex items-center justify-between bg-surface-container-low px-space-sm py-1.5 rounded"><span class="font-label-sm text-label-sm text-on-surface-variant text-[11px]">Prior Period (Apr)</span><span class="font-label-sm text-label-sm font-semibold text-on-surface text-[11px]">2.5 Nights</span></div></div></div>
+<!-- Section 1 & 2: Revenue/Occupancy Chart & Revenue Breakdown by Room Type -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md mb-space-lg">
+<!-- Main Analytical Interactive Chart -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col">
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-space-md gap-space-sm">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">Revenue &amp; Occupancy Trend</span>
+<span class="text-xs bg-surface-container-high px-2 py-0.5 rounded text-primary font-semibold">Weekly Breakdown</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Gross room income correlated with capacity utilization rates for May 2025.
+          </p>
+</div>
+<!-- Metric Switchers & Legend -->
+<div class="flex items-center gap-space-sm flex-wrap"><div class="inline-flex items-center p-1 bg-surface-container rounded-xl gap-1 text-xs font-semibold"><button type="button" class="px-2.5 py-1 rounded-lg bg-surface-container-lowest text-primary font-bold shadow-sm flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Vs Previous Period (Apr)</button><button type="button" class="px-2.5 py-1 rounded-lg text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>Vs Previous Year (2024)</button><button type="button" class="px-2 py-1 rounded-lg text-on-surface-variant hover:text-on-surface transition-colors">Off</button></div></div>
+</div>
+<!-- Color Legends -->
+<div class="flex items-center gap-space-md mb-space-sm font-label-sm text-label-sm"><div class="flex items-center gap-space-md mb-space-sm font-label-sm text-label-sm flex-wrap"><div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-primary inline-block"></span><span class="text-on-surface font-medium">Current Period (May 2025)</span></div><div class="flex items-center gap-1.5"><span class="w-3 h-3 rounded-sm bg-outline-variant border border-outline inline-block"></span><span class="text-on-surface-variant font-medium">Previous Period (Apr 2025)</span></div><div class="flex items-center gap-1.5"><span class="w-3 h-1.5 rounded-full bg-secondary-container inline-block"></span><span class="text-on-surface font-medium">Occ Rate (May)</span></div><div class="flex items-center gap-1.5"><span class="w-3 border-b-2 border-dashed border-secondary inline-block"></span><span class="text-on-surface-variant font-medium">Occ Rate (Apr Prior)</span></div><div class="flex items-center gap-1.5 ml-auto text-on-surface-variant"><span class="material-symbols-outlined text-[16px] text-tertiary-container">verified</span><span class="">Period-over-Period Active</span></div></div></div>
+<!-- Chart Display (Visual SVG & Bento Bar Grid) -->
+<div class="relative w-full h-72 pt-4 bg-surface-container-low/40 rounded-xl px-space-md flex flex-col justify-end"><div class="absolute inset-x-space-md inset-y-6 flex flex-col justify-between pointer-events-none opacity-40"><div class="flex items-center text-xs text-outline justify-between border-b border-dashed border-outline-variant"><span class="">$15,000 / 100%</span></div><div class="flex items-center text-xs text-outline justify-between border-b border-dashed border-outline-variant"><span class="">$11,250 / 75%</span></div><div class="flex items-center text-xs text-outline justify-between border-b border-dashed border-outline-variant"><span class="">$7,500 / 50%</span></div><div class="flex items-center text-xs text-outline justify-between border-b border-dashed border-outline-variant"><span class="">$3,750 / 25%</span></div><div class="flex items-center text-xs text-outline justify-between"><span class="">$0.00 / 0%</span></div></div><svg class="absolute inset-x-space-md inset-y-6 w-[calc(100%-2rem)] h-[calc(100%-3rem)] pointer-events-none z-10" preserveAspectRatio="none" viewBox="0 0 400 180"><defs><linearGradient id="occupancyGradient" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#39b8fd" stop-opacity="0.3"></stop><stop offset="100%" stop-color="#39b8fd" stop-opacity="0.0"></stop></linearGradient></defs><path d="M 50,88 C 100,78 120,68 150,60 C 200,52 230,72 250,68 C 280,56 320,44 350,38" fill="none" stroke="#737687" stroke-dasharray="4 4" stroke-linecap="round" stroke-width="2"></path><path d="M 50,72 C 100,58 120,48 150,42 C 200,32 230,60 250,50 C 280,36 320,20 350,16" fill="none" stroke="#006591" stroke-linecap="round" stroke-width="3"></path><path d="M 50,72 C 100,58 120,48 150,42 C 200,32 230,60 250,50 C 280,36 320,20 350,16 L 350,180 L 50,180 Z" fill="url(#occupancyGradient)"></path><circle cx="50" cy="88" fill="#faf8ff" r="3.5" stroke="#737687" stroke-width="1.5"></circle><circle cx="150" cy="60" fill="#faf8ff" r="3.5" stroke="#737687" stroke-width="1.5"></circle><circle cx="250" cy="68" fill="#faf8ff" r="3.5" stroke="#737687" stroke-width="1.5"></circle><circle cx="350" cy="38" fill="#faf8ff" r="3.5" stroke="#737687" stroke-width="1.5"></circle><circle cx="50" cy="72" fill="#faf8ff" r="4.5" stroke="#006591" stroke-width="2.5"></circle><circle cx="150" cy="42" fill="#faf8ff" r="4.5" stroke="#006591" stroke-width="2.5"></circle><circle cx="250" cy="50" fill="#faf8ff" r="4.5" stroke="#006591" stroke-width="2.5"></circle><circle cx="350" cy="16" fill="#faf8ff" r="4.5" stroke="#006591" stroke-width="2.5"></circle><text fill="#004666" font-size="10" font-weight="bold" text-anchor="middle" x="50" y="60">74.2%</text><text fill="#004666" font-size="10" font-weight="bold" text-anchor="middle" x="150" y="32">82.0%</text><text fill="#004666" font-size="10" font-weight="bold" text-anchor="middle" x="250" y="40">80.5%</text><text fill="#004666" font-size="10" font-weight="bold" text-anchor="middle" x="350" y="8">88.1%</text><text fill="#424655" font-size="9" text-anchor="middle" x="50" y="102">68.4% (Apr)</text><text fill="#424655" font-size="9" text-anchor="middle" x="150" y="74">74.0% (Apr)</text><text fill="#424655" font-size="9" text-anchor="middle" x="250" y="82">71.2% (Apr)</text><text fill="#424655" font-size="9" text-anchor="middle" x="350" y="52">81.5% (Apr)</text></svg><div class="relative z-0 grid grid-cols-4 gap-3 sm:gap-8 h-52 items-end pb-2"><div class="flex flex-col items-center group h-full justify-end cursor-pointer"><div class="flex items-center gap-1 mb-1"><span class="text-[10px] font-bold text-primary">$9.2k</span><span class="text-[10px] text-on-surface-variant font-medium">/ $8.1k</span></div><div class="w-full flex items-end justify-center gap-1.5 h-[62%]"><div class="w-5 bg-outline-variant/60 rounded-t-sm h-[88%]" title="Prior Period: $8,120"></div><div class="w-6 bg-primary rounded-t-lg h-full" title="Current Period: $9,240"></div></div><span class="font-label-sm text-label-sm text-on-surface font-semibold mt-2">W1</span><span class="text-[11px] text-primary font-bold">+13.8%</span></div><div class="flex flex-col items-center group h-full justify-end cursor-pointer"><div class="flex items-center gap-1 mb-1"><span class="text-[10px] font-bold text-primary">$10.9k</span><span class="text-[10px] text-on-surface-variant font-medium">/ $9.5k</span></div><div class="w-full flex items-end justify-center gap-1.5 h-[73%]"><div class="w-5 bg-outline-variant/60 rounded-t-sm h-[87%]" title="Prior Period: $9,520"></div><div class="w-6 bg-primary rounded-t-lg h-full" title="Current Period: $10,880"></div></div><span class="font-label-sm text-label-sm text-on-surface font-semibold mt-2">W2</span><span class="text-[11px] text-primary font-bold">+14.3%</span></div><div class="flex flex-col items-center group h-full justify-end cursor-pointer"><div class="flex items-center gap-1 mb-1"><span class="text-[10px] font-bold text-primary">$10.4k</span><span class="text-[10px] text-on-surface-variant font-medium">/ $9.2k</span></div><div class="w-full flex items-end justify-center gap-1.5 h-[69%]"><div class="w-5 bg-outline-variant/60 rounded-t-sm h-[88%]" title="Prior Period: $9,210"></div><div class="w-6 bg-primary rounded-t-lg h-full" title="Current Period: $10,420"></div></div><span class="font-label-sm text-label-sm text-on-surface font-semibold mt-2">W3</span><span class="text-[11px] text-primary font-bold">+13.1%</span></div><div class="flex flex-col items-center group h-full justify-end cursor-pointer"><div class="flex items-center gap-1 mb-1"><span class="text-[10px] font-bold text-primary">$12.1k</span><span class="text-[10px] text-on-surface-variant font-medium">/ $10.5k</span></div><div class="w-full flex items-end justify-center gap-1.5 h-[81%]"><div class="w-5 bg-outline-variant/60 rounded-t-sm h-[86%]" title="Prior Period: $10,520"></div><div class="w-6 bg-primary rounded-t-lg h-full" title="Current Period: $12,140"></div></div><span class="font-label-sm text-label-sm text-on-surface font-semibold mt-2">W4</span><span class="text-[11px] text-primary font-bold">+15.4%</span></div></div></div>
+<div class="flex items-center justify-between mt-space-md pt-space-xs text-xs text-on-surface-variant">
+<span class="">*Figures include clean room charges excluding supplementary taxes &amp; folio ancillary items.</span>
+<button class="text-primary font-semibold hover:underline flex items-center gap-0.5">
+          View Daily Night Audit Matrix <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Revenue Breakdown by Room Type -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Revenue by Category</h2>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant px-2 py-0.5 rounded font-semibold">4 Tiers</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+          Contribution percentage by inventory class.
+        </p>
+<!-- Room Type Progress Stack -->
+<div class="space-y-space-md"><div class="bg-surface-container-low p-space-sm rounded-xl"><div class="flex items-center justify-between mb-1"><div class="flex items-center gap-space-xs"><span class="w-2.5 h-2.5 rounded-full bg-primary"></span><span class="font-label-md text-label-md text-on-surface">Deluxe King Suite</span></div><div class="text-right"><span class="font-label-md text-label-md text-on-surface font-bold">$16,840</span><span class="text-[11px] font-bold text-secondary ml-1.5">+$2,140</span></div></div><div class="w-full bg-surface-container-highest rounded-full h-2 mb-1"><div class="bg-primary h-2 rounded-full" style="width: 39.5%"></div></div><div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant text-xs"><span class="">39.5% of rev (Prior: $14.7k)</span><span class="font-medium text-primary">88% Occ (+6% pts)</span></div></div><div class="bg-surface-container-low p-space-sm rounded-xl"><div class="flex items-center justify-between mb-1"><div class="flex items-center gap-space-xs"><span class="w-2.5 h-2.5 rounded-full bg-secondary"></span><span class="font-label-md text-label-md text-on-surface">Penthouse Suite</span></div><div class="text-right"><span class="font-label-md text-label-md text-on-surface font-bold">$15,200</span><span class="text-[11px] font-bold text-secondary ml-1.5">+$1,800</span></div></div><div class="w-full bg-surface-container-highest rounded-full h-2 mb-1"><div class="bg-secondary h-2 rounded-full" style="width: 35.6%"></div></div><div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant text-xs"><span class="">35.6% of rev (Prior: $13.4k)</span><span class="font-medium text-secondary">92% Occ (+4% pts)</span></div></div><div class="bg-surface-container-low p-space-sm rounded-xl"><div class="flex items-center justify-between mb-1"><div class="flex items-center gap-space-xs"><span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span><span class="font-label-md text-label-md text-on-surface">Deluxe Double Room</span></div><div class="text-right"><span class="font-label-md text-label-md text-on-surface font-bold">$6,840</span><span class="text-[11px] font-bold text-secondary ml-1.5">+$820</span></div></div><div class="w-full bg-surface-container-highest rounded-full h-2 mb-1"><div class="bg-secondary-container h-2 rounded-full" style="width: 16.0%"></div></div><div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant text-xs"><span class="">16.0% of rev (Prior: $6.0k)</span><span class="font-medium text-on-surface">74% Occ (+2% pts)</span></div></div><div class="bg-surface-container-low p-space-sm rounded-xl"><div class="flex items-center justify-between mb-1"><div class="flex items-center gap-space-xs"><span class="w-2.5 h-2.5 rounded-full bg-outline"></span><span class="font-label-md text-label-md text-on-surface">Single Cozy Room</span></div><div class="text-right"><span class="font-label-md text-label-md text-on-surface font-bold">$3,800</span><span class="text-[11px] font-bold text-secondary ml-1.5">+$550</span></div></div><div class="w-full bg-surface-container-highest rounded-full h-2 mb-1"><div class="bg-outline h-2 rounded-full" style="width: 8.9%"></div></div><div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant text-xs"><span class="">8.9% of rev (Prior: $3.2k)</span><span class="font-medium text-on-surface">70% Occ (+3% pts)</span></div></div></div>
+</div>
+<!-- Compact Insight Pill -->
+<div class="mt-space-md p-space-sm bg-surface-container-high rounded-xl flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[22px]">lightbulb</span>
+<div class="flex flex-col text-xs">
+<span class="font-semibold text-on-surface">Penthouse yield increased by 22%</span>
+<span class="text-on-surface-variant">Recommended: Apply dynamic rate +10% for June weekends.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3 & 5: Channels & Guest Demographics Bento Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md mb-space-lg">
+<!-- Booking Channels & Acquisition Breakdown -->
+<div class="lg:col-span-6 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">hub</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Booking Channels &amp; Acquisition</h2>
+</div>
+<span class="text-xs bg-secondary-fixed text-on-secondary-fixed font-semibold px-2 py-0.5 rounded-full">
+            Commission Saving: $4,120
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+          Direct vs OTA distribution analysis. Direct engine saves up to 18% OTA commission.
+        </p>
+<!-- Donut & List Horizontal Layout -->
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-space-md items-center">
+<!-- Visual Donut Chart SVG -->
+<div class="sm:col-span-5 flex flex-col items-center justify-center relative">
+<svg class="w-36 h-36 transform -rotate-90" viewBox="0 0 36 36">
+<!-- Background Ring -->
+<circle cx="18" cy="18" fill="none" r="15.915" stroke="#eaedff" stroke-width="4.5"></circle>
+<!-- Segment 1: Direct (58%) -->
+<circle cx="18" cy="18" fill="none" r="15.915" stroke="#004fd2" stroke-dasharray="58 42" stroke-dashoffset="0" stroke-width="4.5"></circle>
+<!-- Segment 2: University (24%) -->
+<circle cx="18" cy="18" fill="none" r="15.915" stroke="#006591" stroke-dasharray="24 76" stroke-dashoffset="-58" stroke-width="4.5"></circle>
+<!-- Segment 3: OTA (14%) -->
+<circle cx="18" cy="18" fill="none" r="15.915" stroke="#39b8fd" stroke-dasharray="14 86" stroke-dashoffset="-82" stroke-width="4.5"></circle>
+<!-- Segment 4: Walk-in (4%) -->
+<circle cx="18" cy="18" fill="none" r="15.915" stroke="#a06500" stroke-dasharray="4 96" stroke-dashoffset="-96" stroke-width="4.5"></circle>
+</svg>
+<div class="absolute flex flex-col items-center text-center">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface leading-none">58%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-[11px]">Direct Web</span>
+</div>
+</div>
+<!-- Channel Stats Details -->
+<div class="sm:col-span-7 flex flex-col gap-space-xs font-body-sm text-body-sm"><div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-primary"></span><span class="font-medium text-on-surface">Direct Website</span></div><div class="text-right"><span class="font-bold text-on-surface">58%</span><span class="text-xs text-on-surface-variant ml-1">($24,754)</span><span class="text-[11px] font-bold text-secondary ml-1">+3.2% vs prior</span></div></div><div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-secondary"></span><span class="font-medium text-on-surface">Corporate / Campus Portal</span></div><div class="text-right"><span class="font-bold text-on-surface">24%</span><span class="text-xs text-on-surface-variant ml-1">($10,243)</span><span class="text-[11px] font-bold text-secondary ml-1">+1.8% vs prior</span></div></div><div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-secondary-container"></span><span class="font-medium text-on-surface">OTA Channels (Expedia/Booking)</span></div><div class="text-right"><span class="font-bold text-on-surface">14%</span><span class="text-xs text-on-surface-variant ml-1">($5,975)</span><span class="text-[11px] font-medium text-outline ml-1">-3.5% vs prior</span></div></div><div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors"><div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-tertiary-container"></span><span class="font-medium text-on-surface">Front Desk / Concierge</span></div><div class="text-right"><span class="font-bold text-on-surface">4%</span><span class="text-xs text-on-surface-variant ml-1">($1,708)</span><span class="text-[11px] font-medium text-outline ml-1">-1.5% vs prior</span></div></div></div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs text-xs text-on-surface-variant flex items-center justify-between">
+<span class="">Direct engine booking engine conversion: <strong class="text-primary font-semibold">4.82%</strong></span>
+<span class="text-secondary font-semibold">Zero Commission Fee Saved</span>
+</div>
+</div>
+<!-- Guest Demographics & CLV Loyalty -->
+<div class="lg:col-span-6 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px]">loyalty</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Demographics &amp; Loyalty Lifetime Value</h2>
+</div>
+<span class="text-xs bg-surface-container text-primary font-bold px-2 py-0.5 rounded-full">
+            CLV High-Tier
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+          VIP &amp; Roomly Club Member contribution to monthly ADR and retention metrics.
+        </p>
+<!-- KPI Mini Grid -->
+<div class="grid grid-cols-2 gap-space-sm mb-space-md">
+<div class="p-space-sm bg-surface-container-low rounded-xl">
+<span class="text-xs text-on-surface-variant font-medium">Loyalty Member Share</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">48.0%</span>
+<span class="text-xs text-secondary font-semibold">of Gross Rev</span>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-1">Members spend +26% higher per room night.</p>
+</div>
+<div class="p-space-sm bg-surface-container-low rounded-xl">
+<span class="text-xs text-on-surface-variant font-medium">Repeat Guest Rate</span>
+<div class="flex items-baseline gap-space-xs mt-1">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">34.6%</span>
+<span class="text-xs text-secondary font-semibold">+4.1% MoM</span>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-1">Alumni, visiting faculty, and medical guests.</p>
+</div>
+</div>
+<!-- Geographic Origins Progress Bars -->
+<div class="space-y-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-[11px] font-bold">Top Origin Feeder Markets</span>
+<div class="space-y-2 pt-1 font-label-sm text-label-sm">
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface font-medium">San Francisco Bay Area / Tech Corridor</span>
+<span class="font-bold text-on-surface">42% (140 Stays)</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 42%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface font-medium">New York / Tri-State Corporate</span>
+<span class="font-bold text-on-surface">28% (94 Stays)</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-secondary h-1.5 rounded-full" style="width: 28%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface font-medium">International Academic &amp; Visiting Scholars</span>
+<span class="font-bold text-on-surface">18% (60 Stays)</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-1.5">
+<div class="bg-secondary-container h-1.5 rounded-full" style="width: 18%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between text-xs text-on-surface-variant">
+<span class="">Average Guest Satisfaction: <strong class="text-on-surface">4.88 / 5.0</strong></span>
+<span class="text-primary font-semibold cursor-pointer hover:underline">View Guest Feedback Logs</span>
+</div>
+</div>
+</div>
+<!-- Section 4: Key Operational Insights & Housekeeping Turnaround Table -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm mb-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-space-md gap-space-sm">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">cleaning_services</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Operational Performance &amp; Housekeeping Turnover</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+          Detailed room-level operational analytics, turn time averages, maintenance flags, and satisfaction indices.
+        </p>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Fleet Status:</span>
+<span class="px-space-sm py-0.5 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">
+          32 Keys Total (0 Out of Order)
+        </span>
+</div>
+</div>
+<!-- Operational Data Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md">
+<tr>
+<th class="px-space-md py-space-sm rounded-l-lg">Room Category</th>
+<th class="px-space-md py-space-sm">Available Keys</th>
+<th class="px-space-md py-space-sm">Sold Nights</th>
+<th class="px-space-md py-space-sm">RevPAR</th>
+<th class="px-space-md py-space-sm">Avg ADR</th>
+<th class="px-space-md py-space-sm">Housekeeping Turn</th>
+<th class="px-space-md py-space-sm">Guest CSAT</th>
+<th class="px-space-md py-space-sm rounded-r-lg text-right">Status Indicator</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1: Executive Penthouse -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-space-md py-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary font-bold text-xs">
+                  PH
+                </div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-bold">Executive Penthouse Suite</div>
+<div class="text-xs text-on-surface-variant">Floor 7 • Premium VIP Category</div>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-md text-on-surface font-medium">4 Keys</td>
+<td class="px-space-md py-space-md">
+<span class="font-bold text-on-surface">114 Nights</span>
+<div class="text-xs text-secondary font-semibold">92% Occupancy</div>
+</td>
+<td class="px-space-md py-space-md font-bold text-primary">$122.58</td>
+<td class="px-space-md py-space-md text-on-surface font-medium">$133.33</td>
+<td class="px-space-md py-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container">timer</span>
+<span class="font-medium text-on-surface">44 mins</span>
+</div>
+<div class="text-xs text-on-surface-variant">Full Deep Sanitization</div>
+</td>
+<td class="px-space-md py-space-md">
+<div class="flex items-center gap-1 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-amber-500 text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                4.95 / 5.0
+              </div>
+<div class="text-xs text-on-surface-variant">42 reviews</div>
+</td>
+<td class="px-space-md py-space-md text-right">
+<span class="inline-flex items-center px-space-sm py-1 rounded-full text-xs font-semibold bg-secondary-fixed text-on-secondary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary mr-1.5"></span> Optimal Yield
+              </span>
+</td>
+</tr>
+<!-- Row 2: Deluxe King Suite -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-space-md py-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary font-bold text-xs">
+                  DK
+                </div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-bold">Deluxe King Suite</div>
+<div class="text-xs text-on-surface-variant">Floors 4-6 • King Bed + Lounge</div>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-md text-on-surface font-medium">12 Keys</td>
+<td class="px-space-md py-space-md">
+<span class="font-bold text-on-surface">327 Nights</span>
+<div class="text-xs text-secondary font-semibold">88% Occupancy</div>
+</td>
+<td class="px-space-md py-space-md font-bold text-primary">$116.94</td>
+<td class="px-space-md py-space-md text-on-surface font-medium">$132.89</td>
+<td class="px-space-md py-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container">timer</span>
+<span class="font-medium text-on-surface">36 mins</span>
+</div>
+<div class="text-xs text-on-surface-variant">Standard Turnaround</div>
+</td>
+<td class="px-space-md py-space-md">
+<div class="flex items-center gap-1 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-amber-500 text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                4.86 / 5.0
+              </div>
+<div class="text-xs text-on-surface-variant">118 reviews</div>
+</td>
+<td class="px-space-md py-space-md text-right">
+<span class="inline-flex items-center px-space-sm py-1 rounded-full text-xs font-semibold bg-secondary-fixed text-on-secondary-fixed">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary mr-1.5"></span> High Demand
+              </span>
+</td>
+</tr>
+<!-- Row 3: Deluxe Double Room -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-space-md py-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary font-bold text-xs">
+                  DD
+                </div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-bold">Deluxe Double Room</div>
+<div class="text-xs text-on-surface-variant">Floors 2-3 • Dual Queen Beds</div>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-md text-on-surface font-medium">8 Keys</td>
+<td class="px-space-md py-space-md">
+<span class="font-bold text-on-surface">184 Nights</span>
+<div class="text-xs text-on-surface-variant font-medium">74% Occupancy</div>
+</td>
+<td class="px-space-md py-space-md font-bold text-primary">$89.06</td>
+<td class="px-space-md py-space-md text-on-surface font-medium">$120.35</td>
+<td class="px-space-md py-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container">timer</span>
+<span class="font-medium text-on-surface">38 mins</span>
+</div>
+<div class="text-xs text-on-surface-variant">Family Suite Turn</div>
+</td>
+<td class="px-space-md py-space-md">
+<div class="flex items-center gap-1 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-amber-500 text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                4.78 / 5.0
+              </div>
+<div class="text-xs text-on-surface-variant">64 reviews</div>
+</td>
+<td class="px-space-md py-space-md text-right">
+<span class="inline-flex items-center px-space-sm py-1 rounded-full text-xs font-semibold bg-surface-container text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-outline mr-1.5"></span> Balanced
+              </span>
+</td>
+</tr>
+<!-- Row 4: Single Cozy Room -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="px-space-md py-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary font-bold text-xs">
+                  SC
+                </div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-bold">Single Cozy Room</div>
+<div class="text-xs text-on-surface-variant">Floor 1 • Express Business Key</div>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-md text-on-surface font-medium">8 Keys</td>
+<td class="px-space-md py-space-md">
+<span class="font-bold text-on-surface">174 Nights</span>
+<div class="text-xs text-on-surface-variant font-medium">70% Occupancy</div>
+</td>
+<td class="px-space-md py-space-md font-bold text-primary">$72.58</td>
+<td class="px-space-md py-space-md text-on-surface font-medium">$103.68</td>
+<td class="px-space-md py-space-md">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">timer</span>
+<span class="font-medium text-on-surface">28 mins</span>
+</div>
+<div class="text-xs text-primary font-semibold">Fastest Turnaround</div>
+</td>
+<td class="px-space-md py-space-md">
+<div class="flex items-center gap-1 text-on-surface font-semibold">
+<span class="material-symbols-outlined text-amber-500 text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                4.71 / 5.0
+              </div>
+<div class="text-xs text-on-surface-variant">52 reviews</div>
+</td>
+<td class="px-space-md py-space-md text-right">
+<span class="inline-flex items-center px-space-sm py-1 rounded-full text-xs font-semibold bg-surface-container text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-outline mr-1.5"></span> Stable
+              </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Section 6: OOAD Architecture & PMS Audit Integrity Notice -->
+<div class="bg-surface-container rounded-xl p-space-md flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="p-2 rounded-xl bg-primary text-on-primary mt-0.5">
+<span class="material-symbols-outlined text-[24px]">account_tree</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-md text-label-md text-on-surface font-bold">PMS Reporting Subsystem &amp; Financial Ledger Architecture</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-container-high text-primary">OOAD Strategy Pattern</span>
+<span class="px-2 py-0.5 rounded text-[11px] font-bold bg-surface-container-high text-on-surface-variant">Composite Engine</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 max-w-4xl">
+          Reporting subsystem encapsulates domain models (<code class="bg-surface-container-highest px-1 py-0.5 rounded text-xs text-on-surface">Booking</code>, <code class="bg-surface-container-highest px-1 py-0.5 rounded text-xs text-on-surface">RoomInventory</code>, and <code class="bg-surface-container-highest px-1 py-0.5 rounded text-xs text-on-surface">FolioTransaction</code>) using isolated strategy classes for Revenue Recognition (USALI 11th Edition compliant) and Composite reporting filters for automated night-audit compliance.
+        </p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs self-end md:self-center shrink-0">
+<div class="text-right">
+<div class="text-xs text-on-surface-variant font-medium">Night Audit Ledger Hash:</div>
+<div class="font-mono text-xs text-on-surface font-bold">#PMS-20250524-819A</div>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container-high text-primary transition-colors" title="Verify Cryptographic Ledger Hash">
+<span class="material-symbols-outlined text-[20px]">verified_user</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Simple dropdown toggler
+  function toggleDropdown(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const isHidden = el.classList.contains('hidden');
+    // Hide any other active dropdowns
+    ['date-range-dropdown', 'category-dropdown', 'export-dropdown'].forEach(dId => {
+      const other = document.getElementById(dId);
+      if (other && dId !== id) other.classList.add('hidden');
+    });
+    if (isHidden) {
+      el.classList.remove('hidden');
+    } else {
+      el.classList.add('hidden');
+    }
+  }
+
+  // Update date selector text
+  function setDateRange(label) {
+    const textEl = document.getElementById('selected-date-text');
+    if (textEl) textEl.textContent = label;
+    const dropdown = document.getElementById('date-range-dropdown');
+    if (dropdown) dropdown.classList.add('hidden');
+  }
+
+  // Metric Switcher toggler
+  function toggleMetricView(type) {
+    const revBtn = document.getElementById('view-revenue-btn');
+    const occBtn = document.getElementById('view-occupancy-btn');
+    const bothBtn = document.getElementById('view-revpar-btn');
+
+    [revBtn, occBtn, bothBtn].forEach(btn => {
+      if (btn) {
+        btn.classList.remove('bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-sm');
+        btn.classList.add('text-on-surface-variant');
+      }
+    });
+
+    if (type === 'revenue' && revBtn) {
+      revBtn.classList.add('bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-sm');
+      revBtn.classList.remove('text-on-surface-variant');
+    } else if (type === 'occupancy' && occBtn) {
+      occBtn.classList.add('bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-sm');
+      occBtn.classList.remove('text-on-surface-variant');
+    } else if (bothBtn) {
+      bothBtn.classList.add('bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-sm');
+      bothBtn.classList.remove('text-on-surface-variant');
+    }
+  }
+
+  // Export notification micro feedback
+  function notifyExport(format) {
+    const dropdown = document.getElementById('export-dropdown');
+    if (dropdown) dropdown.classList.add('hidden');
+    alert(`Generating ${format} report package... PMS folio records are being compiled.`);
+  }
+
+  // Close dropdown on outside click
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('#date-range-btn') && !e.target.closest('#date-range-dropdown') &&
+        !e.target.closest('#category-filter-btn') && !e.target.closest('#category-dropdown') &&
+        !e.target.closest('#export-dropdown') && !e.target.closest('button[onclick*="export-dropdown"]')) {
+      ['date-range-dropdown', 'category-dropdown', 'export-dropdown'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add('hidden');
+      });
+    }
+  });
+</script></main></div>
+
+</body></html>
