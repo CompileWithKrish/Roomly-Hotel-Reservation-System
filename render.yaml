@@ -1,0 +1,64 @@
+# ====================================================================
+# Render Blueprint (Infrastructure-as-Code)
+# Deploys PostgreSQL 16, Spring Boot Web Service, and React Static Site
+# ====================================================================
+
+databases:
+  - name: roomly-db
+    databaseName: roomly_db
+    user: roomly_user
+    plan: free
+    region: oregon
+    postgresMajorVersion: 16
+
+services:
+  # ------------------------------------------------------------------
+  # Backend API - Dockerized Spring Boot Web Service
+  # ------------------------------------------------------------------
+  - type: web
+    name: roomly-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    region: oregon
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      # Point to Render Managed PostgreSQL
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: roomly-db
+          property: connectionString
+      # Strong auto-generated secret for production JWT signing
+      - key: JWT_SECRET
+        generateValue: true
+      # Allow requests from the deployed frontend static site
+      - key: CORS_ALLOWED_ORIGINS
+        fromService:
+          type: static
+          name: roomly-frontend
+          property: url
+
+  # ------------------------------------------------------------------
+  # Frontend Client - Vite React Static Site
+  # ------------------------------------------------------------------
+  - type: static
+    name: roomly-frontend
+    rootDir: ./frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    routes:
+      # Single-Page Application (SPA) client-side rewrite fallback
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      # Inject backend REST API base URL during Vite production build
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: roomly-backend
+          property: url
+          format: ${value}/api/v1

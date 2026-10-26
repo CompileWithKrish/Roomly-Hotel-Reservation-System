@@ -1,4 +1,21 @@
-# Build artifacts
+# ====================================================================
+# Roomly - Git Ignore Rules
+# ====================================================================
+
+# Environment Variables & Secrets (CRITICAL)
+.env
+.env.local
+.env.*.local
+*.env
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# Preserve template files
+!.env.example
+!frontend/.env.example
+
+# Build Artifacts - Backend (Java / Maven)
 backend/target/
 backend/pom.xml.tag
 backend/pom.xml.releaseBackup
@@ -10,21 +27,18 @@ backend/buildNumber.properties
 backend/.mvn/timing.properties
 backend/.mvn/wrapper/maven-wrapper.jar
 
-# Node & Frontend
+# Build Artifacts - Frontend (Node / Vite)
 frontend/node_modules/
 frontend/dist/
 frontend/dist-ssr/
 frontend/build/
-frontend/.env
-frontend/.env.local
-frontend/.env.*.local
 frontend/*.tsbuildinfo
 frontend/npm-debug.log*
 frontend/yarn-debug.log*
 frontend/yarn-error.log*
 frontend/pnpm-debug.log*
 
-# IDE & Editor
+# IDE & Editor Files
 .idea/
 *.iml
 .vscode/*
@@ -37,3 +51,7 @@ Thumbs.db
 *.sln
 *.sw?
 *.log
+
+# Docker Local Mounts
+docker-data/
+postgres_data/

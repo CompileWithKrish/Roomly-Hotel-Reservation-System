@@ -150,3 +150,24 @@ The test suite validates:
 8. Per-customer redemption limit enforcement.
 9. Campaign total redemption ceiling enforcement under concurrency.
 10. Admin instant status toggle, safe archiving, and data persistence.
+
+---
+
+## 🌐 Cloud Deployment Guide (Render)
+
+Roomly is pre-configured for automated 1-click deployment on **Render** using `render.yaml`.
+
+### Architecture on Render:
+1. **PostgreSQL Database (`roomly-db`)**: Managed PostgreSQL 16 with automated Flyway migrations.
+2. **Backend Web Service (`roomly-backend`)**: Docker container running Spring Boot 3.3.4 (Java 21).
+3. **Frontend Static Site (`roomly-frontend`)**: Vite React Static Site with SPA client-side routing fallback.
+
+### Deployment Steps:
+1. Fork or push this repository to GitHub.
+2. In the [Render Dashboard](https://dashboard.render.com/), click **New +** -> **Blueprint**.
+3. Connect your GitHub repository. Render reads `render.yaml` and provisions all 3 services automatically.
+4. Once `roomly-backend` deploys, verify its health probe at:
+   ```
+   https://<your-backend>.onrender.com/api/v1/health
+   ```
+5. Open your `roomly-frontend` static site URL in your browser and explore the full platform.

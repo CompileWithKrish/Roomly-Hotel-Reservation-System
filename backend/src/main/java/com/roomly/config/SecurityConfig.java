@@ -38,8 +38,9 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        // Public Auth Endpoints
+                        // Public Auth & Health Endpoints
                         .requestMatchers("/api/v1/auth/**").permitAll()
+                        .requestMatchers("/api/v1/health", "/health").permitAll()
 
                         // Public Room Browsing Endpoints
                         .requestMatchers(HttpMethod.GET, "/api/v1/rooms/**").permitAll()
