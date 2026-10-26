@@ -45,7 +45,6 @@ services:
     name: roomly-frontend
     runtime: static
     plan: free
-    region: oregon
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: ./frontend/dist
     routes:
