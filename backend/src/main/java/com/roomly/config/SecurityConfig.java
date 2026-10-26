@@ -38,12 +38,18 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource))
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
+                        // Allow CORS preflight requests from browser
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+
                         // Public Auth & Health Endpoints
                         .requestMatchers("/api/v1/auth/**").permitAll()
                         .requestMatchers("/api/v1/health", "/health").permitAll()
 
                         // Public Room Browsing Endpoints
                         .requestMatchers(HttpMethod.GET, "/api/v1/rooms/**").permitAll()
+
+                        // Authenticated Guest Bookings (must precede {id} pattern)
+                        .requestMatchers(HttpMethod.GET, "/api/v1/bookings/my-bookings").authenticated()
 
                         // Public Booking Endpoints (create booking as guest/customer)
                         .requestMatchers(HttpMethod.POST, "/api/v1/bookings").permitAll()

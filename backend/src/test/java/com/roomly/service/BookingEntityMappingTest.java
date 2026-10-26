@@ -61,4 +61,17 @@ class BookingEntityMappingTest {
             assertTrue(sql.contains("DEFAULT 'Direct Booking'"), "Migration must set 'Direct Booking' default");
         }
     }
+
+    @Test
+    @DisplayName("Verify BCrypt password hashing for seed users")
+    void verifyBCryptPasswordEncoding() {
+        org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder encoder = 
+                new org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder();
+        String adminHash = encoder.encode("admin123");
+        String customerHash = encoder.encode("customer123");
+        assertTrue(encoder.matches("admin123", adminHash));
+        assertTrue(encoder.matches("customer123", customerHash));
+        System.out.println("BCRYPT_ADMIN: " + adminHash);
+        System.out.println("BCRYPT_CUSTOMER: " + customerHash);
+    }
 }

@@ -20,14 +20,15 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(() => {
     const saved = localStorage.getItem('roomly_auth_user');
-    if (saved) {
+    const token = localStorage.getItem('roomly_access_token');
+    if (saved && token) {
       try {
         return JSON.parse(saved);
       } catch {
-        return INITIAL_USERS[1];
+        return null;
       }
     }
-    return INITIAL_USERS[1];
+    return null;
   });
 
   useEffect(() => {
@@ -38,7 +39,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, [user]);
 
-  // Optional background verification with backend /auth/me
+  // Background verification with backend /auth/me if token exists
   useEffect(() => {
     const token = localStorage.getItem('roomly_access_token');
     if (token) {
@@ -56,7 +57,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           }
         })
         .catch(() => {
-          // Keep existing local user state
+          // Keep existing local user state or clean expired session
         });
     }
   }, []);
@@ -64,91 +65,56 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const login = async (email: string, password?: string, targetRole?: UserRole): Promise<User> => {
     const effectivePassword = password || (email.toLowerCase().includes('admin') ? 'admin123' : 'customer123');
 
-    try {
-      const res = await apiClient.post<any>('/auth/login', {
-        email,
-        password: effectivePassword,
-      });
+    const res = await apiClient.post<any>('/auth/login', {
+      email: email.trim(),
+      password: effectivePassword,
+    });
 
-      if (res && res.accessToken) {
-        localStorage.setItem('roomly_access_token', res.accessToken);
-        const loggedUser: User = {
-          id: res.user?.id?.toString() || `usr-${Date.now()}`,
-          name: res.user?.name || email.split('@')[0],
-          email: res.user?.email || email,
-          role: (res.user?.role?.toLowerCase() as UserRole) || (email.includes('admin') ? 'admin' : 'customer'),
-          avatar: res.user?.avatarUrl || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80',
-          phone: res.user?.phone,
-        };
-        setUser(loggedUser);
-        return loggedUser;
-      }
-    } catch (err: any) {
-      console.warn('Backend login endpoint unavailable or rejected, using local fallback:', err);
+    if (res && res.accessToken) {
+      localStorage.setItem('roomly_access_token', res.accessToken);
+      const loggedUser: User = {
+        id: res.user?.id?.toString() || `usr-${Date.now()}`,
+        name: res.user?.name || email.split('@')[0],
+        email: res.user?.email || email,
+        role: (res.user?.role?.toLowerCase() as UserRole) || (email.includes('admin') ? 'admin' : 'customer'),
+        avatar: res.user?.avatarUrl || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80',
+        phone: res.user?.phone,
+      };
+      setUser(loggedUser);
+      return loggedUser;
     }
-
-    // Local fallback
-    await new Promise((resolve) => setTimeout(resolve, 300));
-    const foundUser = INITIAL_USERS.find((u: User) => u.email.toLowerCase() === email.toLowerCase());
-    if (foundUser) {
-      setUser(foundUser);
-      return foundUser;
-    }
-
-    const newUser: User = {
-      id: `usr-${Date.now()}`,
-      name: email.split('@')[0],
-      email,
-      role: targetRole || (email.includes('admin') ? 'admin' : 'customer'),
-      avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80',
-    };
-    setUser(newUser);
-    return newUser;
+    throw new Error('Authentication failed: no access token returned.');
   };
 
   const register = async (name: string, email: string, password?: string, phone?: string): Promise<User> => {
     const effectivePassword = password || 'customer123';
 
-    try {
-      const res = await apiClient.post<any>('/auth/register', {
-        name,
-        email,
-        password: effectivePassword,
-        phone: phone || '+1 (555) 000-0000',
-      });
+    const res = await apiClient.post<any>('/auth/register', {
+      name: name.trim(),
+      email: email.trim(),
+      password: effectivePassword,
+      phone: phone || '+1 (555) 000-0000',
+    });
 
-      if (res && res.accessToken) {
-        localStorage.setItem('roomly_access_token', res.accessToken);
-        const loggedUser: User = {
-          id: res.user?.id?.toString() || `usr-${Date.now()}`,
-          name: res.user?.name || name,
-          email: res.user?.email || email,
-          role: 'customer',
-          avatar: res.user?.avatarUrl || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80',
-          phone: res.user?.phone || phone,
-        };
-        setUser(loggedUser);
-        return loggedUser;
-      }
-    } catch (err: any) {
-      console.warn('Backend registration endpoint failed, using local fallback:', err);
+    if (res && res.accessToken) {
+      localStorage.setItem('roomly_access_token', res.accessToken);
+      const loggedUser: User = {
+        id: res.user?.id?.toString() || `usr-${Date.now()}`,
+        name: res.user?.name || name,
+        email: res.user?.email || email,
+        role: 'customer',
+        avatar: res.user?.avatarUrl || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80',
+        phone: res.user?.phone || phone,
+      };
+      setUser(loggedUser);
+      return loggedUser;
     }
-
-    await new Promise((resolve) => setTimeout(resolve, 300));
-    const newUser: User = {
-      id: `usr-${Date.now()}`,
-      name,
-      email,
-      role: 'customer',
-      avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80',
-      phone,
-    };
-    setUser(newUser);
-    return newUser;
+    throw new Error('Registration failed: no access token returned.');
   };
 
   const logout = () => {
     localStorage.removeItem('roomly_access_token');
+    localStorage.removeItem('roomly_auth_user');
     setUser(null);
   };
 

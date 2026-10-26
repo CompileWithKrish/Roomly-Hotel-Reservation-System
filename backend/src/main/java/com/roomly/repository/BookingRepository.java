@@ -4,6 +4,7 @@ import com.roomly.entity.Booking;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -15,7 +16,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface BookingRepository extends JpaRepository<Booking, UUID> {
+public interface BookingRepository extends JpaRepository<Booking, UUID>, JpaSpecificationExecutor<Booking> {
 
     Optional<Booking> findByBookingCode(String bookingCode);
 
@@ -31,12 +32,27 @@ public interface BookingRepository extends JpaRepository<Booking, UUID> {
 
     @Query("SELECT COUNT(b) > 0 FROM Booking b WHERE b.room.id = :roomId " +
            "AND UPPER(b.status) IN ('CONFIRMED', 'PENDING', 'CHECKED_IN', 'CHECKEDIN') " +
-           "AND b.checkInDate < :checkOutDate AND b.checkOutDate > :checkInDate " +
-           "AND (:excludeBookingId IS NULL OR b.id != :excludeBookingId)")
+           "AND b.checkInDate < :checkOutDate AND b.checkOutDate > :checkInDate")
     boolean hasOverlappingBooking(@Param("roomId") UUID roomId,
                                  @Param("checkInDate") LocalDate checkInDate,
-                                 @Param("checkOutDate") LocalDate checkOutDate,
-                                 @Param("excludeBookingId") UUID excludeBookingId);
+                                 @Param("checkOutDate") LocalDate checkOutDate);
+
+    @Query("SELECT COUNT(b) > 0 FROM Booking b WHERE b.room.id = :roomId " +
+           "AND UPPER(b.status) IN ('CONFIRMED', 'PENDING', 'CHECKED_IN', 'CHECKEDIN') " +
+           "AND b.checkInDate < :checkOutDate AND b.checkOutDate > :checkInDate " +
+           "AND b.id != :excludeBookingId")
+    boolean hasOverlappingBookingExcludingId(@Param("roomId") UUID roomId,
+                                           @Param("checkInDate") LocalDate checkInDate,
+                                           @Param("checkOutDate") LocalDate checkOutDate,
+                                           @Param("excludeBookingId") UUID excludeBookingId);
+
+    default boolean hasOverlappingBooking(UUID roomId, LocalDate checkInDate, LocalDate checkOutDate, UUID excludeBookingId) {
+        if (excludeBookingId == null) {
+            return hasOverlappingBooking(roomId, checkInDate, checkOutDate);
+        } else {
+            return hasOverlappingBookingExcludingId(roomId, checkInDate, checkOutDate, excludeBookingId);
+        }
+    }
 
     @Query("SELECT b FROM Booking b WHERE " +
            "(:search IS NULL OR LOWER(b.bookingCode) LIKE LOWER(CONCAT('%', :search, '%')) " +

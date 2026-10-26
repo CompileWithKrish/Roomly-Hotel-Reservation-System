@@ -123,10 +123,11 @@ export const bookingsApi = {
       if (Array.isArray(data)) {
         return data.map(mapBackendToFrontendBooking);
       }
-    } catch (err) {
-      console.warn('Backend getMyBookings failed, falling back:', err);
+      return [];
+    } catch (err: any) {
+      console.error('Backend getMyBookings failed:', err);
+      throw err;
     }
-    return getStoredBookings();
   },
 
   getBookingById: async (id: string): Promise<Booking | undefined> => {
@@ -174,39 +175,19 @@ export const bookingsApi = {
   },
 
   updateBookingStatus: async (id: string, status: BookingStatus): Promise<Booking> => {
-    try {
-      const res = await apiClient.patch<any>(`/bookings/${id}/status`, { status });
-      if (res && res.id) {
-        const updated = mapBackendToFrontendBooking(res);
-        const bookings = getStoredBookings();
-        const index = bookings.findIndex((b) => b.id === id || b.bookingCode === id);
-        if (index !== -1) {
-          bookings[index] = updated;
-          saveStoredBookings(bookings);
-        }
-        return updated;
-      }
-    } catch (err) {
-      console.warn('Backend updateBookingStatus failed, updating locally:', err);
-    }
-
+    const res = await apiClient.patch<any>(`/bookings/${id}/status`, { status });
+    const updated = mapBackendToFrontendBooking(res);
     const bookings = getStoredBookings();
     const index = bookings.findIndex((b) => b.id === id || b.bookingCode === id);
-    if (index === -1) throw new Error('Booking not found');
-    bookings[index].status = status;
-    saveStoredBookings(bookings);
-    return bookings[index];
+    if (index !== -1) {
+      bookings[index] = updated;
+      saveStoredBookings(bookings);
+    }
+    return updated;
   },
 
   cancelBooking: async (id: string): Promise<Booking> => {
-    try {
-      const res = await apiClient.post<any>(`/bookings/${id}/cancel`);
-      if (res && res.id) {
-        return mapBackendToFrontendBooking(res);
-      }
-    } catch (err) {
-      console.warn('Backend cancelBooking failed, cancelling locally:', err);
-    }
-    return bookingsApi.updateBookingStatus(id, 'Cancelled');
+    const res = await apiClient.post<any>(`/bookings/${id}/cancel`);
+    return mapBackendToFrontendBooking(res);
   },
 };

@@ -64,7 +64,7 @@ public class BookingService {
                 .orElseThrow(() -> new ResourceNotFoundException("Room not found with ID: " + request.getRoomId()));
 
         // Double-booking check
-        boolean hasConflict = bookingRepository.hasOverlappingBooking(room.getId(), checkIn, checkOut, null);
+        boolean hasConflict = bookingRepository.hasOverlappingBooking(room.getId(), checkIn, checkOut);
         if (hasConflict) {
             throw new BookingConflictException("The selected room has already been reserved for these dates. Please choose another date range or room.");
         }
@@ -167,13 +167,38 @@ public class BookingService {
         String cleanedSearch = (search != null && !search.isBlank()) ? search.trim() : null;
         String cleanedStatus = (status != null && !status.isBlank() && !"all".equalsIgnoreCase(status)) ? status.trim() : null;
 
-        Page<Booking> bookingPage = bookingRepository.findWithFilters(
-                cleanedSearch,
-                cleanedStatus,
-                startDate,
-                endDate,
-                pageable
-        );
+        Page<Booking> bookingPage;
+        boolean hasFilter = (cleanedSearch != null || cleanedStatus != null || startDate != null || endDate != null);
+
+        if (!hasFilter) {
+            bookingPage = bookingRepository.findAll(pageable);
+        } else {
+            org.springframework.data.jpa.domain.Specification<Booking> spec = (root, query, cb) -> {
+                List<jakarta.persistence.criteria.Predicate> predicates = new java.util.ArrayList<>();
+                if (cleanedSearch != null) {
+                    String pattern = "%" + cleanedSearch.toLowerCase() + "%";
+                    jakarta.persistence.criteria.Join<Booking, Room> roomJoin = root.join("room", jakarta.persistence.criteria.JoinType.LEFT);
+                    predicates.add(cb.or(
+                            cb.like(cb.lower(root.get("bookingCode")), pattern),
+                            cb.like(cb.lower(root.get("guestName")), pattern),
+                            cb.like(cb.lower(root.get("guestEmail")), pattern),
+                            cb.like(cb.lower(roomJoin.get("roomNumber")), pattern),
+                            cb.like(cb.lower(roomJoin.get("title")), pattern)
+                    ));
+                }
+                if (cleanedStatus != null) {
+                    predicates.add(cb.equal(cb.lower(root.get("status")), cleanedStatus.toLowerCase()));
+                }
+                if (startDate != null) {
+                    predicates.add(cb.greaterThanOrEqualTo(root.get("checkInDate"), startDate));
+                }
+                if (endDate != null) {
+                    predicates.add(cb.lessThanOrEqualTo(root.get("checkOutDate"), endDate));
+                }
+                return cb.and(predicates.toArray(new jakarta.persistence.criteria.Predicate[0]));
+            };
+            bookingPage = bookingRepository.findAll(spec, pageable);
+        }
 
         List<BookingDto> content = bookingPage.getContent().stream()
                 .map(bookingMapper::toDto)

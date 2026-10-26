@@ -138,96 +138,58 @@ export const roomsApi = {
   },
 
   createRoom: async (roomData: Omit<Room, 'id' | 'rating' | 'reviewCount'>): Promise<Room> => {
-    try {
-      const payload = {
-        roomNumber: roomData.roomNumber,
-        name: roomData.title,
-        hotelName: roomData.hotelName,
-        location: roomData.location,
-        type: roomData.type,
-        status: roomData.status,
-        pricePerNight: roomData.pricePerNight,
-        capacity: roomData.capacity,
-        sizeSqft: roomData.sizeSqFt,
-        description: roomData.description,
-        bedType: roomData.bedType,
-        amenities: roomData.amenities,
-        images: roomData.images,
-      };
-      const res = await apiClient.post<any>('/rooms', payload);
-      if (res && res.id) {
-        const created = mapBackendToFrontendRoom(res);
-        const rooms = getStoredRooms();
-        rooms.unshift(created);
-        saveStoredRooms(rooms);
-        return created;
-      }
-    } catch (err) {
-      console.warn('Backend createRoom failed, falling back locally:', err);
-    }
-
-    const rooms = getStoredRooms();
-    const newRoom: Room = {
-      ...roomData,
-      id: `room-${Date.now()}`,
-      rating: 5.0,
-      reviewCount: 0,
-      images: roomData.images.length > 0 ? roomData.images : [
-        'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=80',
-      ],
+    const payload = {
+      roomNumber: roomData.roomNumber,
+      name: roomData.title,
+      hotelName: roomData.hotelName,
+      location: roomData.location,
+      type: roomData.type,
+      status: roomData.status,
+      pricePerNight: roomData.pricePerNight,
+      capacity: roomData.capacity,
+      sizeSqft: roomData.sizeSqFt,
+      description: roomData.description,
+      bedType: roomData.bedType,
+      amenities: roomData.amenities,
+      images: roomData.images,
     };
-    rooms.unshift(newRoom);
+    const res = await apiClient.post<any>('/rooms', payload);
+    const created = mapBackendToFrontendRoom(res);
+    const rooms = getStoredRooms();
+    rooms.unshift(created);
     saveStoredRooms(rooms);
-    return newRoom;
+    return created;
   },
 
   updateRoom: async (id: string, updates: Partial<Room>): Promise<Room> => {
-    try {
-      const payload: any = {};
-      if (updates.roomNumber) payload.roomNumber = updates.roomNumber;
-      if (updates.title) payload.name = updates.title;
-      if (updates.hotelName) payload.hotelName = updates.hotelName;
-      if (updates.location) payload.location = updates.location;
-      if (updates.type) payload.type = updates.type;
-      if (updates.status) payload.status = updates.status;
-      if (updates.pricePerNight !== undefined) payload.pricePerNight = updates.pricePerNight;
-      if (updates.capacity !== undefined) payload.capacity = updates.capacity;
-      if (updates.sizeSqFt !== undefined) payload.sizeSqft = updates.sizeSqFt;
-      if (updates.description) payload.description = updates.description;
-      if (updates.bedType) payload.bedType = updates.bedType;
-      if (updates.amenities) payload.amenities = updates.amenities;
-      if (updates.images) payload.images = updates.images;
+    const payload: any = {};
+    if (updates.roomNumber) payload.roomNumber = updates.roomNumber;
+    if (updates.title) payload.name = updates.title;
+    if (updates.hotelName) payload.hotelName = updates.hotelName;
+    if (updates.location) payload.location = updates.location;
+    if (updates.type) payload.type = updates.type;
+    if (updates.status) payload.status = updates.status;
+    if (updates.pricePerNight !== undefined) payload.pricePerNight = updates.pricePerNight;
+    if (updates.capacity !== undefined) payload.capacity = updates.capacity;
+    if (updates.sizeSqFt !== undefined) payload.sizeSqft = updates.sizeSqFt;
+    if (updates.description) payload.description = updates.description;
+    if (updates.bedType) payload.bedType = updates.bedType;
+    if (updates.amenities) payload.amenities = updates.amenities;
+    if (updates.images) payload.images = updates.images;
 
-      const res = await apiClient.put<any>(`/rooms/${id}`, payload);
-      if (res && res.id) {
-        const updated = mapBackendToFrontendRoom(res);
-        const rooms = getStoredRooms();
-        const index = rooms.findIndex((r) => r.id === id);
-        if (index !== -1) {
-          rooms[index] = updated;
-          saveStoredRooms(rooms);
-        }
-        return updated;
-      }
-    } catch (err) {
-      console.warn('Backend updateRoom failed, falling back locally:', err);
-    }
-
+    const res = await apiClient.put<any>(`/rooms/${id}`, payload);
+    const updated = mapBackendToFrontendRoom(res);
     const rooms = getStoredRooms();
     const index = rooms.findIndex((r) => r.id === id);
-    if (index === -1) throw new Error('Room not found');
-    const updated = { ...rooms[index], ...updates };
-    rooms[index] = updated;
-    saveStoredRooms(rooms);
+    if (index !== -1) {
+      rooms[index] = updated;
+      saveStoredRooms(rooms);
+    }
     return updated;
   },
 
   deleteRoom: async (id: string): Promise<void> => {
-    try {
-      await apiClient.delete(`/rooms/${id}`);
-    } catch (err) {
-      console.warn('Backend deleteRoom failed, deleting locally:', err);
-    }
+    await apiClient.delete(`/rooms/${id}`);
     const rooms = getStoredRooms().filter((r) => r.id !== id);
     saveStoredRooms(rooms);
   },

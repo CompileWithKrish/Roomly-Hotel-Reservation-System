@@ -95,7 +95,7 @@ class BookingServiceTest {
                 .build();
 
         when(roomRepository.findById(roomId)).thenReturn(Optional.of(testRoom));
-        when(bookingRepository.hasOverlappingBooking(eq(roomId), eq(checkIn), eq(checkOut), isNull())).thenReturn(false);
+        when(bookingRepository.hasOverlappingBooking(eq(roomId), eq(checkIn), eq(checkOut))).thenReturn(false);
         when(userRepository.findByEmail("sarah@example.com")).thenReturn(Optional.empty());
 
         when(bookingRepository.save(any(Booking.class))).thenAnswer(invocation -> {
@@ -174,7 +174,7 @@ class BookingServiceTest {
                 .build();
 
         when(roomRepository.findById(roomId)).thenReturn(Optional.of(testRoom));
-        when(bookingRepository.hasOverlappingBooking(eq(roomId), eq(checkIn), eq(checkOut), isNull())).thenReturn(true);
+        when(bookingRepository.hasOverlappingBooking(eq(roomId), eq(checkIn), eq(checkOut))).thenReturn(true);
 
         assertThrows(BookingConflictException.class, () -> bookingService.createBooking(request, null));
         verify(bookingRepository, never()).save(any(Booking.class));

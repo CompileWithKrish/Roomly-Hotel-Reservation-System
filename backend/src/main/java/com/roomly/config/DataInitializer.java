@@ -39,6 +39,16 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) {
         seedOffersIfEmpty();
 
+        // Ensure default users have valid password hashes
+        userRepository.findByEmail("admin@roomly.com").ifPresent(u -> {
+            u.setPasswordHash(passwordEncoder.encode("admin123"));
+            userRepository.save(u);
+        });
+        userRepository.findByEmail("customer@roomly.com").ifPresent(u -> {
+            u.setPasswordHash(passwordEncoder.encode("customer123"));
+            userRepository.save(u);
+        });
+
         if (userRepository.count() > 0 && roomRepository.count() > 0) {
             log.info("Database already seeded. Skipping initial data provisioning.");
             return;

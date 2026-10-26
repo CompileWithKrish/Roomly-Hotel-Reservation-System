@@ -34,7 +34,7 @@ export const LoginPage: React.FC = () => {
     resolver: zodResolver(loginSchema),
     defaultValues: {
       email: 'customer@roomly.com',
-      password: 'password123',
+      password: 'customer123',
       rememberMe: true,
     },
   });
@@ -42,7 +42,7 @@ export const LoginPage: React.FC = () => {
   const onSubmit = async (data: LoginFormData) => {
     setErrorMsg(null);
     try {
-      const user = await login(data.email);
+      const user = await login(data.email, data.password);
       if (user.role === 'admin') {
         navigate('/admin');
       } else {
@@ -54,16 +54,21 @@ export const LoginPage: React.FC = () => {
   };
 
   const handleQuickLogin = async (role: 'admin' | 'customer') => {
-    if (role === 'admin') {
-      setValue('email', 'admin@roomly.com');
-      setValue('password', 'adminpass123');
-      await login('admin@roomly.com', 'admin');
-      navigate('/admin');
-    } else {
-      setValue('email', 'customer@roomly.com');
-      setValue('password', 'password123');
-      await login('customer@roomly.com', 'customer');
-      navigate('/customer/dashboard');
+    setErrorMsg(null);
+    try {
+      if (role === 'admin') {
+        setValue('email', 'admin@roomly.com');
+        setValue('password', 'admin123');
+        await login('admin@roomly.com', 'admin123', 'admin');
+        navigate('/admin');
+      } else {
+        setValue('email', 'customer@roomly.com');
+        setValue('password', 'customer123');
+        await login('customer@roomly.com', 'customer123', 'customer');
+        navigate('/customer/dashboard');
+      }
+    } catch (err: any) {
+      setErrorMsg(err.message || 'Quick login failed. Please verify backend connection.');
     }
   };
 

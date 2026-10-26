@@ -50,16 +50,45 @@ public class RoomService {
         String cleanedType = (type != null && !type.isBlank() && !"all".equalsIgnoreCase(type) && !"All Types".equalsIgnoreCase(type)) ? type.trim() : null;
         String cleanedStatus = (status != null && !status.isBlank() && !"all".equalsIgnoreCase(status)) ? status.trim() : null;
 
-        Page<Room> roomPage = roomRepository.findWithFilters(
-                cleanedSearch,
-                cleanedLocation,
-                cleanedType,
-                cleanedStatus,
-                capacity,
-                minPrice,
-                maxPrice,
-                pageable
-        );
+        Page<Room> roomPage;
+        boolean hasFilter = (cleanedSearch != null || cleanedLocation != null || cleanedType != null 
+                || cleanedStatus != null || capacity != null || minPrice != null || maxPrice != null);
+
+        if (!hasFilter) {
+            roomPage = roomRepository.findAll(pageable);
+        } else {
+            org.springframework.data.jpa.domain.Specification<Room> spec = (root, query, cb) -> {
+                List<jakarta.persistence.criteria.Predicate> predicates = new java.util.ArrayList<>();
+                if (cleanedSearch != null) {
+                    String pattern = "%" + cleanedSearch.toLowerCase() + "%";
+                    predicates.add(cb.or(
+                            cb.like(cb.lower(root.get("title")), pattern),
+                            cb.like(cb.lower(root.get("hotelName")), pattern),
+                            cb.like(cb.lower(root.get("roomNumber")), pattern)
+                    ));
+                }
+                if (cleanedLocation != null) {
+                    predicates.add(cb.like(cb.lower(root.get("location")), "%" + cleanedLocation.toLowerCase() + "%"));
+                }
+                if (cleanedType != null) {
+                    predicates.add(cb.equal(cb.lower(root.get("type")), cleanedType.toLowerCase()));
+                }
+                if (cleanedStatus != null) {
+                    predicates.add(cb.equal(cb.lower(root.get("status")), cleanedStatus.toLowerCase()));
+                }
+                if (capacity != null) {
+                    predicates.add(cb.greaterThanOrEqualTo(root.get("capacity"), capacity));
+                }
+                if (minPrice != null) {
+                    predicates.add(cb.greaterThanOrEqualTo(root.get("pricePerNight"), minPrice));
+                }
+                if (maxPrice != null) {
+                    predicates.add(cb.lessThanOrEqualTo(root.get("pricePerNight"), maxPrice));
+                }
+                return cb.and(predicates.toArray(new jakarta.persistence.criteria.Predicate[0]));
+            };
+            roomPage = roomRepository.findAll(spec, pageable);
+        }
 
         List<RoomDto> content = roomPage.getContent().stream()
                 .map(roomMapper::toDto)

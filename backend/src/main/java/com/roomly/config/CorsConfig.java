@@ -30,9 +30,12 @@ public class CorsConfig {
                 })
                 .distinct()
                 .toList();
-        configuration.setAllowedOrigins(origins);
-        configuration.addAllowedOriginPattern("https://*.onrender.com");
-        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+        List<String> patterns = new java.util.ArrayList<>(origins);
+        patterns.add("https://*.onrender.com");
+        patterns.add("http://localhost:[*]");
+        patterns.add("http://127.0.0.1:[*]");
+        configuration.setAllowedOriginPatterns(patterns);
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With", "Accept", "Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers"));
         configuration.setExposedHeaders(Arrays.asList("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials", "Authorization"));
         configuration.setAllowCredentials(true);

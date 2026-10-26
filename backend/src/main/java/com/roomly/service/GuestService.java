@@ -44,12 +44,37 @@ public class GuestService {
         String cleanedTier = (tier != null && !tier.isBlank() && !"all".equalsIgnoreCase(tier)) ? tier.trim() : null;
         String cleanedStatus = (status != null && !status.isBlank() && !"all".equalsIgnoreCase(status)) ? status.trim() : null;
 
-        Page<Guest> guestPage = guestRepository.findWithFilters(
-                cleanedSearch,
-                cleanedTier,
-                cleanedStatus,
-                pageable
-        );
+        Page<Guest> guestPage;
+        boolean hasFilter = (cleanedSearch != null || cleanedTier != null || cleanedStatus != null);
+
+        if (!hasFilter) {
+            guestPage = guestRepository.findAll(pageable);
+        } else {
+            org.springframework.data.jpa.domain.Specification<Guest> spec = (root, query, cb) -> {
+                List<jakarta.persistence.criteria.Predicate> predicates = new java.util.ArrayList<>();
+                if (cleanedSearch != null) {
+                    String pattern = "%" + cleanedSearch.toLowerCase() + "%";
+                    jakarta.persistence.criteria.Expression<String> fullName = cb.concat(
+                            cb.concat(cb.lower(root.get("firstName")), " "),
+                            cb.lower(root.get("lastName"))
+                    );
+                    predicates.add(cb.or(
+                            cb.like(fullName, pattern),
+                            cb.like(cb.lower(root.get("email")), pattern),
+                            cb.like(cb.lower(root.get("phone")), pattern),
+                            cb.like(cb.lower(root.get("passportId")), pattern)
+                    ));
+                }
+                if (cleanedTier != null) {
+                    predicates.add(cb.equal(cb.lower(root.get("tier")), cleanedTier.toLowerCase()));
+                }
+                if (cleanedStatus != null) {
+                    predicates.add(cb.equal(cb.lower(root.get("status")), cleanedStatus.toLowerCase()));
+                }
+                return cb.and(predicates.toArray(new jakarta.persistence.criteria.Predicate[0]));
+            };
+            guestPage = guestRepository.findAll(spec, pageable);
+        }
 
         List<GuestDto> content = guestPage.getContent().stream()
                 .map(guestMapper::toDto)
