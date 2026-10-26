@@ -34,9 +34,9 @@ services:
       # Strong auto-generated secret for production JWT signing
       - key: JWT_SECRET
         generateValue: true
-      # Dynamically reference the generated frontend static site host
+      # Allowed CORS Origins (including specific deployed static site)
       - key: CORS_ALLOWED_ORIGINS
-        value: https://roomly-frontend.onrender.com,http://localhost:3000,http://localhost:5173
+        value: https://roomly-frontend-oyt5.onrender.com,https://roomly-frontend.onrender.com,http://localhost:3000,http://localhost:5173
 
   # ------------------------------------------------------------------
   # Frontend Client - Vite React Static Site
