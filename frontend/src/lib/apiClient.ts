@@ -73,7 +73,15 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
     }
 
     if (!response.ok) {
-      const errorMessage = data?.message || (typeof data === 'string' ? data : `Request failed with status ${response.status}`);
+      let errorMessage = data?.message || data?.detail;
+      if (!errorMessage && data?.fieldErrors && typeof data.fieldErrors === 'object') {
+        errorMessage = Object.entries(data.fieldErrors)
+          .map(([k, v]) => `${k}: ${v}`)
+          .join('; ');
+      }
+      if (!errorMessage) {
+        errorMessage = typeof data === 'string' ? data : `Request failed with status ${response.status}`;
+      }
       throw new ApiError(errorMessage, response.status, data);
     }
 

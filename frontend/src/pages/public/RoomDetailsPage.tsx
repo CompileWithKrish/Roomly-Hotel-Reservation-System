@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useRoom } from '../../features/rooms/hooks';
-import { formatCurrency, calculateNights } from '../../lib/utils';
+import { formatCurrency, calculateNights, getDefaultBookingDates, DEFAULT_ROOM_ID } from '../../lib/utils';
 import { Button } from '../../components/ui/Button';
 import { StatusBadge } from '../../components/ui/Badge';
 import { Skeleton } from '../../components/ui/Skeleton';
@@ -30,11 +30,12 @@ import {
 export const RoomDetailsPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { data: room, isLoading } = useRoom(id || 'room-101');
+  const { data: room, isLoading } = useRoom(id || DEFAULT_ROOM_ID);
 
+  const defaultDates = getDefaultBookingDates();
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const [checkInDate, setCheckInDate] = useState('2026-10-15');
-  const [checkOutDate, setCheckOutDate] = useState('2026-10-19');
+  const [checkInDate, setCheckInDate] = useState(defaultDates.checkIn);
+  const [checkOutDate, setCheckOutDate] = useState(defaultDates.checkOut);
   const [guestCount, setGuestCount] = useState('2');
   const [savedWishlist, setSavedWishlist] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);

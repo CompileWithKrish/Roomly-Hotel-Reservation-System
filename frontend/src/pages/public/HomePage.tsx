@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useRooms } from '../../features/rooms/hooks';
-import { formatCurrency } from '../../lib/utils';
+import { formatCurrency, getDefaultBookingDates } from '../../lib/utils';
 import { Button } from '../../components/ui/Button';
 import {
   Search,
@@ -22,9 +22,10 @@ export const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const { data: rooms } = useRooms();
 
+  const defaultDates = getDefaultBookingDates();
   const [location, setLocation] = useState('');
-  const [checkIn, setCheckIn] = useState('2026-10-15');
-  const [checkOut, setCheckOut] = useState('2026-10-19');
+  const [checkIn, setCheckIn] = useState(defaultDates.checkIn);
+  const [checkOut, setCheckOut] = useState(defaultDates.checkOut);
   const [guests, setGuests] = useState('2');
   const [roomType, setRoomType] = useState('all');
 

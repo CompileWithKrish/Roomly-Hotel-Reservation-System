@@ -21,7 +21,7 @@ export const INITIAL_USERS: User[] = [
 
 export const INITIAL_ROOMS: Room[] = [
   {
-    id: 'room-101',
+    id: 'b0000000-0000-0000-0000-000000000101',
     title: 'Deluxe King Suite',
     roomNumber: '101',
     hotelName: 'Roomly Grand Banjara',
@@ -55,7 +55,7 @@ export const INITIAL_ROOMS: Room[] = [
     ],
   },
   {
-    id: 'room-202',
+    id: 'b0000000-0000-0000-0000-000000000202',
     title: 'Executive Panoramic Suite',
     roomNumber: '202',
     hotelName: 'Roomly Silicon Sky',
@@ -87,7 +87,7 @@ export const INITIAL_ROOMS: Room[] = [
     ],
   },
   {
-    id: 'room-303',
+    id: 'b0000000-0000-0000-0000-000000000303',
     title: 'Private Ocean Villa',
     roomNumber: 'V-03',
     hotelName: 'Roomly Bay Breeze Resort',
@@ -118,7 +118,7 @@ export const INITIAL_ROOMS: Room[] = [
     ],
   },
   {
-    id: 'room-404',
+    id: 'b0000000-0000-0000-0000-000000000404',
     title: 'Presidential Penthouse',
     roomNumber: 'PH-01',
     hotelName: 'Roomly Marina Heritage',
@@ -148,7 +148,7 @@ export const INITIAL_ROOMS: Room[] = [
     ],
   },
   {
-    id: 'room-505',
+    id: 'b0000000-0000-0000-0000-000000000505',
     title: 'Modern Classic Twin',
     roomNumber: '505',
     hotelName: 'Roomly Riverside Palace',
@@ -177,7 +177,7 @@ export const INITIAL_ROOMS: Room[] = [
     ],
   },
   {
-    id: 'room-606',
+    id: 'b0000000-0000-0000-0000-000000000606',
     title: 'Skyline Superior King',
     roomNumber: '606',
     hotelName: 'Roomly Hitech City',
@@ -240,7 +240,7 @@ export const INITIAL_BOOKINGS: Booking[] = [
   {
     id: 'bk-1001',
     bookingCode: 'ROOMLY-84920',
-    roomId: 'room-101',
+    roomId: 'b0000000-0000-0000-0000-000000000101',
     roomTitle: 'Deluxe King Suite',
     hotelName: 'Roomly Grand Banjara',
     location: 'Hyderabad',

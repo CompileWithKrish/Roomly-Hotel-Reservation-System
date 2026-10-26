@@ -1,6 +1,7 @@
 import { Booking, BookingStatus, PaymentStatus, RoomType } from '../../types';
 import { INITIAL_BOOKINGS } from '../../lib/mockData';
 import { apiClient } from '../../lib/apiClient';
+import { getDefaultBookingDates, isValidUuid } from '../../lib/utils';
 
 const BOOKINGS_STORAGE_KEY = 'roomly_bookings_data';
 
@@ -28,8 +29,9 @@ export interface BookingFilters {
 }
 
 const mapBackendToFrontendBooking = (dto: any): Booking => {
-  const checkIn = dto.checkInDate || dto.checkIn || '2026-10-15';
-  const checkOut = dto.checkOutDate || dto.checkOut || '2026-10-19';
+  const defaultDates = getDefaultBookingDates();
+  const checkIn = dto.checkInDate || dto.checkIn || defaultDates.checkIn;
+  const checkOut = dto.checkOutDate || dto.checkOut || defaultDates.checkOut;
 
   return {
     id: dto.id?.toString() || `bk-${Date.now()}`,
@@ -145,18 +147,23 @@ export const bookingsApi = {
 
   createBooking: async (bookingData: Omit<Booking, 'id' | 'bookingCode' | 'createdAt'>): Promise<Booking> => {
     try {
-      const payload = {
+      const payload: Record<string, any> = {
         roomId: bookingData.roomId,
         checkInDate: bookingData.checkIn,
         checkOutDate: bookingData.checkOut,
         guestName: bookingData.guestName,
         guestEmail: bookingData.guestEmail,
         guestPhone: bookingData.guestPhone,
-        specialRequests: bookingData.specialRequests,
+        specialRequests: bookingData.specialRequests || '',
         paymentMethod: bookingData.paymentMethod || 'Pay at Hotel (Demo)',
-        offerId: bookingData.offerId,
-        offerCode: bookingData.offerCode,
       };
+
+      if (bookingData.offerId && isValidUuid(bookingData.offerId)) {
+        payload.offerId = bookingData.offerId;
+      }
+      if (bookingData.offerCode && typeof bookingData.offerCode === 'string' && bookingData.offerCode.trim()) {
+        payload.offerCode = bookingData.offerCode.trim();
+      }
 
       const res = await apiClient.post<any>('/bookings', payload);
       if (res && (res.id || res.bookingNumber || res.bookingCode)) {

@@ -6,7 +6,14 @@ import * as z from 'zod';
 import { useRoom } from '../../features/rooms/hooks';
 import { useCreateBooking } from '../../features/bookings/hooks';
 import { useAuth } from '../../context/AuthContext';
-import { formatCurrency, calculateNights, formatDate } from '../../lib/utils';
+import {
+  formatCurrency,
+  calculateNights,
+  formatDate,
+  sanitizeBookingDates,
+  isValidUuid,
+  DEFAULT_ROOM_ID,
+} from '../../lib/utils';
 import { Button } from '../../components/ui/Button';
 import { Input } from '../../components/ui/Input';
 import { Checkbox } from '../../components/ui/Checkbox';
@@ -54,10 +61,10 @@ export const CheckoutPage: React.FC = () => {
   const { user } = useAuth();
   const createBookingMutation = useCreateBooking();
 
-  const roomId = searchParams.get('roomId') || 'room-101';
-  const checkIn = searchParams.get('in') || '2026-10-15';
-  const checkOut = searchParams.get('out') || '2026-10-19';
-  const guests = parseInt(searchParams.get('guests') || '2', 10);
+  const rawRoomId = searchParams.get('roomId');
+  const roomId = rawRoomId && isValidUuid(rawRoomId) ? rawRoomId : DEFAULT_ROOM_ID;
+  const { checkIn, checkOut } = sanitizeBookingDates(searchParams.get('in'), searchParams.get('out'));
+  const guests = Math.max(1, parseInt(searchParams.get('guests') || '2', 10) || 2);
 
   const { data: room, isLoading } = useRoom(roomId);
 
@@ -187,8 +194,9 @@ export const CheckoutPage: React.FC = () => {
         : 'Pay on Arrival (Front Desk)';
 
     try {
+      const finalRoomId = isValidUuid(room.id) ? room.id : roomId;
       const newBooking = await createBookingMutation.mutateAsync({
-        roomId: room.id,
+        roomId: finalRoomId,
         roomTitle: room.title,
         roomType: room.type,
         roomImage: room.images[0],
