@@ -27,28 +27,27 @@ services:
       - key: SPRING_PROFILES_ACTIVE
         value: prod
       # Point to Render Managed PostgreSQL
-      - key: SPRING_DATASOURCE_URL
+      - key: DATABASE_URL
         fromDatabase:
           name: roomly-db
           property: connectionString
       # Strong auto-generated secret for production JWT signing
       - key: JWT_SECRET
         generateValue: true
-      # Allow requests from the deployed frontend static site
+      # Allow requests from the deployed frontend static site and local dev
       - key: CORS_ALLOWED_ORIGINS
-        fromService:
-          type: static
-          name: roomly-frontend
-          property: url
+        value: http://localhost:3000,http://localhost:5173,https://roomly-frontend.onrender.com
 
   # ------------------------------------------------------------------
   # Frontend Client - Vite React Static Site
   # ------------------------------------------------------------------
-  - type: static
+  - type: web
     name: roomly-frontend
-    rootDir: ./frontend
-    buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
+    runtime: static
+    plan: free
+    region: oregon
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: ./frontend/dist
     routes:
       # Single-Page Application (SPA) client-side rewrite fallback
       - type: rewrite
@@ -57,8 +56,4 @@ services:
     envVars:
       # Inject backend REST API base URL during Vite production build
       - key: VITE_API_BASE_URL
-        fromService:
-          type: web
-          name: roomly-backend
-          property: url
-          format: ${value}/api/v1
+        value: https://roomly-backend.onrender.com/api/v1
