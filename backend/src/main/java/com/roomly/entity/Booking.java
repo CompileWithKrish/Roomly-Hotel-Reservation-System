@@ -78,7 +78,7 @@ public class Booking {
 
     @Column(name = "payment_status", nullable = false, length = 50)
     @Builder.Default
-    private String paymentStatus = "PAID";
+    private String paymentStatus = "Pending";
 
     @Column(name = "payment_method", nullable = false, length = 100)
     @Builder.Default

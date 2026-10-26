@@ -31,16 +31,16 @@ import {
 } from 'lucide-react';
 
 const checkoutSchema = z.object({
-  firstName: z.string().min(2, 'First name is required'),
-  lastName: z.string().min(2, 'Last name is required'),
-  email: z.string().email('Valid email is required'),
-  phone: z.string().min(7, 'Valid phone is required'),
-  country: z.string().min(2, 'Country is required'),
+  firstName: z.string().trim().min(2, 'First name is required'),
+  lastName: z.string().trim().min(2, 'Last name is required'),
+  email: z.string().trim().email('Valid email is required'),
+  phone: z.string().trim().min(7, 'Valid phone is required'),
+  country: z.string().trim().min(2, 'Country is required'),
   specialRequests: z.string().optional(),
-  cardNumber: z.string().min(16, 'Enter a valid 16-digit card number'),
-  cardExpiry: z.string().min(5, 'MM/YY required'),
-  cardCvc: z.string().min(3, 'CVC required'),
-  cardName: z.string().min(2, 'Name on card required'),
+  cardNumber: z.string().optional(),
+  cardExpiry: z.string().optional(),
+  cardCvc: z.string().optional(),
+  cardName: z.string().optional(),
   agreePolicies: z.literal(true, {
     errorMap: () => ({ message: 'You must agree to cancellation & hotel policies' }),
   }),
@@ -65,8 +65,10 @@ export const CheckoutPage: React.FC = () => {
   const [appliedDiscount, setAppliedDiscount] = useState(0);
   const [promoMessage, setPromoMessage] = useState<string | null>(null);
   const [successBookingCode, setSuccessBookingCode] = useState<string | null>(null);
-  const [selectedPaymentType, setSelectedPaymentType] = useState<'card' | 'wallet' | 'arrival'>('card');
+  const [selectedPaymentType, setSelectedPaymentType] = useState<'card' | 'wallet' | 'arrival'>('arrival');
   const [bookingError, setBookingError] = useState<string | null>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [showPolicyModal, setShowPolicyModal] = useState<'hotel' | 'cancellation' | null>(null);
 
   // Credit Card Offer State & Hooks
   const [selectedOffer, setSelectedOffer] = useState<Offer | null>(null);
@@ -122,9 +124,13 @@ export const CheckoutPage: React.FC = () => {
   const {
     register,
     handleSubmit,
+    clearErrors,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm<CheckoutFormData>({
     resolver: zodResolver(checkoutSchema),
+    mode: 'onSubmit',
+    reValidateMode: 'onChange',
     defaultValues: {
       firstName: user?.name ? user.name.split(' ')[0] : 'Sarah',
       lastName: user?.name ? user.name.split(' ').slice(1).join(' ') : 'Jenkins',
@@ -132,12 +138,16 @@ export const CheckoutPage: React.FC = () => {
       phone: user?.phone || '+1 (555) 987-6543',
       country: 'United States',
       specialRequests: 'High floor preferred. Arriving around 4:00 PM.',
-      cardNumber: '4242 •••• •••• 4242',
-      cardExpiry: '12/28',
-      cardCvc: '883',
+      cardNumber: '',
+      cardExpiry: '',
+      cardCvc: '',
       cardName: user?.name || 'Sarah Jenkins',
+      agreePolicies: false as any,
     },
   });
+
+  const agreePolicies = watch('agreePolicies');
+  const { onChange: onAgreeChange, ...agreeRegister } = register('agreePolicies');
 
   const handleApplyPromo = (e: React.FormEvent) => {
     e.preventDefault();
@@ -154,17 +164,27 @@ export const CheckoutPage: React.FC = () => {
   };
 
   const onSubmit = async (data: CheckoutFormData) => {
-    if (!room) return;
+    if (!room) {
+      setBookingError('Unable to load suite details. Please return to suites list and choose a room.');
+      return;
+    }
+    if (calculateNights(checkIn, checkOut) <= 0) {
+      setBookingError('Check-out date must be strictly after check-in date.');
+      return;
+    }
+    if (isProcessing || createBookingMutation.isPending) {
+      return;
+    }
+
+    setIsProcessing(true);
     setBookingError(null);
 
     const paymentMethod =
       selectedPaymentType === 'card'
-        ? `${selectedOffer ? selectedOffer.bankName : 'Visa'} •••• ${data.cardNumber.slice(-4) || '4242'}`
+        ? `${selectedOffer ? selectedOffer.bankName : 'Credit Card'} (Pay at Hotel)`
         : selectedPaymentType === 'wallet'
-        ? 'Digital Wallet (Apple Pay / UPI)'
+        ? 'Digital Wallet (Pay at Hotel)'
         : 'Pay on Arrival (Front Desk)';
-
-    const paymentStatus = selectedPaymentType === 'arrival' ? 'Pending' : 'Paid';
 
     try {
       const newBooking = await createBookingMutation.mutateAsync({
@@ -174,8 +194,8 @@ export const CheckoutPage: React.FC = () => {
         roomImage: room.images[0],
         guestId: user?.id || 'gst-01',
         guestName: `${data.firstName} ${data.lastName}`.trim(),
-        guestEmail: data.email,
-        guestPhone: data.phone,
+        guestEmail: data.email.trim(),
+        guestPhone: data.phone.trim(),
         checkIn,
         checkOut,
         nights,
@@ -186,7 +206,7 @@ export const CheckoutPage: React.FC = () => {
         discount: appliedDiscount,
         totalAmount,
         status: 'Confirmed',
-        paymentStatus,
+        paymentStatus: 'Pending',
         paymentMethod,
         specialRequests: data.specialRequests,
         offerId: selectedOffer?.id,
@@ -196,6 +216,8 @@ export const CheckoutPage: React.FC = () => {
       setSuccessBookingCode(newBooking.bookingCode);
     } catch (err: any) {
       setBookingError(err.message || 'Error processing reservation. Please verify your selected dates.');
+    } finally {
+      setIsProcessing(false);
     }
   };
 
@@ -232,16 +254,22 @@ export const CheckoutPage: React.FC = () => {
               {formatDate(checkIn)} — {formatDate(checkOut)} ({nights} nights)
             </span>
           </div>
-          <div className="flex justify-between text-xs">
-            <span className="text-on-surface-variant">Total Paid</span>
-            <span className="font-bold text-emerald-700">{formatCurrency(totalAmount)}</span>
+          <div className="flex justify-between text-xs items-center">
+            <span className="text-on-surface-variant">Payment Status</span>
+            <span className="font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200">
+              Confirmed — Payment Due at Hotel
+            </span>
+          </div>
+          <div className="flex justify-between text-xs border-t border-outline-variant/40 pt-2">
+            <span className="text-on-surface-variant font-medium">Total Balance (Pay at Hotel)</span>
+            <span className="font-bold text-base text-primary">{formatCurrency(totalAmount)}</span>
           </div>
         </div>
 
         <div className="flex flex-col sm:flex-row justify-center gap-3 pt-4">
           <Link to="/customer/dashboard">
             <Button size="lg" variant="primary" rightIcon={<ArrowRight className="w-4 h-4" />}>
-              View My Bookings
+              View in My Bookings
             </Button>
           </Link>
           <Link to="/rooms">
@@ -486,16 +514,27 @@ export const CheckoutPage: React.FC = () => {
 
             {/* Step 3: Payment Method Card */}
             <div className="p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/60 shadow-sm space-y-4">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h2 className="text-xl font-bold text-on-surface flex items-center gap-2">
                   <span className="w-7 h-7 rounded-full bg-primary text-on-primary text-xs flex items-center justify-center font-bold">
                     3
                   </span>
                   Payment Selection
                 </h2>
-                <div className="flex items-center gap-1.5 text-xs text-emerald-700 font-semibold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                  <Lock className="w-3.5 h-3.5" /> 256-Bit SSL Encrypted
+                <div className="flex items-center gap-1.5 text-xs text-amber-800 font-semibold bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
+                  <ShieldCheck className="w-3.5 h-3.5 text-amber-700" /> Pay at Hotel (Demo Mode)
                 </div>
+              </div>
+
+              {/* Notice regarding demo payment flow */}
+              <div className="p-4 rounded-xl bg-surface-container-low border border-outline-variant/60 text-xs text-on-surface-variant space-y-1">
+                <div className="flex items-center gap-2 font-bold text-on-surface">
+                  <Info className="w-4 h-4 text-primary shrink-0" />
+                  <span>Payment Not Integrated Yet — Pay at Hotel</span>
+                </div>
+                <p>
+                  Online payment gateway integration is currently in demo mode. No payment will be deducted today and real card details are not required. Your booking will be confirmed with payment due at hotel check-in.
+                </p>
               </div>
 
               {bookingError && (
@@ -509,6 +548,23 @@ export const CheckoutPage: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
                 <button
                   type="button"
+                  onClick={() => setSelectedPaymentType('arrival')}
+                  className={`p-3 rounded-xl border text-left transition-all flex flex-col gap-1 cursor-pointer ${
+                    selectedPaymentType === 'arrival'
+                      ? 'border-primary bg-primary/5 text-primary ring-1 ring-primary'
+                      : 'border-outline-variant/60 hover:bg-surface-container-low text-on-surface'
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <ShieldCheck className="w-4 h-4" />
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded">Recommended</span>
+                  </div>
+                  <span className="text-xs font-bold">Pay at Check-In</span>
+                  <span className="text-[10px] text-on-surface-variant">Zero advance fee</span>
+                </button>
+
+                <button
+                  type="button"
                   onClick={() => setSelectedPaymentType('card')}
                   className={`p-3 rounded-xl border text-left transition-all flex flex-col gap-1 cursor-pointer ${
                     selectedPaymentType === 'card'
@@ -518,10 +574,10 @@ export const CheckoutPage: React.FC = () => {
                 >
                   <div className="flex items-center justify-between">
                     <CreditCard className="w-4 h-4" />
-                    <span className="text-[10px] uppercase font-bold tracking-wider">Instant</span>
+                    <span className="text-[10px] uppercase font-bold tracking-wider">Terminal</span>
                   </div>
                   <span className="text-xs font-bold">Credit / Debit Card</span>
-                  <span className="text-[10px] text-on-surface-variant">Visa, Mastercard, Amex</span>
+                  <span className="text-[10px] text-on-surface-variant">Pay on arrival</span>
                 </button>
 
                 <button
@@ -538,66 +594,82 @@ export const CheckoutPage: React.FC = () => {
                     <span className="text-[10px] uppercase font-bold tracking-wider">Digital</span>
                   </div>
                   <span className="text-xs font-bold">Wallet / UPI</span>
-                  <span className="text-[10px] text-on-surface-variant">Apple Pay, Google Pay</span>
+                  <span className="text-[10px] text-on-surface-variant">Pay on arrival</span>
                 </button>
+              </div>
 
-                <button
-                  type="button"
-                  onClick={() => setSelectedPaymentType('arrival')}
-                  className={`p-3 rounded-xl border text-left transition-all flex flex-col gap-1 cursor-pointer ${
-                    selectedPaymentType === 'arrival'
-                      ? 'border-primary bg-primary/5 text-primary ring-1 ring-primary'
-                      : 'border-outline-variant/60 hover:bg-surface-container-low text-on-surface'
-                  }`}
-                >
-                  <div className="flex items-center justify-between">
-                    <ShieldCheck className="w-4 h-4" />
-                    <span className="text-[10px] uppercase font-bold tracking-wider">Flexible</span>
+              {selectedPaymentType === 'card' && (
+                <div className="space-y-3 pt-2 border-t border-outline-variant/40">
+                  <p className="text-[11px] text-on-surface-variant italic">
+                    Optional demo card preferences for hotel check-in settlement (no charge processed):
+                  </p>
+                  <Input
+                    label="Cardholder Name (Optional)"
+                    placeholder="Sarah Jenkins"
+                    {...register('cardName')}
+                  />
+                  <Input
+                    label="Card Number (Optional)"
+                    placeholder="4242 •••• •••• 4242"
+                    leftIcon={<CreditCard className="w-4 h-4" />}
+                    {...register('cardNumber')}
+                  />
+                  <div className="grid grid-cols-2 gap-4">
+                    <Input
+                      label="Expiration Date (Optional)"
+                      placeholder="MM/YY"
+                      {...register('cardExpiry')}
+                    />
+                    <Input
+                      label="Security CVC (Optional)"
+                      placeholder="123"
+                      {...register('cardCvc')}
+                    />
                   </div>
-                  <span className="text-xs font-bold">Pay at Check-In</span>
-                  <span className="text-[10px] text-on-surface-variant">Zero advance fee</span>
-                </button>
-              </div>
-
-              <Input
-                label="Cardholder Name"
-                placeholder="Sarah Jenkins"
-                error={errors.cardName?.message}
-                {...register('cardName')}
-              />
-
-              <Input
-                label="Card Number"
-                placeholder="4242 4242 4242 4242"
-                leftIcon={<CreditCard className="w-4 h-4" />}
-                error={errors.cardNumber?.message}
-                {...register('cardNumber')}
-              />
-
-              <div className="grid grid-cols-2 gap-4">
-                <Input
-                  label="Expiration Date"
-                  placeholder="MM/YY"
-                  error={errors.cardExpiry?.message}
-                  {...register('cardExpiry')}
-                />
-                <Input
-                  label="Security CVC"
-                  placeholder="123"
-                  error={errors.cardCvc?.message}
-                  {...register('cardCvc')}
-                />
-              </div>
+                </div>
+              )}
 
               <div className="pt-2">
                 <Checkbox
+                  id="agree-policies"
                   label={
-                    <span className="text-xs text-on-surface-variant">
-                      I have reviewed and agree to the <a href="#" className="text-primary font-semibold underline">Hotel Stay Policies</a>, <a href="#" className="text-primary font-semibold underline">Cancellation Terms</a>, and acknowledge that the total amount will be billed securely.
+                    <span className="text-xs text-on-surface-variant leading-relaxed">
+                      I have reviewed and agree to the{' '}
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setShowPolicyModal('hotel');
+                        }}
+                        className="text-primary font-semibold underline hover:text-primary-dim inline cursor-pointer"
+                      >
+                        Hotel Stay Policies
+                      </button>
+                      ,{' '}
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setShowPolicyModal('cancellation');
+                        }}
+                        className="text-primary font-semibold underline hover:text-primary-dim inline cursor-pointer"
+                      >
+                        Cancellation Terms
+                      </button>
+                      , and acknowledge that the booking will be confirmed with payment due at hotel check-in.
                     </span>
                   }
+                  checked={!!agreePolicies}
                   error={errors.agreePolicies?.message}
-                  {...register('agreePolicies')}
+                  {...agreeRegister}
+                  onChange={(e) => {
+                    onAgreeChange(e);
+                    if (e.target.checked) {
+                      clearErrors('agreePolicies');
+                    }
+                  }}
                 />
               </div>
             </div>
@@ -704,10 +776,11 @@ export const CheckoutPage: React.FC = () => {
               form="checkout-form"
               size="lg"
               variant="primary"
-              className="w-full py-4 text-base font-bold shadow-xl"
-              isLoading={isSubmitting}
+              className="w-full py-4 text-base font-bold shadow-xl cursor-pointer"
+              disabled={isSubmitting || createBookingMutation.isPending || isProcessing}
+              isLoading={isSubmitting || createBookingMutation.isPending || isProcessing}
             >
-              Confirm & Book Suite
+              {createBookingMutation.isPending || isProcessing ? 'Confirming Reservation...' : 'Confirm & Book Suite'}
             </Button>
           </div>
         </div>
@@ -755,6 +828,36 @@ export const CheckoutPage: React.FC = () => {
             </div>
           </div>
         )}
+      </Modal>
+
+      {/* Hotel Policies & Cancellation Modal */}
+      <Modal
+        isOpen={!!showPolicyModal}
+        onClose={() => setShowPolicyModal(null)}
+        title={showPolicyModal === 'hotel' ? 'Hotel Stay Policies' : 'Cancellation Terms'}
+        description="Roomly Luxury Hospitality Guest Guidelines"
+      >
+        <div className="space-y-4 text-xs text-on-surface-variant leading-relaxed">
+          {showPolicyModal === 'hotel' ? (
+            <>
+              <p><strong>Check-In & Check-Out:</strong> Check-in is available from 3:00 PM onwards. Check-out time is 11:00 AM. Early arrivals and late departures are accommodated upon request subject to suite availability.</p>
+              <p><strong>Guest Identification:</strong> A government-issued photo ID is required from the primary guest at the reception desk upon check-in.</p>
+              <p><strong>Demo Booking Guarantee:</strong> No advance payment or deposit is charged today. Room charges and incidental expenses will be settled at the hotel front desk.</p>
+              <p><strong>Property Etiquette:</strong> All suites are strictly non-smoking. Quiet luxury hours are maintained between 10:00 PM and 7:00 AM.</p>
+            </>
+          ) : (
+            <>
+              <p><strong>Free Cancellation Window:</strong> Reservations can be cancelled free of charge up to 24 hours prior to scheduled check-in via your My Bookings dashboard.</p>
+              <p><strong>Modification Flexibility:</strong> Stay dates, guest headcounts, and special requests can be updated anytime before arrival at zero penalty fee.</p>
+              <p><strong>Zero Advance Risk:</strong> Since payment is collected at the hotel upon check-in, no refund processing wait or deductions will occur if you cancel.</p>
+            </>
+          )}
+          <div className="flex justify-end pt-3 border-t border-outline-variant/40">
+            <Button variant="primary" size="sm" onClick={() => setShowPolicyModal(null)}>
+              Understood
+            </Button>
+          </div>
+        </div>
       </Modal>
     </div>
   );

@@ -54,8 +54,8 @@ const mapBackendToFrontendBooking = (dto: any): Booking => {
     discount: typeof dto.discount === 'number' ? dto.discount : 0,
     totalAmount: typeof dto.totalAmount === 'number' ? dto.totalAmount : 437,
     status: (dto.status as BookingStatus) || 'Confirmed',
-    paymentStatus: (dto.paymentStatus as PaymentStatus) || 'Paid',
-    paymentMethod: dto.paymentMethod || 'Visa',
+    paymentStatus: (dto.paymentStatus as PaymentStatus) || 'Pending',
+    paymentMethod: dto.paymentMethod || 'Pay at Hotel (Demo)',
     createdAt: dto.createdAt ? dto.createdAt.split('T')[0] : new Date().toISOString().split('T')[0],
     specialRequests: dto.specialRequests || '',
   };
@@ -64,6 +64,14 @@ const mapBackendToFrontendBooking = (dto: any): Booking => {
 export const bookingsApi = {
   getBookings: async (filters?: BookingFilters): Promise<Booking[]> => {
     try {
+      if (filters?.guestEmail) {
+        const myData = await apiClient.get<any[]>('/bookings/my-bookings');
+        if (Array.isArray(myData)) {
+          const mapped = myData.map(mapBackendToFrontendBooking);
+          return mapped;
+        }
+      }
+
       const params = new URLSearchParams();
       if (filters?.search) params.append('search', filters.search);
       if (filters?.status && filters.status !== 'All' && filters.status !== 'all') {
@@ -78,7 +86,16 @@ export const bookingsApi = {
         return mapped;
       }
     } catch (err) {
-      console.warn('Backend unavailable or error fetching bookings, falling back to cached data:', err);
+      console.warn('Backend unavailable or restricted for admin bookings, attempting my-bookings fallback:', err);
+      try {
+        const myData = await apiClient.get<any[]>('/bookings/my-bookings');
+        if (Array.isArray(myData)) {
+          const mapped = myData.map(mapBackendToFrontendBooking);
+          return mapped;
+        }
+      } catch {
+        // Fall back to stored bookings
+      }
     }
 
     let bookings = getStoredBookings();
@@ -135,36 +152,25 @@ export const bookingsApi = {
         guestEmail: bookingData.guestEmail,
         guestPhone: bookingData.guestPhone,
         specialRequests: bookingData.specialRequests,
-        paymentMethod: bookingData.paymentMethod,
+        paymentMethod: bookingData.paymentMethod || 'Pay at Hotel (Demo)',
         offerId: bookingData.offerId,
         offerCode: bookingData.offerCode,
       };
 
       const res = await apiClient.post<any>('/bookings', payload);
-      if (res && (res.id || res.bookingNumber)) {
+      if (res && (res.id || res.bookingNumber || res.bookingCode)) {
         const created = mapBackendToFrontendBooking(res);
         const bookings = getStoredBookings();
         bookings.unshift(created);
         saveStoredBookings(bookings);
         return created;
       }
+      throw new Error('Invalid response received from booking server.');
     } catch (err: any) {
-      console.warn('Backend createBooking failed, saving locally:', err);
-      if (err.status === 409) {
-        throw new Error(err.message || 'This room is already reserved for the selected dates.');
-      }
+      console.error('Backend createBooking failed:', err);
+      const message = err.message || (typeof err.data?.message === 'string' ? err.data.message : 'Error processing reservation. Please verify your selected dates.');
+      throw new Error(message);
     }
-
-    const bookings = getStoredBookings();
-    const newBooking: Booking = {
-      ...bookingData,
-      id: `bk-${Date.now()}`,
-      bookingCode: `ROOMLY-${Math.floor(10000 + Math.random() * 90000)}`,
-      createdAt: new Date().toISOString().split('T')[0],
-    };
-    bookings.unshift(newBooking);
-    saveStoredBookings(bookings);
-    return newBooking;
   },
 
   updateBookingStatus: async (id: string, status: BookingStatus): Promise<Booking> => {

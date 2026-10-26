@@ -163,10 +163,11 @@ export const CustomerDashboardPage: React.FC = () => {
                 />
                 <div className="space-y-1.5">
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-black text-primary uppercase tracking-wider">
+                    <span className="text-xs font-black text-primary uppercase tracking-wider font-mono">
                       {booking.bookingCode}
                     </span>
                     <StatusBadge status={booking.status} />
+                    <StatusBadge status={booking.paymentStatus} />
                   </div>
                   <h3 className="text-lg font-bold text-on-surface">{booking.roomTitle}</h3>
                   <p className="text-xs text-on-surface-variant flex items-center gap-1.5">
@@ -177,7 +178,12 @@ export const CustomerDashboardPage: React.FC = () => {
                   </p>
                   <p className="text-xs text-on-surface-variant flex items-center gap-1.5">
                     <User className="w-3.5 h-3.5 text-primary" />
-                    <span>{booking.guestsCount} Guests • Paid via {booking.paymentMethod}</span>
+                    <span>
+                      {booking.guestsCount} Guests •{' '}
+                      {booking.paymentStatus === 'Paid'
+                        ? `Paid via ${booking.paymentMethod}`
+                        : `Payment: ${booking.paymentStatus} (${booking.paymentMethod})`}
+                    </span>
                   </p>
                   {booking.specialRequests && (
                     <p className="text-[11px] text-on-surface-variant italic bg-surface-container-low px-2 py-0.5 rounded">
@@ -189,7 +195,9 @@ export const CustomerDashboardPage: React.FC = () => {
 
               <div className="w-full lg:w-auto flex flex-col sm:flex-row lg:flex-col items-start sm:items-center lg:items-end justify-between border-t lg:border-t-0 border-outline-variant/40 pt-4 lg:pt-0 gap-3">
                 <div className="text-left lg:text-right">
-                  <span className="text-xs text-on-surface-variant">Total Paid</span>
+                  <span className="text-xs text-on-surface-variant">
+                    {booking.paymentStatus === 'Paid' ? 'Total Paid' : 'Total Due at Hotel'}
+                  </span>
                   <p className="text-2xl font-black text-on-surface">
                     {formatCurrency(booking.totalAmount)}
                   </p>
@@ -317,8 +325,14 @@ export const CustomerDashboardPage: React.FC = () => {
                   <span>-{formatCurrency(selectedBookingForInvoice.discount)}</span>
                 </div>
               )}
-              <div className="flex justify-between text-sm font-black pt-2 border-t border-outline-variant/40">
-                <span>Total Amount Paid</span>
+              <div className="flex justify-between items-center text-xs py-1 border-t border-outline-variant/40">
+                <span className="text-on-surface-variant font-medium">Payment Status</span>
+                <span className={`font-bold px-2 py-0.5 rounded text-[11px] ${selectedBookingForInvoice.paymentStatus === 'Paid' ? 'text-emerald-800 bg-emerald-50 border border-emerald-200' : 'text-amber-800 bg-amber-50 border border-amber-200'}`}>
+                  {selectedBookingForInvoice.paymentStatus === 'Paid' ? 'Paid' : 'Pending — Pay at Hotel (Demo)'}
+                </span>
+              </div>
+              <div className="flex justify-between text-sm font-black pt-1">
+                <span>{selectedBookingForInvoice.paymentStatus === 'Paid' ? 'Total Amount Paid' : 'Total Amount (Pay at Hotel)'}</span>
                 <span className="text-primary text-base font-black">{formatCurrency(selectedBookingForInvoice.totalAmount)}</span>
               </div>
             </div>
