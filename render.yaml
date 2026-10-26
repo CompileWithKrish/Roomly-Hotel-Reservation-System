@@ -34,17 +34,20 @@ services:
       # Strong auto-generated secret for production JWT signing
       - key: JWT_SECRET
         generateValue: true
-      # Allow requests from the deployed frontend static site and local dev
+      # Dynamically reference the generated frontend static site host
       - key: CORS_ALLOWED_ORIGINS
-        value: http://localhost:3000,http://localhost:5173,https://roomly-frontend.onrender.com
+        fromService:
+          type: web
+          name: roomly-frontend
+          property: host
 
   # ------------------------------------------------------------------
   # Frontend Client - Vite React Static Site
+  # (No plan or region field: static sites are free and global CDN-hosted)
   # ------------------------------------------------------------------
   - type: web
     name: roomly-frontend
     runtime: static
-    plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: ./frontend/dist
     routes:
@@ -53,6 +56,9 @@ services:
         source: /*
         destination: /index.html
     envVars:
-      # Inject backend REST API base URL during Vite production build
+      # Dynamically reference the generated backend host
       - key: VITE_API_BASE_URL
-        value: https://roomly-backend.onrender.com/api/v1
+        fromService:
+          type: web
+          name: roomly-backend
+          property: host

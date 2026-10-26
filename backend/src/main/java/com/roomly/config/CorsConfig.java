@@ -22,8 +22,16 @@ public class CorsConfig {
         List<String> origins = Arrays.stream(allowedOrigins.split(","))
                 .map(String::trim)
                 .filter(s -> !s.isEmpty())
+                .flatMap(s -> {
+                    if (!s.startsWith("http://") && !s.startsWith("https://")) {
+                        return java.util.stream.Stream.of("https://" + s, "http://" + s, s);
+                    }
+                    return java.util.stream.Stream.of(s);
+                })
+                .distinct()
                 .toList();
         configuration.setAllowedOrigins(origins);
+        configuration.addAllowedOriginPattern("https://*.onrender.com");
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With", "Accept", "Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers"));
         configuration.setExposedHeaders(Arrays.asList("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials", "Authorization"));
